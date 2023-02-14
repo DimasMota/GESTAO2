@@ -1,7 +1,4 @@
 ﻿
-
-using System.Reflection.Metadata;
-
 namespace DAL
 {
     public static class Conexao
@@ -10,7 +7,7 @@ namespace DAL
         {
             get // funçao de apenas pegar dados e nao colocar
             {
-                return @"User ID=SA, Initial Catalog=GESTAO, Data Source=.\SQLEXPRESS2019;Password=Senailab02";
+                return @"User ID=SA;Initial Catalog=GESTAO;Data Source=.\SQLEXPRESS2019;Password=Senailab02";
             }
         }
     }
