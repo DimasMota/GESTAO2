@@ -10,19 +10,39 @@ namespace ConsoleAppPrincipal
         
             try 
 	        {
-            
-		
-                Usuario usuario = new Usuario();
-                usuario.Nome = "Dimas Martins";
-                usuario.NomeUsuario = "dimasmota";
-                usuario.DataNascimento = "20-12-1986";
-                usuario.Cpf = "000.000.000-00";
-                usuario.Senha = "1Dimas@";
-                usuario.Email = "dimasmartinsmota@hotmail.com";
-                usuario.Ativo = true;
+                int sim_nao;
 
+                Usuario usuario = new Usuario();
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
-                usuarioBLL.Inserir(usuario);
+               
+                Console.WriteLine("Cadastrar outro usuário: [1] SIM [2] NÃO ");
+                sim_nao = Convert.ToInt32(Console.ReadLine());
+
+                while (sim_nao == 1)
+                {
+
+                    Console.WriteLine("Cadastro de Usuário\n\n");
+                    Console.WriteLine("Nome Completo: ");
+                    usuario.Nome = Console.ReadLine();
+                    Console.WriteLine("Nome de acesso do Usuário");
+                    usuario.NomeUsuario = Console.ReadLine();
+                    Console.WriteLine("Data de Nascimento");
+                    usuario.DataNascimento = Console.ReadLine();
+                    Console.WriteLine("CPF do Usuário: ");
+                    usuario.Cpf = Console.ReadLine();
+                    Console.WriteLine("Senha:");
+                    usuario.Senha = Console.ReadLine();
+                    Console.WriteLine("Digite seu E_mail");
+                    usuario.Email = Console.ReadLine();
+                    Console.WriteLine("Usuario Ativo: ");
+                    usuario.Ativo = true;
+
+                    usuarioBLL.Inserir(usuario);
+                    Console.WriteLine("Cadastrar outro usuário: [1] SIM [2] NÃO ");
+                    sim_nao = Convert.ToInt32(Console.ReadLine());
+
+                } 
+
 	        }
 	        catch (Exception ex )
 	        {
