@@ -43,6 +43,10 @@ namespace BLL
         {
 
         }
+        public void Excluir(int _id)
+        {
+
+        }
 
     }
 }

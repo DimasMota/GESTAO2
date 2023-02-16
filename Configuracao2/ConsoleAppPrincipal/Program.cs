@@ -34,8 +34,8 @@ namespace ConsoleAppPrincipal
                     usuario.Senha = Console.ReadLine();
                     Console.WriteLine("Digite seu E_mail");
                     usuario.Email = Console.ReadLine();
-                    Console.WriteLine("Usuario Ativo: ");
-                    usuario.Ativo = true;
+                    Console.WriteLine("Usuario Ativo [S]SIM  [N]NÃO :");
+                    usuario.Ativo = Console.ReadLine().ToUpper() == "S";
 
                     usuarioBLL.Inserir(usuario);
                     Console.WriteLine("Cadastrar outro usuário: [1] SIM [2] NÃO ");
