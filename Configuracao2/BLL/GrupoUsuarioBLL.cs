@@ -35,7 +35,7 @@ namespace BLL
             }
 
             GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
-            grupousuarioDAL.Inserir(_grupousuario);
+            grupousuarioDAL.Alterar(_grupousuario);
 
 
 
