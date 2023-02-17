@@ -39,16 +39,16 @@ namespace DAL
 
         }
 
-        public Usuario Buscar(string _nomeUsuario)
+        public Permissao Buscar(string _descricaoPermissao)
         {
-            return new Usuario();
+            return new Permissao();
         }
-        public void Alterar(Usuario _usuario)
+        public void Alterar(Permissao _usuario)
         {
 
         }
 
-        public void Excluir(int _id)
+        public void Excluir(int _idPermissao)
         {
 
         }
