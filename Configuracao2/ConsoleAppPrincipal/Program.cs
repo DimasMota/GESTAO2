@@ -1,5 +1,6 @@
 ﻿using BLL;
 using Models;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ConsoleAppPrincipal
 {
@@ -37,7 +38,8 @@ namespace ConsoleAppPrincipal
                         while (sim_nao == 1)
                         {
 
-
+                            Usuario  cadastraUsuario = new Usuario();
+                            /*
                             Console.WriteLine("Cadastro de Usuário\n\n");
                             Console.WriteLine("Nome Completo: ");
                             usuario.Nome = Console.ReadLine();
@@ -53,7 +55,7 @@ namespace ConsoleAppPrincipal
                             usuario.Email = Console.ReadLine();
                             Console.WriteLine("Usuario Ativo [S]SIM  [N]NÃO :");
                             usuario.Ativo = Console.ReadLine().ToUpper() == "S";
-
+                            */
                             usuarioBLL.Inserir(usuario);
                             Console.WriteLine("Cadastrar outro usuário: [1] SIM [2] NÃO ");
                             sim_nao = Convert.ToInt32(Console.ReadLine());
