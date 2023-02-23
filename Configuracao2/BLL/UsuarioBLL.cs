@@ -13,9 +13,9 @@ namespace BLL
                 throw new Exception("O nome de usuário deve ter mais de três caracteres.");
                 //TODO:verificar se ja existe um usuário com este nome
             }
-           
+
             if (_usuario.NomeUsuario.Contains(" ")) // Contains verifica se tem o caracteres dentro do parenteses no caso foi space
-            { 
+            {
                 throw new Exception("O nome do usuário não pode ter espaços");
 
             }
@@ -24,8 +24,8 @@ namespace BLL
             {
                 throw new Exception("Não é permitido números em sequência");
             }
-           
-            if(_usuario.Senha.Length < 7 || _usuario.Senha.Length > 11)
+
+            if (_usuario.Senha.Length < 7 || _usuario.Senha.Length > 11)
             {
                 throw new Exception("A senha deve ter entre 7 e 11 caracteres.");
             }
@@ -46,7 +46,7 @@ namespace BLL
                 throw new Exception("O nome de usuário deve ter mais de três caracteres.");
                 //TODO:verificar se ja existe um usuário com este nome
             }
-            
+
             if (_alterarUsuario.NomeUsuario.Contains(" ")) // Contains verifica se tem o caracteres dentro do parenteses no caso foi space
             {
                 throw new Exception("O nome do usuário não pode ter espaços");
@@ -67,9 +67,10 @@ namespace BLL
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Alterar(_alterarUsuario);
         }
-        public void Excluir(int _id)
+        public void Excluir(Usuario _id)
         {
-
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            usuarioDAL.Excluir(_id);
         }
 
     }

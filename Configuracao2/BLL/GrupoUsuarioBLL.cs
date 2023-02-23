@@ -40,9 +40,10 @@ namespace BLL
 
 
         }
-        public void Excluir(int _idGrupoUsuario)
+        public void Excluir(GrupoUsuario _id)
         {
-
+            GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+            grupousuarioDAL.Excluir(_id);
         }
     }
 }

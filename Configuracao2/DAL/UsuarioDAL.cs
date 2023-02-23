@@ -34,9 +34,9 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message );
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
 
-               
+
             }
             finally
             {
@@ -45,7 +45,7 @@ namespace DAL
 
 
         }
-        
+
         public Usuario Buscar(string _nomeUsuario)
         {
             return new Usuario();
@@ -61,8 +61,8 @@ namespace DAL
                 cmd.Connection = cn;
                 cmd.CommandText = "UPDATE Usuario SET nome = @nome,nome_Usuario = @nome_Usuario,data_Nascimento = @data_Nascimento," +
                     "cpf_Usuario = @cpf_Usuario,senha = @senha,email = @email,ativo = @ativo WHERE id_Usuario = @id";
-   
-                                     
+
+
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@nome", _usuario.Nome);
                 cmd.Parameters.AddWithValue("@nome_Usuario", _usuario.NomeUsuario);
@@ -91,10 +91,42 @@ namespace DAL
 
         }
 
-        public void Excluir(int _id)
+        public void Excluir(Usuario _id)
         {
+            SqlConnection cn = new SqlConnection();
+            try
+            {
+
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "DELETE FROM Usuario WHERE id_Usuario= @id";
+
+
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@id", _id.Id);
+
+                cn.Open();
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+
+
+            }
+            finally
+            {
+                cn.Close();
+            }
 
         }
 
+
     }
+
+
 }

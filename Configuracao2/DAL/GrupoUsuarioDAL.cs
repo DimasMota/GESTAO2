@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DAL
 {
     public class GrupoUsuarioDAL
@@ -84,9 +85,35 @@ namespace DAL
 
 
 
-        public void Excluir(int _idGrupoUsuario)
+        public void Excluir(GrupoUsuario _idGrupoUsuario)
         {
+            SqlConnection cn = new SqlConnection();
+            try
+            {
 
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "DELETE FROM GrupoUsuario WHERE id_GrupoUsuario= @id";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@id", _idGrupoUsuario.Id);
+
+
+                cn.Open();
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+
+
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
     }
 }

@@ -33,9 +33,10 @@ namespace BLL
             permissaoDAL.Alterar(_permissao);
 
         }
-        public void Excluir(int _id)
+        public void Excluir(Permissao _id)
         {
-
+            PermissaoDAL permissaoDAL = new PermissaoDAL();
+            permissaoDAL.Excluir(_id);
         }
     }
 }

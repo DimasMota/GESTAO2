@@ -1,6 +1,7 @@
 ﻿using Models;
 using System.Data.SqlClient;
 
+
 namespace DAL
 {
     public class PermissaoDAL
@@ -77,8 +78,36 @@ namespace DAL
 
         }
 
-        public void Excluir(int _idPermissao)
+        public void Excluir(Permissao _idPermissao)
         {
+            SqlConnection cn = new SqlConnection();
+            try
+            {
+
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "DELETE FROM Permissao WHERE id_Permissao= @id";
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@id", _idPermissao.Id);
+
+
+                cn.Open();
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+
+
+            }
+            finally
+            {
+                cn.Close();
+            }
 
         }
 
