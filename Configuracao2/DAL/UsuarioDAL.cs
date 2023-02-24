@@ -46,10 +46,59 @@ namespace DAL
 
         }
 
-        public Usuario Buscar(string _nomeUsuario)
+        public Usuario BuscarPorNomeUsuario(string _nomeUsuario)
         {
             return new Usuario();
         }
+
+        public List<Usuario> BuscarTodos()
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            Usuario usuario;
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = "SELECT id_Usuario, nome, nome_Usuario, data_Nascimento, cpf_Usuario,email, ativo FROM Usuario";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        usuario = new Usuario();
+                        usuario.Id = Convert.ToInt32(rd["id_Usuario"]);
+                        usuario.Nome = rd["nome"].ToString();
+                        usuario.NomeUsuario = rd["nome_Usuario"].ToString();
+                        usuario.DataNascimento = rd["data_Nascimento"].ToString();
+                        usuario.Cpf = rd["cpf_Usuario"].ToString();
+                        usuario.Email = rd["email"].ToString();
+                        usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
+
+                        usuarios.Add(usuario);
+
+                       
+
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                           
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os Usuários: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return usuarios;
+        }
+
         public void Alterar(Usuario _usuario)
         {
             SqlConnection cn = new SqlConnection();

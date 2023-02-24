@@ -23,7 +23,8 @@ namespace ConsoleAppPrincipal
                                   "[6]Alterar Usuário\n" +
                                   "[7]Excluir Usuário\n" +
                                   "[8]Excluir Permissão\n" +
-                                  "[9]Excluir Grupo" +
+                                  "[9]Excluir Grupo\n" +
+                                  "[10] Buscar todos os usuários\n"+
                                   "[0]Sair");
                 opc = Convert.ToInt32(Console.ReadLine());
 
@@ -85,6 +86,25 @@ namespace ConsoleAppPrincipal
 
                         funcao.ExcluirGrupo();
 
+                        break;
+
+                    case 10:
+
+                        
+                           
+
+                            
+                            UsuarioBLL usuarioBLL = new UsuarioBLL();
+                            List<Usuario> usuarios = usuarioBLL.BuscarTodos();
+                            foreach (Usuario item in usuarios)
+                            {
+                                Console.WriteLine("Id do Usuário: "+item.Id);
+                                Console.WriteLine("Nome do usuário: "+ item.Nome);
+                            }
+                          
+
+
+                                              
                         break;
 
                 }
