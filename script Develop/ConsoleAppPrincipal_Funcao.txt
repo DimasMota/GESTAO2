@@ -16,6 +16,7 @@ namespace ConsoleAppPrincipal
             {
 
                 int sim_nao;
+                string opc;
 
                 Usuario usuario = new Usuario();
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
@@ -23,11 +24,12 @@ namespace ConsoleAppPrincipal
                 Console.WriteLine("Cadastrar  usuário: [1] SIM [2] NÃO ");
                 sim_nao = Convert.ToInt32(Console.ReadLine());
 
+
                 while (sim_nao == 1)
                 {
 
-                    //   Usuario cadastraUsuario = new Usuario();
 
+                    Console.Clear();
                     Console.WriteLine("Cadastro de Usuário\n\n");
                     Console.WriteLine("Nome Completo: ");
                     usuario.Nome = Console.ReadLine();
@@ -43,7 +45,16 @@ namespace ConsoleAppPrincipal
                     usuario.Email = Console.ReadLine();
                     Console.WriteLine("Usuario Ativo [S]SIM  [N]NÃO :");
                     usuario.Ativo = Console.ReadLine().ToUpper() == "S";
-                    usuarioBLL.Inserir(usuario);
+
+                    Console.WriteLine("Deseja salvar usuario? [S]SIM [N]NÃO");
+                    opc = Console.ReadLine().ToUpper();
+
+                    if (opc == "S")
+                    {
+                        usuarioBLL.Inserir(usuario);
+
+                    }
+                    Console.Clear();
                     Console.WriteLine("Cadastrar outro usuário: [1] SIM [2] NÃO ");
                     sim_nao = Convert.ToInt32(Console.ReadLine());
                 }
@@ -368,5 +379,84 @@ namespace ConsoleAppPrincipal
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public void BuscarTodosUsuarios()
+        {
+
+            try
+            {
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
+                List<Usuario> usuarios = usuarioBLL.BuscarTodos();
+                foreach (Usuario item in usuarios)
+                {
+
+                    Console.WriteLine("ID do usuário: " + item.Id);
+                    Console.WriteLine("Nome do Usuário: " + item.Nome);
+                    Console.WriteLine("Nome e Acesso do Usuario: " + item.NomeUsuario);
+                    Console.WriteLine("Data de Nascimento: " + item.DataNascimento);
+                    Console.WriteLine("CPF: " + item.Cpf);
+                    Console.WriteLine("E-mail: " + item.Email);
+                    Console.WriteLine("Ativo: " + item.Ativo);
+                    Console.WriteLine("\n\n");
+
+                }
+                Console.WriteLine("Tecle ENTER para voltar ao MENU");
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+
+
+        }
+
+        public void Buscar_Nome_Usuario()
+        {
+            Console.WriteLine("Pesquisa por NOME\n\n");
+            Console.WriteLine("Nome: ");
+            string nome = Console.ReadLine().ToUpper();
+            int numero_caractere = nome.Length;
+            Console.WriteLine(numero_caractere);
+            bool result = false;
+            string nome2;
+            char pesq_nome;
+            try
+            {
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
+                List<Usuario> usuarios = usuarioBLL.BuscarTodos();
+
+                foreach (Usuario item in usuarios)
+                {
+                    nome2 = item.Nome.ToUpper();
+                    result = nome.Equals(nome2.Remove(numero_caractere));
+
+
+                    if (result)
+                    {
+                        Console.WriteLine("ID do usuário: " + item.Id);
+                        Console.WriteLine("Nome do Usuário: " + item.Nome);
+                        Console.WriteLine("Nome e Acesso do Usuario: " + item.NomeUsuario);
+                        Console.WriteLine("Data de Nascimento: " + item.DataNascimento);
+                        Console.WriteLine("CPF: " + item.Cpf);
+                        Console.WriteLine("E-mail: " + item.Email);
+                        Console.WriteLine("Ativo: " + item.Ativo);
+                        Console.WriteLine("\n\n");
+
+                    }
+
+                }
+                Console.WriteLine("Tecle ENTER para voltar ao MENU");
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+        }
+
     }
 }
