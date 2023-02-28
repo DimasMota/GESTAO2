@@ -1,7 +1,5 @@
 ﻿using BLL;
 using Models;
-using System;
-using System.Security.Cryptography.X509Certificates;
 
 namespace ConsoleAppPrincipal
 {
@@ -9,116 +7,79 @@ namespace ConsoleAppPrincipal
     {
         private static void Main(string[] args)
         {
-            int opc;
+            int opc_menu;
             do
             {
+                Console.WriteLine("CADASTRO DE USUÁRIO\n\n");
+                Console.WriteLine("[1]USUÁRIO\n[2]GRUPO DE USUÁRIO\n[3]PERMISSÕES\n[0]SAIR");
+                Console.WriteLine("Olá Mundo");
+                opc_menu = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Programa GESTÂO\n\n");
-                Console.WriteLine("Opções de Cadastro\n");
-                Console.WriteLine("[1] Cadastrar Usuário\n" +
-                                  "[2]Cadastrar Permissões \n" +
-                                  "[3]Cadastrar Grupo\n" +
-                                  "[4]Alterar Nome do grupo \n" +
-                                  "[5] Alterar Descrição da Permissão\n" +
-                                  "[6]Alterar Usuário\n" +
-                                  "[7]Excluir Usuário\n" +
-                                  "[8]Excluir Permissão\n" +
-                                  "[9]Excluir Grupo\n" +
-                                  "[10] Buscar todos os usuários\n"+
-                                  "[0]Sair");
-                opc = Convert.ToInt32(Console.ReadLine());
 
-                Funcao funcao = new Funcao();
-                switch (opc)
+                if (opc_menu == 1)
                 {
-                    case 1: //Cadastrar usuario
 
 
-                        funcao.CadastrarUsuario();
-
-                        break;
-
-                    case 2: // Cadastrar Permissões
-
-                        funcao.CadastrarPermissao();
-
-                        break;
-
-                    case 3: // Cadatrar Grupo de Usuário
-
-                        funcao.CadastrarGrupo();
 
 
-                        break;
+                    string opc_usuario;
+                    Console.WriteLine("[1]CADASTRAR USUÁRIO\n" +
+                                      "[2]ALTERAR USUÁRIO\n" +
+                                      "[3]BUSCAR USUÁRIO\n" +
+                                      "[4]EXCLUIR USUÁRIO\n" +
+                                      "[0]SAIR\n");
 
-                    case 4: // Alterar O nome do Grupo
+                    opc_usuario = Console.ReadLine().ToUpper();
+                    if (opc_usuario == "A")
+                    {
 
-                        funcao.AlterarGrupo();
-
-
-                        break;
-
-                    case 5:// Alterar Permissão
-
-                        funcao.AlterarPermissao();
-
-                        break;
-
-                    case 6://Alterar Usuário
-
-                        funcao.AlterarUsuario();
-
-                        break;
-
-                    case 7:
-
-                        funcao.ExcluirUsuario();
-
-                        break;
-
-                    case 8:// Excluir Permissao(descricao)
-
-                        funcao.ExcluirPermissao();
-
-                        break;
-
-                    case 9: // Excluir Grupo
-
-                        funcao.ExcluirGrupo();
-
-                        break;
-
-                    case 10:
-
-                        
-                           
-
-                            
+                        try
+                        {
+                            Usuario usuario = new Usuario();
                             UsuarioBLL usuarioBLL = new UsuarioBLL();
-                            List<Usuario> usuarios = usuarioBLL.BuscarTodos();
-                            foreach (Usuario item in usuarios)
-                            {
-                                Console.WriteLine("Id do Usuário: "+item.Id);
-                                Console.WriteLine("Nome do usuário: "+ item.Nome);
-                            }
-                          
+                            
+                           
+                            Console.WriteLine("CADASTRO DE USUÁRIO\n\n");
+                            Console.WriteLine("Nome Completo: ");
+                            usuario.Nome = Console.ReadLine();
+                            Console.WriteLine("Nome de acesso do Usuário");
+                            usuario.NomeUsuario = Console.ReadLine();
+                            Console.WriteLine("Data de Nascimento");
+                            usuario.DataNascimento = Console.ReadLine();
+                            Console.WriteLine("CPF do Usuário: ");
+                            usuario.Cpf = Console.ReadLine();
+                            Console.WriteLine("Senha:");
+                            usuario.Senha = Console.ReadLine();
+                            Console.WriteLine("Digite seu E_mail");
+                            usuario.Email = Console.ReadLine();
+                            Console.WriteLine("Usuario Ativo [S]SIM  [N]NÃO :");
+                            usuario.Ativo = Console.ReadLine().ToUpper() == "S";
 
 
-                                              
-                        break;
+
+
+                            usuarioBLL.Inserir(usuario);
+                            
+                            Console.WriteLine("CADASTRO DE USUÁRIO\n\n");
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
 
                 }
 
 
+                
 
 
 
+                      
 
-
-
-
-            } while (opc != 0);
-
+            } while (opc_menu != 0);
 
         }
     }
