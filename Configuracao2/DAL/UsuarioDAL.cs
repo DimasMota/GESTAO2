@@ -92,12 +92,11 @@ namespace DAL
         }
 
 
-        /*
+        
 
-        public List<Usuario> BuscarUsuarioPorNome(string _nome, Usuario _usuario)
+        public Usuario BuscarUsuarioPorNome(string _nome)
         {
-            List<Usuario> usuarios = new List<Usuario>();
-            Usuario usuario;
+            Usuario usuario = new Usuario();
             SqlConnection cn = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
 
@@ -105,13 +104,13 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT id_Usuario, nome, nome_Usuario, data_Nascimento, cpf_Usuario, email, ativo FROM Usuario  WHERE UPPER(nome) LIKE'@nome %@nome%'";
+                cmd.CommandText = @"SELECT id_Usuario, nome, nome_Usuario, data_Nascimento, cpf_Usuario, email, ativo FROM Usuario  WHERE nome = @nome";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@nome", _nome);
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
                 {
-                    while (rd.Read())
+                    if (rd.Read())
                     {
                         usuario = new Usuario();
                         usuario.Id = Convert.ToInt32(rd["id_Usuario"]);
@@ -122,10 +121,15 @@ namespace DAL
                         usuario.Email = rd["email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
 
-                        usuarios.Add(usuario);
+                       
                     }
+                    else
+                    {
+                        throw new Exception("Usuario não encontrado.");
+                    }
+                return usuario;
+                
                 }
-                return usuarios;
             }
             catch (Exception ex)
             {
@@ -137,7 +141,7 @@ namespace DAL
                 cn.Close();
             }
         }
-        */
+        
 
         public void Alterar(Usuario _usuario)
         {
