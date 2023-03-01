@@ -45,7 +45,18 @@ namespace BLL
               return usuarioDAL.BuscarUsuarioPorNome(_nome_busca);
 
           }
-          
+
+
+        public Usuario BuscarPorNomeAcesso(string _nome_busca)
+        {
+            if (String.IsNullOrEmpty(_nome_busca))
+            {
+                throw new Exception("Informe o nome do usuário");
+            }
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            return usuarioDAL.BuscarPorNomeAcesso(_nome_busca);
+
+        }
 
         public List<Usuario> BuscarTodos()
 

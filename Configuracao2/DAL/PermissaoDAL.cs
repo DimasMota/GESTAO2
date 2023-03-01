@@ -39,9 +39,43 @@ namespace DAL
 
         }
 
-        public Permissao Buscar(string _descricaoPermissao)
+        public List<Permissao> BuscarTodasPermissoes()
         {
-            return new Permissao();
+            List<Permissao> permissoes = new List<Permissao>();
+            Permissao permissao;
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = "SELECT id_Permissao, Descricao FROM Permissao";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        permissao = new Permissao();
+                        permissao.Id = Convert.ToInt32(rd["id_Permissao"]);
+                        permissao.Descricao = rd["Descricao"].ToString();
+
+
+                        permissoes.Add(permissao);
+                    }
+                }
+                return permissoes;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorreu um erro ao tentar buscar Permissões: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
         }
         public void Alterar(Permissao _permissao)
         {

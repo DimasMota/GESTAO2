@@ -17,9 +17,10 @@ namespace BLL
             permissaoDAL.Inserir(_permissao);
         }
 
-        public Permissao Buscar(string _descricao)
+        public List<Permissao> BuscarTodasPermissoes()
         {
-            return new Permissao();
+            PermissaoDAL permissaoDAL = new PermissaoDAL();
+            return permissaoDAL.BuscarTodasPermissoes();
         }
 
         public void Alterar(Permissao _permissao)

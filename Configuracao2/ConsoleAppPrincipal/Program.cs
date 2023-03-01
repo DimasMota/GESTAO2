@@ -1,5 +1,6 @@
 ﻿using BLL;
 using Models;
+using System.Net.Http.Headers;
 
 namespace ConsoleAppPrincipal
 {
@@ -16,6 +17,8 @@ namespace ConsoleAppPrincipal
                                   "[3]PERMISSÕES\n" +
                                   "[0]SAIR");
                 Console.WriteLine("Olá Mundo");
+
+                Funcao funcao = new Funcao();
                 opc_menu = Convert.ToInt32(Console.ReadLine());
 
                 // USUÁRIOS
@@ -36,7 +39,7 @@ namespace ConsoleAppPrincipal
                         // cadastrar usuario
                         if (opc_usuario == 1) // CADASTRAR USUÁRIO
                         {
-
+                            funcao.CadastrarUsuario();
                             try
                             {
                                 Usuario usuario = new Usuario();
@@ -127,7 +130,7 @@ namespace ConsoleAppPrincipal
                                 }
 
 
-                               
+
 
                             }
                             catch (Exception ex)
@@ -145,6 +148,7 @@ namespace ConsoleAppPrincipal
                             Console.WriteLine("TIPOS DE BUSCAS\n\n");
                             Console.WriteLine("[1]BUSCAR TODOS\n" +
                                               "[2]BUSCAR POR NOME\n" +
+                                              "[3]BUSCAR NOME DE USUÁRIO\n" +
                                               "[0]SAIR");
                             opc_busca_usuario = Convert.ToInt32(Console.ReadLine());
                             // buscar todos
@@ -179,37 +183,37 @@ namespace ConsoleAppPrincipal
 
                             }
                             // BUSCAR USUARIO POR NOME
-                            else if (opc_busca_usuario == 2) 
+                            else if (opc_busca_usuario == 2)
                             {
 
                                 try
                                 {
 
-                                    
 
-                                    
+
+
                                     UsuarioBLL usuarioBLL = new UsuarioBLL();
 
 
 
-                                        Console.WriteLine("Pesquisa por nome\n\n");
-                                        Console.WriteLine("Nome: ");
-                                        string nome_busca = Console.ReadLine();
+                                    Console.WriteLine("Pesquisa por nome\n\n");
+                                    Console.WriteLine("Nome: ");
+                                    string nome_busca = Console.ReadLine();
 
-                                        Usuario usuario = usuarioBLL.BuscarUsuarioPorNome( nome_busca);
-                                       
-                                    
-                                        Console.WriteLine("TODOS OS USUÁRIOS\n\n");
-                                        Console.WriteLine("ID do usuário: " + usuario.Id);
-                                        Console.WriteLine("Nome do Usuário: " + usuario.Nome);
-                                        Console.WriteLine("Nome e Acesso do Usuario: " + usuario.NomeUsuario);
-                                        Console.WriteLine("Data de Nascimento: " + usuario.DataNascimento);
-                                        Console.WriteLine("CPF: " + usuario.Cpf);
-                                        Console.WriteLine("E-mail: " + usuario.Email);
-                                        Console.WriteLine("Ativo: " + usuario.Ativo);
-                                        Console.WriteLine("\n\n");
+                                    Usuario usuario = usuarioBLL.BuscarUsuarioPorNome(nome_busca);
 
-                                    
+
+                                    Console.WriteLine("RESULTADO DA BUSCA\n\n");
+                                    Console.WriteLine("ID do usuário: " + usuario.Id);
+                                    Console.WriteLine("Nome do Usuário: " + usuario.Nome);
+                                    Console.WriteLine("Nome e Acesso do Usuario: " + usuario.NomeUsuario);
+                                    Console.WriteLine("Data de Nascimento: " + usuario.DataNascimento);
+                                    Console.WriteLine("CPF: " + usuario.Cpf);
+                                    Console.WriteLine("E-mail: " + usuario.Email);
+                                    Console.WriteLine("Ativo: " + usuario.Ativo);
+                                    Console.WriteLine("\n\n");
+
+
                                     Console.WriteLine("Tecle ENTER para voltar ao MENU");
                                     Console.ReadLine();
                                 }
@@ -219,6 +223,41 @@ namespace ConsoleAppPrincipal
                                     Console.WriteLine(ex.Message);
                                 }
 
+                            }
+                            // BUSCAR NOME DE USUÁRIO
+                            else if (opc_busca_usuario == 3)
+                            {
+
+                                try
+                                {
+
+                                    UsuarioBLL usuarioBLL = new UsuarioBLL();
+
+                                    Console.WriteLine("Pesquisar nome de Usuário(LOGIN)\n\n");
+                                    Console.WriteLine("Nome: ");
+                                    string nome_busca = Console.ReadLine();
+
+                                    Usuario usuario = usuarioBLL.BuscarPorNomeAcesso(nome_busca);
+
+                                    Console.WriteLine("RESULTADO DA BUSCAR DO USUÁRIO(LOGIN)\n\n");
+                                    Console.WriteLine("ID do usuário: " + usuario.Id);
+                                    Console.WriteLine("Nome do Usuário: " + usuario.Nome);
+                                    Console.WriteLine("Nome e Acesso do Usuario: " + usuario.NomeUsuario);
+                                    Console.WriteLine("Data de Nascimento: " + usuario.DataNascimento);
+                                    Console.WriteLine("CPF: " + usuario.Cpf);
+                                    Console.WriteLine("E-mail: " + usuario.Email);
+                                    Console.WriteLine("Ativo: " + usuario.Ativo);
+                                    Console.WriteLine("\n\n");
+
+
+                                    Console.WriteLine("Tecle ENTER para voltar ao MENU");
+                                    Console.ReadLine();
+                                }
+                                catch (Exception ex)
+                                {
+
+                                    Console.WriteLine(ex.Message);
+                                }
                             }
 
 
@@ -283,6 +322,7 @@ namespace ConsoleAppPrincipal
                                           "[0]SAIR\n");
 
                         opc_grupo = Convert.ToInt32(Console.ReadLine());
+                        //cadastrar
                         if (opc_grupo == 1)// CADASTRAR GRUPO DE USUÁRIO
                         {
                             try
@@ -320,6 +360,7 @@ namespace ConsoleAppPrincipal
                             }
 
                         }
+                        // alterar
                         else if (opc_grupo == 2) // ALTERAR GRUPO DE USUÁRIO
                         {
                             try
@@ -362,6 +403,29 @@ namespace ConsoleAppPrincipal
                         // BUSCAR GRUPO DE USUÁRIO
                         else if (opc_grupo == 3)  // A FAZER
                         {
+                            try
+                            {
+                                GrupoUsuarioBLL grupousuarioBLL = new GrupoUsuarioBLL();
+                                List<GrupoUsuario> grupo_usuarios = grupousuarioBLL.BuscarTodosGrupos();
+
+                                foreach (GrupoUsuario item in grupo_usuarios)
+                                {
+
+                                    Console.WriteLine("ID do Grupo Usuario: " + item.Id);
+                                    Console.WriteLine("Nome do Grupo: " + item.NomeGrupo);
+
+                                    Console.WriteLine("\n\n");
+
+                                }
+                                Console.WriteLine("Tecle ENTER para voltar ao MENU");
+                                Console.ReadLine();
+                            }
+                            catch (Exception ex)
+                            {
+
+                                Console.WriteLine(ex.Message);
+                            }
+
 
                         }
                         //EXLUIR GRUPO
@@ -406,7 +470,7 @@ namespace ConsoleAppPrincipal
                 }
                 //PERMISSÕES
                 else if (opc_menu == 3)
-                 { 
+                {
 
                     int retorno_menu_permissao;
                     do
@@ -502,6 +566,45 @@ namespace ConsoleAppPrincipal
                         // buscar permissão
                         else if (opc_permissao == 3)
                         {
+                            int opc_per;
+                            Console.WriteLine("GRUPO DE USUÁRIO \n\n");
+                            Console.WriteLine("[1]BUSCAR TODOS\n" +
+                                              "[2]BUSCAR POR NOME\n" +
+                                              "[0]SAIR\n");
+                            opc_per = Convert.ToInt32(Console.ReadLine());
+
+                            if (opc_per == 1)
+                            {
+                                try
+                                {
+                                    PermissaoBLL permissaoBLL = new PermissaoBLL();
+                                    List<Permissao> permissoes = permissaoBLL.BuscarTodasPermissoes();
+
+                                    foreach (Permissao item in permissoes)
+                                    {
+
+                                        Console.WriteLine("ID da Permissão: " + item.Id);
+                                        Console.WriteLine("Descrição da Permissão: " + item.Descricao);
+
+                                        Console.WriteLine("\n\n");
+
+                                    }
+                                    Console.WriteLine("Tecle ENTER para voltar ao MENU");
+                                    Console.ReadLine();
+                                }
+                                catch (Exception ex)
+                                {
+
+                                    Console.WriteLine(ex.Message);
+                                }
+
+
+                            }
+                            else if (opc_per == 2)
+                            {
+
+                            }
+
 
                         }
                         // excluir permissão
@@ -542,16 +645,16 @@ namespace ConsoleAppPrincipal
                             }
                         }
 
-                         Console.WriteLine("RETORNAR À MENU PERMISSÃO [1]SIM [0]NÃO");
+                        Console.WriteLine("RETORNAR À MENU PERMISSÃO [1]SIM [0]NÃO");
                         retorno_menu_permissao = Convert.ToInt32(Console.ReadLine());
 
                     } while (retorno_menu_permissao != 0);
 
 
-            }
-               
+                }
 
-                
+
+
 
 
 
