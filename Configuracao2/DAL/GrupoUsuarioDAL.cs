@@ -82,6 +82,52 @@ namespace DAL
             }
 
         }
+
+        /*
+        public Usuario BuscarGrupoPorNome(string _nome)
+        {
+            GrupoUsuario grupousuario = new GrupoUsuario();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = "SELECT id_GrupoUsuario, NomeGrupo FROM GrupoUsuario WEHRE NomeGrupo = @nome";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@nome", _nome);
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        grupousuario = new GrupoUsuario();
+                        grupousuario.Id = Convert.ToInt32(rd["id_GrupoUsuario"]);
+                        grupousuario.NomeGrupo = rd["NomeGrupo"].ToString();
+
+
+                    }
+                    else
+                    {
+                        throw new Exception("Usuario não encontrado.");
+                    }
+                    return grupousuario;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        */
+
         public void Alterar(GrupoUsuario _grupousuario)
         {
             SqlConnection cn = new SqlConnection();

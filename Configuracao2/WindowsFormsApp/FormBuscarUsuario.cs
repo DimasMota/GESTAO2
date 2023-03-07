@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,10 +34,7 @@ namespace WindowsFormsApp
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -54,6 +53,31 @@ namespace WindowsFormsApp
 
         private void button5_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void usuarioBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+
+            if (textBox1.Text == "")
+            {
+
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
+                usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
+            }
+            else
+            {
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
+                usuarioBindingSource.DataSource = usuarioBLL.BuscarPorNomeAcesso(textBox1.Text);
+
+            }
+
+
 
         }
     }
