@@ -83,8 +83,8 @@ namespace DAL
 
         }
 
-        /*
-        public Usuario BuscarGrupoPorNome(string _nome)
+        
+        public GrupoUsuario BuscarGrupoPorNome(string _nome)
         {
             GrupoUsuario grupousuario = new GrupoUsuario();
             SqlConnection cn = new SqlConnection();
@@ -94,7 +94,7 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = "SELECT id_GrupoUsuario, NomeGrupo FROM GrupoUsuario WEHRE NomeGrupo = @nome";
+                cmd.CommandText = "SELECT id_GrupoUsuario, NomeGrupo FROM GrupoUsuario WHERE NomeGrupo = @nome";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@nome", _nome);
                 cn.Open();
@@ -126,7 +126,7 @@ namespace DAL
                 cn.Close();
             }
         }
-        */
+        
 
         public void Alterar(GrupoUsuario _grupousuario)
         {

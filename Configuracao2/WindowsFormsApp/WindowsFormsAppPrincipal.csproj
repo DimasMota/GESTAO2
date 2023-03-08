@@ -46,17 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAlterarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAlterarUsuario.Designer.cs">
+      <DependentUpon>FormAlterarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBuscarGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormBuscarGrupo.Designer.cs">
       <DependentUpon>FormBuscarGrupo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBuscarPermissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscarPermissao.Designer.cs">
+      <DependentUpon>FormBuscarPermissao.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBuscarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormBuscarUsuario.Designer.cs">
       <DependentUpon>FormBuscarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastrarUsuario.Designer.cs">
+      <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -66,11 +84,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAlterarUsuario.resx">
+      <DependentUpon>FormAlterarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarGrupo.resx">
       <DependentUpon>FormBuscarGrupo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBuscarPermissao.resx">
+      <DependentUpon>FormBuscarPermissao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarUsuario.resx">
       <DependentUpon>FormBuscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastrarUsuario.resx">
+      <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>

@@ -33,18 +33,18 @@ namespace BLL
             return grupousuarioDAL.BuscarTodosGrupos();
 
         }
-        /*
+        
         public GrupoUsuario BuscarGrupoPorNome(string _nome)
         {
-            if (String.IsNullOrEmpty(_nome))
-            {
-                throw new Exception("Informe o nome do usuário");
-            }
+          //  if (String.IsNullOrEmpty(_nome))
+          //  {
+          //      throw new Exception("Informe o nome do usuário");
+          //  }
             GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
             return grupousuarioDAL.BuscarGrupoPorNome(_nome);
 
         }
-        */
+        
 
         public void Alterar(GrupoUsuario _grupousuario)
         {

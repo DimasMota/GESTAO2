@@ -30,8 +30,8 @@ namespace WindowsFormsApp
             else
             {
 
-              //  GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
-              //  grupoUsuarioBindingSource.DataSource = grupoUsuarioBLL.BuscarGrupoPorNome(textBox1.Text);
+                GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
+                grupoUsuarioBindingSource.DataSource = grupoUsuarioBLL.BuscarGrupoPorNome(textBox1.Text);
 
 
 

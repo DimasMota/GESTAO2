@@ -19,43 +19,7 @@ namespace WindowsFormsApp
             InitializeComponent();
         }
 
-        private void FormBuscarUsuario_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usuarioDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-   
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void usuarioBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
@@ -79,6 +43,22 @@ namespace WindowsFormsApp
 
 
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (FormCadastrarUsuario frm = new FormCadastrarUsuario())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using(FormAlterarUsuario frm = new FormAlterarUsuario())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }
