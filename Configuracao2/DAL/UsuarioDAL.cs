@@ -156,7 +156,7 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT nome, nome_Usuario, data_Nascimento, cpf_Usuario, email, ativo FROM Usuario  WHERE id_Usuario = @id";
+                cmd.CommandText = @"SELECT id_Usuario, nome, nome_Usuario, data_Nascimento, cpf_Usuario, email,senha, ativo FROM Usuario  WHERE id_Usuario = @id";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@id", _id);
                 cn.Open();
@@ -165,11 +165,13 @@ namespace DAL
                     if (rd.Read())
                     {
                         usuario = new Usuario();
+                        usuario.Id = Convert.ToInt32(rd["id_Usuario"]);
                         usuario.Nome = rd["nome"].ToString();
                         usuario.NomeUsuario = rd["nome_Usuario"].ToString();
                         usuario.DataNascimento = rd["data_Nascimento"].ToString();
                         usuario.Cpf = rd["cpf_Usuario"].ToString();
                         usuario.Email = rd["email"].ToString();
+                        usuario.Senha = rd["senha"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
 
 
@@ -256,8 +258,9 @@ namespace DAL
                 cmd.CommandText = "UPDATE Usuario SET nome = @nome,nome_Usuario = @nome_Usuario,data_Nascimento = @data_Nascimento," +
                     "cpf_Usuario = @cpf_Usuario,senha = @senha,email = @email,ativo = @ativo WHERE id_Usuario = @id";
 
-
+                
                 cmd.CommandType = System.Data.CommandType.Text;
+
                 cmd.Parameters.AddWithValue("@nome", _usuario.Nome);
                 cmd.Parameters.AddWithValue("@nome_Usuario", _usuario.NomeUsuario);
                 cmd.Parameters.AddWithValue("@data_Nascimento", _usuario.DataNascimento);

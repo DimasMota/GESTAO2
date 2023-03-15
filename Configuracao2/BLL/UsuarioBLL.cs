@@ -7,7 +7,21 @@ namespace BLL
 {
     public class UsuarioBLL
     {
-        public void Inserir(Usuario _usuario)
+        public void Inserir(Usuario _usuario, string _confirmacaoSenha)
+        {
+
+            ValidarDados(_usuario, _confirmacaoSenha);
+            Usuario usuario = new Usuario();
+
+            usuario = BuscarUsuarioPorNome(_usuario.NomeUsuario);
+            if (usuario.NomeUsuario == _usuario.NomeUsuario)
+            {
+                throw new Exception("Usuário já existente");
+            }
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            usuarioDAL.Inserir(_usuario);
+        }
+        private void ValidarDados(Usuario _usuario, string _confirmacaoSenha)
         {
             if (_usuario.NomeUsuario.Length <= 3 || _usuario.NomeUsuario.Length > 50) // length conta o numero de caracteres
             {
@@ -30,25 +44,25 @@ namespace BLL
             {
                 throw new Exception("A senha deve ter entre 7 e 11 caracteres.");
             }
-
-            UsuarioDAL usuarioDAL = new UsuarioDAL();
-            usuarioDAL.Inserir(_usuario);
+            if (_confirmacaoSenha != _usuario.Senha)
+            {
+                throw new Exception("O campo senha e a confirmação da senha não são iguais.");
+            }
         }
 
-      
-          public Usuario BuscarUsuarioPorNome(string _nome_busca)
-          {
+        public Usuario BuscarUsuarioPorNome(string _nome_busca)
+        {
             if (String.IsNullOrEmpty(_nome_busca))
             {
                 throw new Exception("Informe o nome do usuário");
             }
-              UsuarioDAL usuarioDAL = new UsuarioDAL();
-              return usuarioDAL.BuscarUsuarioPorNome(_nome_busca);
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            return usuarioDAL.BuscarUsuarioPorNome(_nome_busca);
 
-          }
+        }
         public Usuario BuscarUsuarioPorId(int _id_busca)
         {
-           
+
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             return usuarioDAL.BuscarUsuarioPorId(_id_busca);
 
@@ -74,8 +88,11 @@ namespace BLL
             return usuarioDAL.BuscarTodos();
         }
 
-        public void Alterar(Usuario _alterarUsuario)
+        public void Alterar(Usuario _alterarUsuario, string _confirmacaoSenha)
         {
+            {
+
+            /*
             if (_alterarUsuario.NomeUsuario.Length <= 3 || _alterarUsuario.NomeUsuario.Length > 50) // length conta o numero de caracteres
             {
                 throw new Exception("O nome de usuário deve ter mais de três caracteres.");
@@ -97,7 +114,10 @@ namespace BLL
             {
                 throw new Exception("A senha deve ter entre 7 e 11 caracteres.");
             }
+*/
+            } //alteração não delete
 
+            ValidarDados(_alterarUsuario, _confirmacaoSenha);
 
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Alterar(_alterarUsuario);
