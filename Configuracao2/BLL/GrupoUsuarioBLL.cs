@@ -33,7 +33,13 @@ namespace BLL
             return grupousuarioDAL.BuscarTodosGrupos();
 
         }
-        
+        public List<GrupoUsuario> BuscarTodosGrupos_PorNome(string _nome)
+        {
+            GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+            return grupousuarioDAL.BuscarTodosGrupos_PorNome(_nome);
+
+        }
+
         public GrupoUsuario BuscarGrupoPorNome(string _nome)
         {
           //  if (String.IsNullOrEmpty(_nome))
@@ -44,7 +50,15 @@ namespace BLL
             return grupousuarioDAL.BuscarGrupoPorNome(_nome);
 
         }
-        
+        public GrupoUsuario BuscarGrupoPor_Id(int _id)
+        {
+
+            GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+            return grupousuarioDAL.BuscarGrupoPor_Id(_id);
+
+        }
+
+
 
         public void Alterar(GrupoUsuario _grupousuario)
         {

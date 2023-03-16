@@ -23,7 +23,7 @@ namespace WindowsFormsApp
             {
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
                 usuarioBindingSource.DataSource = new UsuarioBLL().BuscarUsuarioPorId(_id);
-
+                textBoxConfirmarSenha.Text = ((Usuario)usuarioBindingSource.Current).Senha;
             }
         }
 
@@ -35,16 +35,6 @@ namespace WindowsFormsApp
             try
             {
                 usuarioBindingSource.EndEdit();
-                /*
-                Usuario usuario = new Usuario();
-                usuario.Nome = nomeTextBox.Text;
-                usuario.DataNascimento = dataNascimentoTextBox.Text;
-                usuario.Cpf = cpfTextBox.Text;
-                usuario.Email = emailTextBox.Text;
-                usuario.NomeUsuario = nomeUsuarioTextBox.Text;
-                usuario.Senha = senhaTextBox.Text;
-                usuarioBLL.Inserir(usuario);
-                */
                 if (!alterar)
                 {
                     usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current, textBoxConfirmarSenha.Text);
@@ -75,17 +65,31 @@ namespace WindowsFormsApp
 
             }
         }
-        /*
-        private void LimparCampos()
+
+        private void buttonCancelarCadastro_Click(object sender, EventArgs e)
         {
-            nomeTextBox.Text = "";
-            nomeUsuarioTextBox.Text = "";
-            maskedcPFTextBox.Text = string.Empty;
-            // cPFTextBox.Text = string.Empty;
-            emailTextBox.Text = string.Empty;
-            senhaTextBox.Text = string.Empty;
-            ativoCheckBox.Checked = true;
+            if (alterar)
+            {
+                MessageBox.Show("Alteração cancelada!");
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Cadastro cancelado!");
+                Close();
+            }
         }
-        */
+        /*
+private void LimparCampos()
+{
+   nomeTextBox.Text = "";
+   nomeUsuarioTextBox.Text = "";
+   maskedcPFTextBox.Text = string.Empty;
+   // cPFTextBox.Text = string.Empty;
+   emailTextBox.Text = string.Empty;
+   senhaTextBox.Text = string.Empty;
+   ativoCheckBox.Checked = true;
+}
+*/
     }
 }

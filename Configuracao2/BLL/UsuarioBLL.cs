@@ -50,6 +50,12 @@ namespace BLL
             }
         }
 
+        public void AdicionarGrupo(int _idUsuario, int _idGrupo)
+        {
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            usuarioDAL.AdicionarGrupo(_idUsuario,  _idGrupo);
+
+        }
         public Usuario BuscarUsuarioPorNome(string _nome_busca)
         {
             if (String.IsNullOrEmpty(_nome_busca))

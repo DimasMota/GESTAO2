@@ -126,6 +126,15 @@
             ativoLabel.TabIndex = 13;
             ativoLabel.Text = "Ativo:";
             // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(116, 42);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(21, 16);
+            idLabel.TabIndex = 18;
+            idLabel.Text = "Id:";
+            // 
             // usuarioBindingSource
             // 
             this.usuarioBindingSource.DataSource = typeof(Models.Usuario);
@@ -213,6 +222,7 @@
             this.buttonCancelarCadastro.TabIndex = 16;
             this.buttonCancelarCadastro.Text = "Cancelar";
             this.buttonCancelarCadastro.UseVisualStyleBackColor = false;
+            this.buttonCancelarCadastro.Click += new System.EventHandler(this.buttonCancelarCadastro_Click);
             // 
             // textBoxConfirmarSenha
             // 
@@ -230,15 +240,6 @@
             this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 18;
             this.label1.Text = "Confirmar senha";
-            // 
-            // idLabel
-            // 
-            idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(116, 42);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(21, 16);
-            idLabel.TabIndex = 18;
-            idLabel.Text = "Id:";
             // 
             // idTextBox
             // 

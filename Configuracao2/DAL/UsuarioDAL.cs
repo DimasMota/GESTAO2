@@ -49,6 +49,43 @@ namespace DAL
 
         }
 
+        //*******************************************************************************************************************
+        public void AdicionarGrupo(int _id_usuario, int _id_grupo)
+        {
+            SqlConnection cn = new SqlConnection();
+            try
+            {
+
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "INSERT INTO Grupo_com_Usuario_N_N (cod_usuario, cod_GrupoUsuario)" +
+                                  "VALUES (@cod_usuario, @cod_grupousuario)";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@cod_usuario", _id_usuario);
+                cmd.Parameters.AddWithValue("@cod_grupousuario", _id_grupo);
+
+
+                cn.Open();
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+
+
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        //*******************************************************************************************************************
+
 
         public List<Usuario> BuscarTodos()
         {

@@ -29,51 +29,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBuscarGrupo));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonBuscarGrupo = new System.Windows.Forms.Button();
             this.buttonExcluirGrupo = new System.Windows.Forms.Button();
             this.buttonAdicionarGrupo = new System.Windows.Forms.Button();
             this.buttonAlterarGrupo = new System.Windows.Forms.Button();
-            this.grupoUsuarioBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.grupoUsuarioBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.grupoUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grupoUsuarioDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.permissoesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.permissoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.grupoUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingNavigator)).BeginInit();
-            this.grupoUsuarioBindingNavigator.SuspendLayout();
+            this.buttonAdicionarPermissao = new System.Windows.Forms.Button();
+            this.buttonExcluirPermissao = new System.Windows.Forms.Button();
+            this.radioButtonBuscarTodos = new System.Windows.Forms.RadioButton();
+            this.radioButtonBuscarNome = new System.Windows.Forms.RadioButton();
+            this.radioButtonBuscarID = new System.Windows.Forms.RadioButton();
+            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissoesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissoesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 79);
+            this.textBox1.Location = new System.Drawing.Point(21, 80);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(502, 22);
             this.textBox1.TabIndex = 0;
             // 
             // buttonBuscarGrupo
             // 
-            this.buttonBuscarGrupo.Location = new System.Drawing.Point(537, 77);
+            this.buttonBuscarGrupo.Location = new System.Drawing.Point(529, 80);
             this.buttonBuscarGrupo.Name = "buttonBuscarGrupo";
             this.buttonBuscarGrupo.Size = new System.Drawing.Size(75, 23);
             this.buttonBuscarGrupo.TabIndex = 1;
@@ -83,7 +72,7 @@
             // 
             // buttonExcluirGrupo
             // 
-            this.buttonExcluirGrupo.Location = new System.Drawing.Point(780, 79);
+            this.buttonExcluirGrupo.Location = new System.Drawing.Point(183, 108);
             this.buttonExcluirGrupo.Name = "buttonExcluirGrupo";
             this.buttonExcluirGrupo.Size = new System.Drawing.Size(75, 23);
             this.buttonExcluirGrupo.TabIndex = 2;
@@ -92,147 +81,26 @@
             // 
             // buttonAdicionarGrupo
             // 
-            this.buttonAdicionarGrupo.Location = new System.Drawing.Point(699, 78);
+            this.buttonAdicionarGrupo.Location = new System.Drawing.Point(102, 108);
             this.buttonAdicionarGrupo.Name = "buttonAdicionarGrupo";
             this.buttonAdicionarGrupo.Size = new System.Drawing.Size(75, 23);
             this.buttonAdicionarGrupo.TabIndex = 3;
             this.buttonAdicionarGrupo.Text = "Adicionar";
             this.buttonAdicionarGrupo.UseVisualStyleBackColor = true;
+            this.buttonAdicionarGrupo.Click += new System.EventHandler(this.buttonAdicionarGrupo_Click);
             // 
             // buttonAlterarGrupo
             // 
-            this.buttonAlterarGrupo.Location = new System.Drawing.Point(618, 79);
+            this.buttonAlterarGrupo.Location = new System.Drawing.Point(21, 107);
             this.buttonAlterarGrupo.Name = "buttonAlterarGrupo";
             this.buttonAlterarGrupo.Size = new System.Drawing.Size(75, 23);
             this.buttonAlterarGrupo.TabIndex = 4;
             this.buttonAlterarGrupo.Text = "Alterar";
             this.buttonAlterarGrupo.UseVisualStyleBackColor = true;
             // 
-            // grupoUsuarioBindingNavigator
+            // grupoUsuarioBindingSource
             // 
-            this.grupoUsuarioBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.grupoUsuarioBindingNavigator.BindingSource = this.grupoUsuarioBindingSource;
-            this.grupoUsuarioBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.grupoUsuarioBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.grupoUsuarioBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.grupoUsuarioBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.grupoUsuarioBindingNavigatorSaveItem});
-            this.grupoUsuarioBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.grupoUsuarioBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.grupoUsuarioBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.grupoUsuarioBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.grupoUsuarioBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.grupoUsuarioBindingNavigator.Name = "grupoUsuarioBindingNavigator";
-            this.grupoUsuarioBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.grupoUsuarioBindingNavigator.Size = new System.Drawing.Size(1069, 31);
-            this.grupoUsuarioBindingNavigator.TabIndex = 5;
-            this.grupoUsuarioBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
-            // 
-            // grupoUsuarioBindingNavigatorSaveItem
-            // 
-            this.grupoUsuarioBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.grupoUsuarioBindingNavigatorSaveItem.Enabled = false;
-            this.grupoUsuarioBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("grupoUsuarioBindingNavigatorSaveItem.Image")));
-            this.grupoUsuarioBindingNavigatorSaveItem.Name = "grupoUsuarioBindingNavigatorSaveItem";
-            this.grupoUsuarioBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
-            this.grupoUsuarioBindingNavigatorSaveItem.Text = "Save Data";
+            this.grupoUsuarioBindingSource.DataSource = typeof(Models.GrupoUsuario);
             // 
             // grupoUsuarioDataGridView
             // 
@@ -245,13 +113,31 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn1});
             this.grupoUsuarioDataGridView.DataSource = this.grupoUsuarioBindingSource;
-            this.grupoUsuarioDataGridView.Location = new System.Drawing.Point(26, 156);
+            this.grupoUsuarioDataGridView.Location = new System.Drawing.Point(21, 156);
             this.grupoUsuarioDataGridView.Name = "grupoUsuarioDataGridView";
             this.grupoUsuarioDataGridView.ReadOnly = true;
             this.grupoUsuarioDataGridView.RowHeadersWidth = 51;
             this.grupoUsuarioDataGridView.RowTemplate.Height = 24;
-            this.grupoUsuarioDataGridView.Size = new System.Drawing.Size(460, 326);
+            this.grupoUsuarioDataGridView.Size = new System.Drawing.Size(528, 326);
             this.grupoUsuarioDataGridView.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "NomeGrupo";
+            this.dataGridViewTextBoxColumn1.HeaderText = "NomeGrupo";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 300;
             // 
             // permissoesDataGridView
             // 
@@ -264,12 +150,12 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn3});
             this.permissoesDataGridView.DataSource = this.permissoesBindingSource;
-            this.permissoesDataGridView.Location = new System.Drawing.Point(558, 156);
+            this.permissoesDataGridView.Location = new System.Drawing.Point(648, 156);
             this.permissoesDataGridView.Name = "permissoesDataGridView";
             this.permissoesDataGridView.ReadOnly = true;
             this.permissoesDataGridView.RowHeadersWidth = 51;
             this.permissoesDataGridView.RowTemplate.Height = 24;
-            this.permissoesDataGridView.Size = new System.Drawing.Size(481, 326);
+            this.permissoesDataGridView.Size = new System.Drawing.Size(399, 326);
             this.permissoesDataGridView.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn4
@@ -295,36 +181,69 @@
             this.permissoesBindingSource.DataMember = "Permissoes";
             this.permissoesBindingSource.DataSource = this.grupoUsuarioBindingSource;
             // 
-            // grupoUsuarioBindingSource
+            // buttonAdicionarPermissao
             // 
-            this.grupoUsuarioBindingSource.DataSource = typeof(Models.GrupoUsuario);
+            this.buttonAdicionarPermissao.Location = new System.Drawing.Point(865, 118);
+            this.buttonAdicionarPermissao.Name = "buttonAdicionarPermissao";
+            this.buttonAdicionarPermissao.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdicionarPermissao.TabIndex = 8;
+            this.buttonAdicionarPermissao.Text = "Adicionar";
+            this.buttonAdicionarPermissao.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // buttonExcluirPermissao
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 125;
+            this.buttonExcluirPermissao.Location = new System.Drawing.Point(963, 118);
+            this.buttonExcluirPermissao.Name = "buttonExcluirPermissao";
+            this.buttonExcluirPermissao.Size = new System.Drawing.Size(75, 23);
+            this.buttonExcluirPermissao.TabIndex = 9;
+            this.buttonExcluirPermissao.Text = "Excluir";
+            this.buttonExcluirPermissao.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // radioButtonBuscarTodos
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "NomeGrupo";
-            this.dataGridViewTextBoxColumn1.HeaderText = "NomeGrupo";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 300;
+            this.radioButtonBuscarTodos.AutoSize = true;
+            this.radioButtonBuscarTodos.Location = new System.Drawing.Point(21, 54);
+            this.radioButtonBuscarTodos.Name = "radioButtonBuscarTodos";
+            this.radioButtonBuscarTodos.Size = new System.Drawing.Size(113, 20);
+            this.radioButtonBuscarTodos.TabIndex = 10;
+            this.radioButtonBuscarTodos.TabStop = true;
+            this.radioButtonBuscarTodos.Text = "Buscar Todos";
+            this.radioButtonBuscarTodos.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonBuscarNome
+            // 
+            this.radioButtonBuscarNome.AutoSize = true;
+            this.radioButtonBuscarNome.Location = new System.Drawing.Point(140, 54);
+            this.radioButtonBuscarNome.Name = "radioButtonBuscarNome";
+            this.radioButtonBuscarNome.Size = new System.Drawing.Size(111, 20);
+            this.radioButtonBuscarNome.TabIndex = 11;
+            this.radioButtonBuscarNome.TabStop = true;
+            this.radioButtonBuscarNome.Text = "Buscar/Nome";
+            this.radioButtonBuscarNome.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonBuscarID
+            // 
+            this.radioButtonBuscarID.AutoSize = true;
+            this.radioButtonBuscarID.Location = new System.Drawing.Point(274, 54);
+            this.radioButtonBuscarID.Name = "radioButtonBuscarID";
+            this.radioButtonBuscarID.Size = new System.Drawing.Size(87, 20);
+            this.radioButtonBuscarID.TabIndex = 12;
+            this.radioButtonBuscarID.TabStop = true;
+            this.radioButtonBuscarID.Text = "Buscar/ID";
+            this.radioButtonBuscarID.UseVisualStyleBackColor = true;
             // 
             // FormBuscarGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 549);
+            this.Controls.Add(this.radioButtonBuscarID);
+            this.Controls.Add(this.radioButtonBuscarNome);
+            this.Controls.Add(this.radioButtonBuscarTodos);
+            this.Controls.Add(this.buttonExcluirPermissao);
+            this.Controls.Add(this.buttonAdicionarPermissao);
             this.Controls.Add(this.permissoesDataGridView);
             this.Controls.Add(this.grupoUsuarioDataGridView);
-            this.Controls.Add(this.grupoUsuarioBindingNavigator);
             this.Controls.Add(this.buttonAlterarGrupo);
             this.Controls.Add(this.buttonAdicionarGrupo);
             this.Controls.Add(this.buttonExcluirGrupo);
@@ -332,13 +251,10 @@
             this.Controls.Add(this.textBox1);
             this.Name = "FormBuscarGrupo";
             this.Text = "Gestão de Grupo de Usuário";
-            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingNavigator)).EndInit();
-            this.grupoUsuarioBindingNavigator.ResumeLayout(false);
-            this.grupoUsuarioBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissoesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissoesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,19 +268,6 @@
         private System.Windows.Forms.Button buttonAdicionarGrupo;
         private System.Windows.Forms.Button buttonAlterarGrupo;
         private System.Windows.Forms.BindingSource grupoUsuarioBindingSource;
-        private System.Windows.Forms.BindingNavigator grupoUsuarioBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton grupoUsuarioBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView grupoUsuarioDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -372,5 +275,10 @@
         private System.Windows.Forms.DataGridView permissoesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Button buttonAdicionarPermissao;
+        private System.Windows.Forms.Button buttonExcluirPermissao;
+        private System.Windows.Forms.RadioButton radioButtonBuscarTodos;
+        private System.Windows.Forms.RadioButton radioButtonBuscarNome;
+        private System.Windows.Forms.RadioButton radioButtonBuscarID;
     }
 }

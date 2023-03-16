@@ -44,11 +44,15 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonAlterarUsuario = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonExcluirUsuario = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.radioButtonBuscarTodos = new System.Windows.Forms.RadioButton();
+            this.radioButtonBuscarPorNome = new System.Windows.Forms.RadioButton();
+            this.radioButtonBuscarNomeUsuario = new System.Windows.Forms.RadioButton();
+            this.radioButtonBuscarPorId = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosDataGridView)).BeginInit();
@@ -206,15 +210,15 @@
             this.grupoUsuariosBindingSource.DataMember = "GrupoUsuarios";
             this.grupoUsuariosBindingSource.DataSource = this.usuarioBindingSource;
             // 
-            // button2
+            // buttonAlterarUsuario
             // 
-            this.button2.Location = new System.Drawing.Point(708, 65);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Alterar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonAlterarUsuario.Location = new System.Drawing.Point(708, 65);
+            this.buttonAlterarUsuario.Name = "buttonAlterarUsuario";
+            this.buttonAlterarUsuario.Size = new System.Drawing.Size(75, 23);
+            this.buttonAlterarUsuario.TabIndex = 5;
+            this.buttonAlterarUsuario.Text = "Alterar";
+            this.buttonAlterarUsuario.UseVisualStyleBackColor = true;
+            this.buttonAlterarUsuario.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -247,23 +251,70 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(1129, 64);
+            this.button6.Location = new System.Drawing.Point(1115, 64);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(89, 23);
             this.button6.TabIndex = 8;
             this.button6.Text = "Adicionar";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // radioButtonBuscarTodos
+            // 
+            this.radioButtonBuscarTodos.AutoSize = true;
+            this.radioButtonBuscarTodos.Checked = true;
+            this.radioButtonBuscarTodos.Location = new System.Drawing.Point(12, 39);
+            this.radioButtonBuscarTodos.Name = "radioButtonBuscarTodos";
+            this.radioButtonBuscarTodos.Size = new System.Drawing.Size(107, 20);
+            this.radioButtonBuscarTodos.TabIndex = 9;
+            this.radioButtonBuscarTodos.TabStop = true;
+            this.radioButtonBuscarTodos.Text = "Buscar todos";
+            this.radioButtonBuscarTodos.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonBuscarPorNome
+            // 
+            this.radioButtonBuscarPorNome.AutoSize = true;
+            this.radioButtonBuscarPorNome.Location = new System.Drawing.Point(356, 39);
+            this.radioButtonBuscarPorNome.Name = "radioButtonBuscarPorNome";
+            this.radioButtonBuscarPorNome.Size = new System.Drawing.Size(130, 20);
+            this.radioButtonBuscarPorNome.TabIndex = 10;
+            this.radioButtonBuscarPorNome.Text = "Buscar por nome";
+            this.radioButtonBuscarPorNome.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonBuscarNomeUsuario
+            // 
+            this.radioButtonBuscarNomeUsuario.AutoSize = true;
+            this.radioButtonBuscarNomeUsuario.Location = new System.Drawing.Point(147, 39);
+            this.radioButtonBuscarNomeUsuario.Name = "radioButtonBuscarNomeUsuario";
+            this.radioButtonBuscarNomeUsuario.Size = new System.Drawing.Size(186, 20);
+            this.radioButtonBuscarNomeUsuario.TabIndex = 11;
+            this.radioButtonBuscarNomeUsuario.Text = "Buscar / Nome de Usuário";
+            this.radioButtonBuscarNomeUsuario.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonBuscarPorId
+            // 
+            this.radioButtonBuscarPorId.AutoSize = true;
+            this.radioButtonBuscarPorId.Location = new System.Drawing.Point(512, 39);
+            this.radioButtonBuscarPorId.Name = "radioButtonBuscarPorId";
+            this.radioButtonBuscarPorId.Size = new System.Drawing.Size(109, 20);
+            this.radioButtonBuscarPorId.TabIndex = 12;
+            this.radioButtonBuscarPorId.Text = "Buscar por ID";
+            this.radioButtonBuscarPorId.UseVisualStyleBackColor = true;
             // 
             // FormBuscarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1297, 555);
+            this.Controls.Add(this.radioButtonBuscarPorId);
+            this.Controls.Add(this.radioButtonBuscarNomeUsuario);
+            this.Controls.Add(this.radioButtonBuscarPorNome);
+            this.Controls.Add(this.radioButtonBuscarTodos);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.buttonExcluirUsuario);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonAlterarUsuario);
             this.Controls.Add(this.grupoUsuariosDataGridView);
             this.Controls.Add(this.usuarioDataGridView);
             this.Controls.Add(this.buttonBuscar);
@@ -289,7 +340,7 @@
         private System.Windows.Forms.DataGridView grupoUsuariosDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonAlterarUsuario;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button buttonExcluirUsuario;
         private System.Windows.Forms.Button button5;
@@ -301,5 +352,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.RadioButton radioButtonBuscarTodos;
+        private System.Windows.Forms.RadioButton radioButtonBuscarPorNome;
+        private System.Windows.Forms.RadioButton radioButtonBuscarNomeUsuario;
+        private System.Windows.Forms.RadioButton radioButtonBuscarPorId;
     }
 }
