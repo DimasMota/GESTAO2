@@ -127,7 +127,54 @@ namespace DAL
 
         //***********************************************************************************************************************
 
+        public List<GrupoUsuario> BuscarTodos_GruposPorUsuario(int _id)
+        {
+            List<GrupoUsuario> vincular_usuario_grupos = new List<GrupoUsuario>();
+            GrupoUsuario grupousuario = new GrupoUsuario();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT  GU.id_GrupoUsuario,	GU.NomeGrupo FROM  Usuario U " +
+                    "INNER JOIN Grupo_com_Usuario_N_N G ON U.id_Usuario = G.cod_usuario " +
+                    "INNER JOIN GrupoUsuario GU ON G.cod_GrupoUsuario = GU.id_GrupoUsuario WHERE U.id_Usuario = @id";
 
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@id", _id);
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+
+                    while (rd.Read())
+                    {
+                        grupousuario = new GrupoUsuario();
+                        grupousuario.Id = Convert.ToInt32(rd["id_GrupoUsuario"]);
+                        grupousuario.NomeGrupo = rd["NomeGrupo"].ToString();
+
+
+                        vincular_usuario_grupos.Add(grupousuario);
+
+                    }
+
+                }
+                return vincular_usuario_grupos;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+
+        //*********************************************************************************************************************
         public GrupoUsuario BuscarGrupoPorNome(string _nome)
         {
             GrupoUsuario grupousuario = new GrupoUsuario();

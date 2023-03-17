@@ -48,6 +48,43 @@ namespace DAL
 
 
         }
+        //*******************************************************************************************************************
+        //*******************************************************************************************************************
+
+        public bool ExisteRelacionamento(int _idUsuario, int _idGrupo)
+        {
+            Usuario usuario = new Usuario();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Grupo_com_Usuario_N_N  WHERE cod_usuario = @codUsuario AND cod_GrupoUsuario = @codGrupo ";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@codUsuario", _idUsuario);
+                cmd.Parameters.AddWithValue("@codGrupo", _idGrupo);
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
 
         //*******************************************************************************************************************
         public void AdicionarGrupo(int _id_usuario, int _id_grupo)
@@ -112,7 +149,8 @@ namespace DAL
                         usuario.Cpf = rd["cpf_Usuario"].ToString();
                         usuario.Email = rd["email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
-
+                        GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+                        usuario.GrupoUsuarios = grupousuarioDAL.BuscarTodos_GruposPorUsuario(usuario.Id);
                         usuarios.Add(usuario);
                     }
                 }
@@ -232,9 +270,9 @@ namespace DAL
             }
         }
 
-            //******************************************************************************************************
+        //******************************************************************************************************
 
-            public Usuario BuscarPorNomeAcesso(string _nome)
+        public Usuario BuscarPorNomeAcesso(string _nome)
         {
             Usuario usuario = new Usuario();
             SqlConnection cn = new SqlConnection();
@@ -295,7 +333,7 @@ namespace DAL
                 cmd.CommandText = "UPDATE Usuario SET nome = @nome,nome_Usuario = @nome_Usuario,data_Nascimento = @data_Nascimento," +
                     "cpf_Usuario = @cpf_Usuario,senha = @senha,email = @email,ativo = @ativo WHERE id_Usuario = @id";
 
-                
+
                 cmd.CommandType = System.Data.CommandType.Text;
 
                 cmd.Parameters.AddWithValue("@nome", _usuario.Nome);

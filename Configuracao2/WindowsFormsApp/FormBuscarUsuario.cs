@@ -29,30 +29,37 @@ namespace WindowsFormsApp
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
 
-            if (radioButtonBuscarTodos.Checked)
+            GrupoUsuarioBLL grupousuarioBLL = new GrupoUsuarioBLL();
+            try
+            {
+                if (radioButtonBuscarTodos.Checked)
+                {
+                    UsuarioBLL usuarioBLL = new UsuarioBLL();
+                    usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
+                }
+                else if (radioButtonBuscarNomeUsuario.Checked)
+                {
+                    UsuarioBLL usuarioBLL = new UsuarioBLL();
+                    usuarioBindingSource.DataSource = usuarioBLL.BuscarPorNomeAcesso(textBox1.Text);
+
+                }
+                else if (radioButtonBuscarPorNome.Checked)
+                {
+                    UsuarioBLL usuarioBLL = new UsuarioBLL();
+                    usuarioBindingSource.DataSource = usuarioBLL.BuscarUsuarioPorNome(textBox1.Text);
+                }
+                else if (radioButtonBuscarPorId.Checked)
+                {
+                    UsuarioBLL usuarioBLL = new UsuarioBLL();
+                    usuarioBindingSource.DataSource = usuarioBLL.BuscarUsuarioPorId(Convert.ToInt32(textBox1.Text));
+                }
+
+            }
+            catch (Exception ex)
             {
 
-                UsuarioBLL usuarioBLL = new UsuarioBLL();
-                usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
+                MessageBox.Show(ex.Message);
             }
-            else if (radioButtonBuscarNomeUsuario.Checked)
-            {
-                UsuarioBLL usuarioBLL = new UsuarioBLL();
-                usuarioBindingSource.DataSource = usuarioBLL.BuscarPorNomeAcesso(textBox1.Text);
-
-            }
-            else if (radioButtonBuscarPorNome.Checked)
-            {
-                UsuarioBLL usuarioBLL = new UsuarioBLL();
-                usuarioBindingSource.DataSource = usuarioBLL.BuscarUsuarioPorNome(textBox1.Text);
-            }
-            else if (radioButtonBuscarPorId.Checked)
-            {
-                UsuarioBLL usuarioBLL = new UsuarioBLL();
-                usuarioBindingSource.DataSource = usuarioBLL.BuscarUsuarioPorId(Convert.ToInt32(textBox1.Text));
-            }
-
-
 
         }
 
@@ -97,7 +104,7 @@ namespace WindowsFormsApp
                 usuario.Id = Convert.ToInt32(id);
                 usuarioBLL.Excluir(usuario);
                 MessageBox.Show("Usuario excluida com sucesso!");
-                buttonBuscar_Click(null,null);
+                buttonBuscar_Click(null, null);
             }
             else
             {
@@ -110,12 +117,22 @@ namespace WindowsFormsApp
         {
             using (FormConsultarGrupoUsuario frm = new FormConsultarGrupoUsuario())
             {
-                frm.ShowDialog();
-                UsuarioBLL usuarioBLL = new UsuarioBLL();
-                int idUsuario = ((Usuario)usuarioBindingSource.Current).Id;
-                usuarioBLL.AdicionarGrupo(idUsuario, frm.id);
-                MessageBox.Show("Grupo adicionado com sucesso!");
+                try
+                {
+
+                    frm.ShowDialog();
+                    UsuarioBLL usuarioBLL = new UsuarioBLL();
+                    int idUsuario = ((Usuario)usuarioBindingSource.Current).Id;
+                    usuarioBLL.AdicionarGrupo(idUsuario, frm.id);
+                    MessageBox.Show("Grupo adicionado com sucesso!");
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Erro ao vincular Usuário em um grupo\n" + ex.Message);
+                }
             }
         }
+
     }
 }

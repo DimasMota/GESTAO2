@@ -50,8 +50,13 @@ namespace BLL
             }
         }
 
-        public void AdicionarGrupo(int _idUsuario, int _idGrupo)
+        public void  AdicionarGrupo(int _idUsuario, int _idGrupo)
         {
+            if (new UsuarioDAL().ExisteRelacionamento( _idUsuario, _idGrupo))
+            {
+                throw new Exception("Usuário já vinculado neste grupo");
+
+            }
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.AdicionarGrupo(_idUsuario,  _idGrupo);
 

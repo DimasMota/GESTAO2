@@ -50,6 +50,19 @@ namespace BLL
             return grupousuarioDAL.BuscarGrupoPorNome(_nome);
 
         }
+
+        //**************************************************************************************
+
+        public List<GrupoUsuario> BuscarTodos_GruposPorUsuario(int _id)
+        {
+            GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+            return grupousuarioDAL.BuscarTodos_GruposPorUsuario(_id);
+        }
+
+
+        //**************************************************************************************
+
+
         public GrupoUsuario BuscarGrupoPor_Id(int _id)
         {
 
