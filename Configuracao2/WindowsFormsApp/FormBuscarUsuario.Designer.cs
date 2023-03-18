@@ -44,7 +44,7 @@
             this.buttonAlterarUsuario = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonExcluirUsuario = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button_RemoverGrupo = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.radioButtonBuscarTodos = new System.Windows.Forms.RadioButton();
             this.radioButtonBuscarPorNome = new System.Windows.Forms.RadioButton();
@@ -203,14 +203,15 @@
             this.buttonExcluirUsuario.UseVisualStyleBackColor = true;
             this.buttonExcluirUsuario.Click += new System.EventHandler(this.buttonExcluirUsuario_Click);
             // 
-            // button5
+            // button_RemoverGrupo
             // 
-            this.button5.Location = new System.Drawing.Point(1210, 64);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Excluir";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button_RemoverGrupo.Location = new System.Drawing.Point(1210, 64);
+            this.button_RemoverGrupo.Name = "button_RemoverGrupo";
+            this.button_RemoverGrupo.Size = new System.Drawing.Size(75, 23);
+            this.button_RemoverGrupo.TabIndex = 7;
+            this.button_RemoverGrupo.Text = "Excluir";
+            this.button_RemoverGrupo.UseVisualStyleBackColor = true;
+            this.button_RemoverGrupo.Click += new System.EventHandler(this.button_RemoverGrupo_Click);
             // 
             // button6
             // 
@@ -311,7 +312,7 @@
             this.Controls.Add(this.radioButtonBuscarNomeUsuario);
             this.Controls.Add(this.radioButtonBuscarPorNome);
             this.Controls.Add(this.radioButtonBuscarTodos);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button_RemoverGrupo);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.buttonExcluirUsuario);
             this.Controls.Add(this.button3);
@@ -340,7 +341,7 @@
         private System.Windows.Forms.Button buttonAlterarUsuario;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button buttonExcluirUsuario;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button_RemoverGrupo;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;

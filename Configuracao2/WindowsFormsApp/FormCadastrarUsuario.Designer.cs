@@ -36,7 +36,6 @@
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label senhaLabel;
             System.Windows.Forms.Label ativoLabel;
-            System.Windows.Forms.Label idLabel;
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nomeTextBox = new System.Windows.Forms.TextBox();
             this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -50,7 +49,6 @@
             this.buttonCancelarCadastro = new System.Windows.Forms.Button();
             this.textBoxConfirmarSenha = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.idTextBox = new System.Windows.Forms.TextBox();
             nomeLabel = new System.Windows.Forms.Label();
             nomeUsuarioLabel = new System.Windows.Forms.Label();
             dataNascimentoLabel = new System.Windows.Forms.Label();
@@ -58,7 +56,6 @@
             emailLabel = new System.Windows.Forms.Label();
             senhaLabel = new System.Windows.Forms.Label();
             ativoLabel = new System.Windows.Forms.Label();
-            idLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -125,15 +122,6 @@
             ativoLabel.Size = new System.Drawing.Size(40, 16);
             ativoLabel.TabIndex = 13;
             ativoLabel.Text = "Ativo:";
-            // 
-            // idLabel
-            // 
-            idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(116, 42);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(21, 16);
-            idLabel.TabIndex = 18;
-            idLabel.Text = "Id:";
             // 
             // usuarioBindingSource
             // 
@@ -241,21 +229,11 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Confirmar senha";
             // 
-            // idTextBox
-            // 
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Id", true));
-            this.idTextBox.Location = new System.Drawing.Point(156, 39);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(100, 22);
-            this.idTextBox.TabIndex = 19;
-            // 
             // FormCadastrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 571);
-            this.Controls.Add(idLabel);
-            this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxConfirmarSenha);
             this.Controls.Add(this.buttonCancelarCadastro);
@@ -299,6 +277,5 @@
         private System.Windows.Forms.Button buttonCancelarCadastro;
         private System.Windows.Forms.TextBox textBoxConfirmarSenha;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox idTextBox;
     }
 }

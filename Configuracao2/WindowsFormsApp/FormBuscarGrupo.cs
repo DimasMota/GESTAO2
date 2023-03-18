@@ -24,21 +24,19 @@ namespace WindowsFormsApp
             try
             {
 
+                    GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
                 if (radioButtonBuscarTodos.Checked)
                 {
 
-                    GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
                     grupoUsuarioBindingSource.DataSource = grupoUsuarioBLL.BuscarTodosGrupos();
                 }
                 else if (radioButtonBuscarNome.Checked)
                 {
 
-                    GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
                     grupoUsuarioBindingSource.DataSource = grupoUsuarioBLL.BuscarGrupoPorNome(textBox1.Text);
                 }
                 else if (radioButtonBuscarID.Checked)
                 {
-                    GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
                     grupoUsuarioBindingSource.DataSource = grupoUsuarioBLL.BuscarGrupoPor_Id(Convert.ToInt32(textBox1.Text));
                 }
             }
@@ -52,7 +50,10 @@ namespace WindowsFormsApp
 
         private void buttonAdicionarGrupo_Click(object sender, EventArgs e)
         {
-
+            using(FormCadastrarGrupo frm = new FormCadastrarGrupo())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }

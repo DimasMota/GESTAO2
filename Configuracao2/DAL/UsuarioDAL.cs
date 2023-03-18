@@ -197,7 +197,9 @@ namespace DAL
                         usuario.Cpf = rd["cpf_Usuario"].ToString();
                         usuario.Email = rd["email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
-
+                        GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+                        usuario.GrupoUsuarios = grupousuarioDAL.BuscarTodos_GruposPorUsuario(usuario.Id);
+                       
 
                     }
                     else
@@ -248,7 +250,9 @@ namespace DAL
                         usuario.Email = rd["email"].ToString();
                         usuario.Senha = rd["senha"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
-
+                        GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+                        usuario.GrupoUsuarios = grupousuarioDAL.BuscarTodos_GruposPorUsuario(usuario.Id);
+                       ;
 
                     }
                     else
@@ -298,7 +302,9 @@ namespace DAL
                         usuario.Cpf = rd["cpf_Usuario"].ToString();
                         usuario.Email = rd["email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
-
+                        GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+                        usuario.GrupoUsuarios = grupousuarioDAL.BuscarTodos_GruposPorUsuario(usuario.Id);
+                      
 
                     }
                     else
@@ -397,7 +403,37 @@ namespace DAL
 
         }
 
+        public void RemoverGrupoUsuario(int _id_usuario, int _id_grupo)
+        {
+            SqlConnection cn = new SqlConnection();
+            try
+            {
 
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "DELETE FROM Grupo_com_Usuario_N_N WHERE  cod_usuario = @cod_usuario AND cod_GrupoUsuario = @cod_grupousuario";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@cod_usuario", _id_usuario);
+                cmd.Parameters.AddWithValue("@cod_grupousuario", _id_grupo);
+
+
+                cn.Open();
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+
+
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 
 

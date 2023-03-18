@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp
 {
-    partial class FormAdicionarGrupo
+    partial class FormCadastrarGrupo
     {
         /// <summary>
         /// Required designer variable.
@@ -32,63 +32,63 @@
             System.Windows.Forms.Label nomeGrupoLabel;
             this.grupoUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nomeGrupoTextBox = new System.Windows.Forms.TextBox();
-            this.buttonSalvarCadastroGrupo = new System.Windows.Forms.Button();
-            this.buttonCancelarCadastroGrupo = new System.Windows.Forms.Button();
+            this.button_Salvar_CadastrarGrupo = new System.Windows.Forms.Button();
+            this.button_CancelarCadastro = new System.Windows.Forms.Button();
             nomeGrupoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // nomeGrupoLabel
-            // 
-            nomeGrupoLabel.AutoSize = true;
-            nomeGrupoLabel.Location = new System.Drawing.Point(50, 112);
-            nomeGrupoLabel.Name = "nomeGrupoLabel";
-            nomeGrupoLabel.Size = new System.Drawing.Size(87, 16);
-            nomeGrupoLabel.TabIndex = 3;
-            nomeGrupoLabel.Text = "Nome Grupo:";
             // 
             // grupoUsuarioBindingSource
             // 
             this.grupoUsuarioBindingSource.DataSource = typeof(Models.GrupoUsuario);
             // 
+            // nomeGrupoLabel
+            // 
+            nomeGrupoLabel.AutoSize = true;
+            nomeGrupoLabel.Location = new System.Drawing.Point(70, 101);
+            nomeGrupoLabel.Name = "nomeGrupoLabel";
+            nomeGrupoLabel.Size = new System.Drawing.Size(87, 16);
+            nomeGrupoLabel.TabIndex = 0;
+            nomeGrupoLabel.Text = "Nome Grupo:";
+            // 
             // nomeGrupoTextBox
             // 
             this.nomeGrupoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.grupoUsuarioBindingSource, "NomeGrupo", true));
-            this.nomeGrupoTextBox.Location = new System.Drawing.Point(143, 109);
+            this.nomeGrupoTextBox.Location = new System.Drawing.Point(163, 98);
             this.nomeGrupoTextBox.Name = "nomeGrupoTextBox";
             this.nomeGrupoTextBox.Size = new System.Drawing.Size(295, 22);
-            this.nomeGrupoTextBox.TabIndex = 4;
+            this.nomeGrupoTextBox.TabIndex = 1;
             // 
-            // buttonSalvarCadastroGrupo
+            // button_Salvar_CadastrarGrupo
             // 
-            this.buttonSalvarCadastroGrupo.Location = new System.Drawing.Point(119, 181);
-            this.buttonSalvarCadastroGrupo.Name = "buttonSalvarCadastroGrupo";
-            this.buttonSalvarCadastroGrupo.Size = new System.Drawing.Size(75, 23);
-            this.buttonSalvarCadastroGrupo.TabIndex = 5;
-            this.buttonSalvarCadastroGrupo.Text = "Salvar";
-            this.buttonSalvarCadastroGrupo.UseVisualStyleBackColor = true;
-            this.buttonSalvarCadastroGrupo.Click += new System.EventHandler(this.buttonSalvarCadastroGrupo_Click);
+            this.button_Salvar_CadastrarGrupo.Location = new System.Drawing.Point(163, 161);
+            this.button_Salvar_CadastrarGrupo.Name = "button_Salvar_CadastrarGrupo";
+            this.button_Salvar_CadastrarGrupo.Size = new System.Drawing.Size(75, 23);
+            this.button_Salvar_CadastrarGrupo.TabIndex = 2;
+            this.button_Salvar_CadastrarGrupo.Text = "Salvar";
+            this.button_Salvar_CadastrarGrupo.UseVisualStyleBackColor = true;
+            this.button_Salvar_CadastrarGrupo.Click += new System.EventHandler(this.button_Salvar_CadastrarGrupo_Click);
             // 
-            // buttonCancelarCadastroGrupo
+            // button_CancelarCadastro
             // 
-            this.buttonCancelarCadastroGrupo.Location = new System.Drawing.Point(266, 181);
-            this.buttonCancelarCadastroGrupo.Name = "buttonCancelarCadastroGrupo";
-            this.buttonCancelarCadastroGrupo.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelarCadastroGrupo.TabIndex = 6;
-            this.buttonCancelarCadastroGrupo.Text = "Cancelar";
-            this.buttonCancelarCadastroGrupo.UseVisualStyleBackColor = true;
+            this.button_CancelarCadastro.Location = new System.Drawing.Point(327, 161);
+            this.button_CancelarCadastro.Name = "button_CancelarCadastro";
+            this.button_CancelarCadastro.Size = new System.Drawing.Size(75, 23);
+            this.button_CancelarCadastro.TabIndex = 3;
+            this.button_CancelarCadastro.Text = "Cancelar";
+            this.button_CancelarCadastro.UseVisualStyleBackColor = true;
             // 
-            // FormAdicionarGrupo
+            // FormCadastrarGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 279);
-            this.Controls.Add(this.buttonCancelarCadastroGrupo);
-            this.Controls.Add(this.buttonSalvarCadastroGrupo);
+            this.ClientSize = new System.Drawing.Size(611, 254);
+            this.Controls.Add(this.button_CancelarCadastro);
+            this.Controls.Add(this.button_Salvar_CadastrarGrupo);
             this.Controls.Add(nomeGrupoLabel);
             this.Controls.Add(this.nomeGrupoTextBox);
-            this.Name = "FormAdicionarGrupo";
-            this.Text = "Gestão - Cadastrar Grupo";
+            this.Name = "FormCadastrarGrupo";
+            this.Text = "Cadastrar Grupo";
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -99,7 +99,7 @@
 
         private System.Windows.Forms.BindingSource grupoUsuarioBindingSource;
         private System.Windows.Forms.TextBox nomeGrupoTextBox;
-        private System.Windows.Forms.Button buttonSalvarCadastroGrupo;
-        private System.Windows.Forms.Button buttonCancelarCadastroGrupo;
+        private System.Windows.Forms.Button button_Salvar_CadastrarGrupo;
+        private System.Windows.Forms.Button button_CancelarCadastro;
     }
 }

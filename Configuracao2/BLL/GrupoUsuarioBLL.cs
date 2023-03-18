@@ -31,6 +31,7 @@ namespace BLL
         {
             GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
             return grupousuarioDAL.BuscarTodosGrupos();
+            
 
         }
         public List<GrupoUsuario> BuscarTodosGrupos_PorNome(string _nome)

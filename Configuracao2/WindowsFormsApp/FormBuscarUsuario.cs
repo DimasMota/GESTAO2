@@ -29,28 +29,25 @@ namespace WindowsFormsApp
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
 
-            GrupoUsuarioBLL grupousuarioBLL = new GrupoUsuarioBLL();
+          //  GrupoUsuarioBLL grupousuarioBLL = new GrupoUsuarioBLL();
             try
             {
+                    UsuarioBLL usuarioBLL = new UsuarioBLL();
                 if (radioButtonBuscarTodos.Checked)
                 {
-                    UsuarioBLL usuarioBLL = new UsuarioBLL();
                     usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
                 }
                 else if (radioButtonBuscarNomeUsuario.Checked)
                 {
-                    UsuarioBLL usuarioBLL = new UsuarioBLL();
                     usuarioBindingSource.DataSource = usuarioBLL.BuscarPorNomeAcesso(textBox1.Text);
 
                 }
                 else if (radioButtonBuscarPorNome.Checked)
                 {
-                    UsuarioBLL usuarioBLL = new UsuarioBLL();
                     usuarioBindingSource.DataSource = usuarioBLL.BuscarUsuarioPorNome(textBox1.Text);
                 }
                 else if (radioButtonBuscarPorId.Checked)
                 {
-                    UsuarioBLL usuarioBLL = new UsuarioBLL();
                     usuarioBindingSource.DataSource = usuarioBLL.BuscarUsuarioPorId(Convert.ToInt32(textBox1.Text));
                 }
 
@@ -73,6 +70,13 @@ namespace WindowsFormsApp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+            if(usuarioBindingSource.Count == 0)
+            {
+                MessageBox.Show("Não existe grupo de usuário para ser excluido.");
+                return;
+            }
+            
             int id = ((Usuario)usuarioBindingSource.Current).Id;
 
             using (FormCadastrarUsuario frm = new FormCadastrarUsuario(true, id))
@@ -119,20 +123,45 @@ namespace WindowsFormsApp
             {
                 try
                 {
-
+                    
                     frm.ShowDialog();
+                    if(frm.id == 0)
+                    {
+                        return ;
+                    }
                     UsuarioBLL usuarioBLL = new UsuarioBLL();
                     int idUsuario = ((Usuario)usuarioBindingSource.Current).Id;
                     usuarioBLL.AdicionarGrupo(idUsuario, frm.id);
                     MessageBox.Show("Grupo adicionado com sucesso!");
-                }
-                catch (Exception ex)
-                {
+               }
+              catch (Exception ex)
+               {
 
                     MessageBox.Show("Erro ao vincular Usuário em um grupo\n" + ex.Message);
                 }
             }
         }
 
+        private void button_RemoverGrupo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (usuarioBindingSource.Count == 0 || grupoUsuariosBindingSource.Count == 0)
+                {
+                    MessageBox.Show("Não existe grupo de usuário para ser excluido.");
+                    return;
+                }
+                int id_grupo = ((GrupoUsuario)grupoUsuariosBindingSource.Current).Id;
+                int id_usuario = ((Usuario)usuarioBindingSource.Current).Id;
+                new UsuarioBLL().RemoverGrupoUsuario(id_usuario, id_grupo);
+                MessageBox.Show("Usuário removido do grupo");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao remover um usuário do grupo.\n" + ex.Message);
+            }
+           
+        }
     }
 }

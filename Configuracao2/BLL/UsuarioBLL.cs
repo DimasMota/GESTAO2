@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace BLL
 {
@@ -55,7 +56,7 @@ namespace BLL
             if (new UsuarioDAL().ExisteRelacionamento( _idUsuario, _idGrupo))
             {
                 throw new Exception("Usuário já vinculado neste grupo");
-
+            
             }
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.AdicionarGrupo(_idUsuario,  _idGrupo);
@@ -139,5 +140,10 @@ namespace BLL
             usuarioDAL.Excluir(_id);
         }
 
+        public void RemoverGrupoUsuario(int _id_usuario, int _id_grupo)
+        {
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            usuarioDAL.RemoverGrupoUsuario(_id_usuario, _id_grupo);
+        }
     }
 }

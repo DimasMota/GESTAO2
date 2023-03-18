@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 namespace Models
 {
     public class Usuario
@@ -13,6 +14,6 @@ namespace Models
         public int Id { get; set; }
         public List<GrupoUsuario> GrupoUsuarios { get; set; }
 
-
+       
     }
 }

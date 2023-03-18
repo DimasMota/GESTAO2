@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,17 +12,22 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
-    public partial class FormAdicionarGrupo : Form
+    public partial class FormCadastrarGrupo : Form
     {
-        public FormAdicionarGrupo()
+        public FormCadastrarGrupo()
         {
             InitializeComponent();
         }
 
-        private void buttonSalvarCadastroGrupo_Click(object sender, EventArgs e)
+        private void button_Salvar_CadastrarGrupo_Click(object sender, EventArgs e)
         {
             try
             {
+                grupoUsuarioBindingSource.EndEdit();
+                GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
+                       
+               
+                grupoUsuarioBLL.Inserir((GrupoUsuario)grupoUsuarioBindingSource.Current);
 
             }
             catch (Exception ex)

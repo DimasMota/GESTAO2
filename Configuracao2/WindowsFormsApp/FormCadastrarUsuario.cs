@@ -31,9 +31,9 @@ namespace WindowsFormsApp
         private void buttonSalvarUsuario_Click(object sender, EventArgs e)
         {
 
-            UsuarioBLL usuarioBLL = new UsuarioBLL();
             try
             {
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
                 usuarioBindingSource.EndEdit();
                 if (!alterar)
                 {
