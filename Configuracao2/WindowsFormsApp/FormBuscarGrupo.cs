@@ -24,7 +24,7 @@ namespace WindowsFormsApp
             try
             {
 
-                    GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
+                GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
                 if (radioButtonBuscarTodos.Checked)
                 {
 
@@ -50,10 +50,118 @@ namespace WindowsFormsApp
 
         private void buttonAdicionarGrupo_Click(object sender, EventArgs e)
         {
-            using(FormCadastrarGrupo frm = new FormCadastrarGrupo())
+            using (FormCadastrarGrupo frm = new FormCadastrarGrupo())
             {
                 frm.ShowDialog();
             }
         }
+
+
+        private void buttonAlterarGrupo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (grupoUsuarioBindingSource.Count == 0)
+                {
+                    MessageBox.Show("Não tem grupo selecionado");
+                    return;
+                }
+                int id = ((GrupoUsuario)grupoUsuarioBindingSource.Current).Id;
+                using (FormCadastrarGrupo frm = new FormCadastrarGrupo(true, id))
+                {
+                    frm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void buttonExcluirGrupo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (grupoUsuarioBindingSource.Count == 0)
+                {
+                    MessageBox.Show("Não foi selecionado grupo para ser excluído!");
+                    return;
+                }
+                GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
+                if (MessageBox.Show("Deseja realmente excluir este registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return;
+                }
+
+                grupoUsuarioBLL.Excluir(((GrupoUsuario)grupoUsuarioBindingSource.Current));
+                MessageBox.Show("Grupo excluído com sucesso");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void buttonAdicionarPermissao_Click(object sender, EventArgs e)
+        {
+
+            using (FormConsultarPermissoesGrupo frm = new FormConsultarPermissoesGrupo())
+            {
+                try
+                {
+
+                    frm.ShowDialog();
+                    if (frm.id == 0)//Id permissao selecionada na consulta
+                    {
+                        return;
+                    }
+                    GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
+                    int idGrupo = ((GrupoUsuario)grupoUsuarioBindingSource.Current).Id;
+                    grupoUsuarioBLL.VincularPermissaoGrupo(idGrupo, frm.id);
+                    MessageBox.Show("Permissão adicionada com sucesso!");
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Erro ao vincular Usuário em um grupo\n" + ex.Message);
+                }
+            }
+
+
+        }
+
+        private void buttonExcluirPermissao_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
+                if (grupoUsuarioBindingSource.Count > 0 && permissoesBindingSource.Count > 0)
+                {
+                    int id_grupo = ((GrupoUsuario)grupoUsuarioBindingSource.Current).Id;
+                    int id_permissao = ((Permissao)permissoesBindingSource.Current).Id;
+                    if (MessageBox.Show("Deseja realmente excluir este registro?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        return;
+                    }
+                    grupoUsuarioBLL.RemoverVinculoGrupoPermissao(id_grupo, id_permissao);
+                    MessageBox.Show("Permissão removida com sucesso.");
+                }
+                else
+                {
+                    MessageBox.Show("Grupo de Usuário ou Permissão não selecionado");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
+
+

@@ -41,5 +41,17 @@ namespace BLL
             PermissaoDAL permissaoDAL = new PermissaoDAL();
             permissaoDAL.Excluir(_id);
         }
+
+        public List<Permissao> BuscarPermissao_PorNome(string _nomePermissao)
+        {
+            PermissaoDAL permissaoDAL = new PermissaoDAL();
+            return permissaoDAL.BuscarPermissao_PorNome(_nomePermissao);
+        }
+
+        public List<Permissao> BuscarTodasPermissoes_PorId(int _idPermissao)
+        {
+            PermissaoDAL permissaoDAL = new PermissaoDAL();
+            return permissaoDAL.BuscarTodasPermissoes_PorId(_idPermissao);
+        }
     }
 }

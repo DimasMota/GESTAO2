@@ -281,7 +281,7 @@
             this.grupoUsuariosDataGridView.ReadOnly = true;
             this.grupoUsuariosDataGridView.RowHeadersWidth = 51;
             this.grupoUsuariosDataGridView.RowTemplate.Height = 24;
-            this.grupoUsuariosDataGridView.Size = new System.Drawing.Size(482, 354);
+            this.grupoUsuariosDataGridView.Size = new System.Drawing.Size(482, 380);
             this.grupoUsuariosDataGridView.TabIndex = 12;
             // 
             // dataGridViewTextBoxColumn8
@@ -321,6 +321,7 @@
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.textBox1);
             this.Name = "FormBuscarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de usuário";
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataGridView)).EndInit();

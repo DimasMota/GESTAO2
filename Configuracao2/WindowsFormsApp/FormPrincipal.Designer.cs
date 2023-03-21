@@ -73,6 +73,7 @@
             this.permissõesToolStripMenuItem.Name = "permissõesToolStripMenuItem";
             this.permissõesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.permissõesToolStripMenuItem.Text = "Permissões";
+            this.permissõesToolStripMenuItem.Click += new System.EventHandler(this.permissõesToolStripMenuItem_Click);
             // 
             // gruposDeUsuáriosToolStripMenuItem
             // 
@@ -101,6 +102,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GESTÃO";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);

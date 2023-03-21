@@ -3,6 +3,7 @@ using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,14 +42,14 @@ namespace BLL
 
         }
 
-        public GrupoUsuario BuscarGrupoPorNome(string _nome)
+        public List<GrupoUsuario> BuscarGrupoPorNome(string _nomeGrupo)
         {
           //  if (String.IsNullOrEmpty(_nome))
           //  {
           //      throw new Exception("Informe o nome do usuário");
           //  }
             GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
-            return grupousuarioDAL.BuscarGrupoPorNome(_nome);
+            return grupousuarioDAL.BuscarGrupoPorNome(_nomeGrupo);
 
         }
 
@@ -89,8 +90,24 @@ namespace BLL
         }
         public void Excluir(GrupoUsuario _id)
         {
+            if (new GrupoUsuarioDAL().ExisteVinculo_GrupoComUsuario(_id))
+            {
+                throw new Exception("Não é possível EXCLUIR este grupo \nTem Usuário com vínculo com este grupo.");
+            }
             GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
             grupousuarioDAL.Excluir(_id);
+        }
+
+        public void RemoverVinculoGrupoPermissao(int _id_grupo, int _id_permissao)
+        {
+            GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+            grupousuarioDAL.RemoverVinculoGrupoPermissao( _id_grupo, _id_permissao);
+        }
+
+        public void VincularPermissaoGrupo(int _idGrupo, int _idPemrissao)
+        {
+            GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
+            grupousuarioDAL.VincularPermissaoGrupo( _idGrupo, _idPemrissao);
         }
     }
 }

@@ -38,10 +38,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // grupoUsuarioBindingSource
-            // 
-            this.grupoUsuarioBindingSource.DataSource = typeof(Models.GrupoUsuario);
-            // 
             // nomeGrupoLabel
             // 
             nomeGrupoLabel.AutoSize = true;
@@ -50,6 +46,10 @@
             nomeGrupoLabel.Size = new System.Drawing.Size(87, 16);
             nomeGrupoLabel.TabIndex = 0;
             nomeGrupoLabel.Text = "Nome Grupo:";
+            // 
+            // grupoUsuarioBindingSource
+            // 
+            this.grupoUsuarioBindingSource.DataSource = typeof(Models.GrupoUsuario);
             // 
             // nomeGrupoTextBox
             // 
@@ -88,7 +88,9 @@
             this.Controls.Add(nomeGrupoLabel);
             this.Controls.Add(this.nomeGrupoTextBox);
             this.Name = "FormCadastrarGrupo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Grupo";
+            this.Load += new System.EventHandler(this.FormCadastrarGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

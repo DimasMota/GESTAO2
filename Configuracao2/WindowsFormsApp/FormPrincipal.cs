@@ -37,5 +37,10 @@ namespace WindowsFormsApp
                 frm.ShowDialog();
             }
         }
+
+        private void permissõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (FormBuscarPermissao frm = new FormBuscarPermissao()) { frm.ShowDialog(); }
+        }
     }
 }
