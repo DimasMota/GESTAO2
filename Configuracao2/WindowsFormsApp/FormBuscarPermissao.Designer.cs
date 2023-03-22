@@ -29,14 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.permissaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.permissaoDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grupoUsuariosDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonBuscarPermissao = new System.Windows.Forms.Button();
             this.buttonAlterarPermissao = new System.Windows.Forms.Button();
             this.buttonAdicionarPermissao = new System.Windows.Forms.Button();
@@ -47,15 +41,17 @@
             this.radioButton_BuscarTodasPermissoes = new System.Windows.Forms.RadioButton();
             this.radioButton_BuscarPorNome = new System.Windows.Forms.RadioButton();
             this.radioButton_BuscarPorId = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).BeginInit();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.permissaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.permissaoDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // permissaoBindingSource
-            // 
-            this.permissaoBindingSource.DataSource = typeof(Models.Permissao);
             // 
             // permissaoDataGridView
             // 
@@ -77,29 +73,6 @@
             this.permissaoDataGridView.Size = new System.Drawing.Size(581, 273);
             this.permissaoDataGridView.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Descricao";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Descricao";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // grupoUsuariosBindingSource
-            // 
-            this.grupoUsuariosBindingSource.DataMember = "GrupoUsuarios";
-            this.grupoUsuariosBindingSource.DataSource = this.permissaoBindingSource;
-            // 
             // grupoUsuariosDataGridView
             // 
             this.grupoUsuariosDataGridView.AllowUserToAddRows = false;
@@ -119,24 +92,6 @@
             this.grupoUsuariosDataGridView.Size = new System.Drawing.Size(313, 273);
             this.grupoUsuariosDataGridView.TabIndex = 2;
             // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "NomeGrupo";
-            this.dataGridViewTextBoxColumn3.HeaderText = "NomeGrupo";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
             // buttonBuscarPermissao
             // 
             this.buttonBuscarPermissao.Location = new System.Drawing.Point(321, 81);
@@ -155,6 +110,7 @@
             this.buttonAlterarPermissao.TabIndex = 4;
             this.buttonAlterarPermissao.Text = "Alterar";
             this.buttonAlterarPermissao.UseVisualStyleBackColor = true;
+            this.buttonAlterarPermissao.Click += new System.EventHandler(this.buttonAlterarPermissao_Click);
             // 
             // buttonAdicionarPermissao
             // 
@@ -164,6 +120,7 @@
             this.buttonAdicionarPermissao.TabIndex = 5;
             this.buttonAdicionarPermissao.Text = "Adicionar";
             this.buttonAdicionarPermissao.UseVisualStyleBackColor = true;
+            this.buttonAdicionarPermissao.Click += new System.EventHandler(this.buttonAdicionarPermissao_Click);
             // 
             // buttonExcluirPermissao
             // 
@@ -173,15 +130,17 @@
             this.buttonExcluirPermissao.TabIndex = 6;
             this.buttonExcluirPermissao.Text = "Excluir";
             this.buttonExcluirPermissao.UseVisualStyleBackColor = true;
+            this.buttonExcluirPermissao.Click += new System.EventHandler(this.buttonExcluirPermissao_Click);
             // 
             // buttonAdionarPermissaoGrupo
             // 
-            this.buttonAdionarPermissaoGrupo.Location = new System.Drawing.Point(761, 105);
+            this.buttonAdionarPermissaoGrupo.Location = new System.Drawing.Point(752, 105);
             this.buttonAdionarPermissaoGrupo.Name = "buttonAdionarPermissaoGrupo";
-            this.buttonAdionarPermissaoGrupo.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdionarPermissaoGrupo.Size = new System.Drawing.Size(84, 23);
             this.buttonAdionarPermissaoGrupo.TabIndex = 7;
             this.buttonAdionarPermissaoGrupo.Text = "Adicionar";
             this.buttonAdionarPermissaoGrupo.UseVisualStyleBackColor = true;
+            this.buttonAdionarPermissaoGrupo.Click += new System.EventHandler(this.buttonAdionarPermissaoGrupo_Click);
             // 
             // buttonExcluirPermissaoGrupo
             // 
@@ -191,6 +150,7 @@
             this.buttonExcluirPermissaoGrupo.TabIndex = 8;
             this.buttonExcluirPermissaoGrupo.Text = "Excluir";
             this.buttonExcluirPermissaoGrupo.UseVisualStyleBackColor = true;
+            this.buttonExcluirPermissaoGrupo.Click += new System.EventHandler(this.buttonExcluirPermissaoGrupo_Click);
             // 
             // textBox1
             // 
@@ -233,6 +193,51 @@
             this.radioButton_BuscarPorId.Text = "Buscar / ID";
             this.radioButton_BuscarPorId.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NomeGrupo";
+            this.dataGridViewTextBoxColumn3.HeaderText = "NomeGrupo";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // grupoUsuariosBindingSource
+            // 
+            this.grupoUsuariosBindingSource.DataMember = "GrupoUsuarios";
+            this.grupoUsuariosBindingSource.DataSource = this.permissaoBindingSource;
+            // 
+            // permissaoBindingSource
+            // 
+            this.permissaoBindingSource.DataSource = typeof(Models.Permissao);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Descricao";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Descricao";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // FormBuscarPermissao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -253,10 +258,10 @@
             this.Name = "FormBuscarPermissao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de Permissão";
-            ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissaoDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

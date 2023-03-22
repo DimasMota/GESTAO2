@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace DAL
 {
     public class PermissaoDAL
     {
-        public void Inserir(Permissao _permissao)
+        public void Inserir(string _permissao, int _idPermissao)
         {
             SqlConnection cn = new SqlConnection();
             try
@@ -16,10 +17,11 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "INSERT INTO Permissao(Descricao)" +
-                                  "VALUES (@descricao)";
+                cmd.CommandText = "INSERT INTO Permissao(id_Permissao,Descricao)" +
+                                  "VALUES (@idPermissao, @descricao)";
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@descricao", _permissao.Descricao);
+                cmd.Parameters.AddWithValue("@idPermissao", _idPermissao);
+                cmd.Parameters.AddWithValue("@descricao", _permissao);
 
 
                 cn.Open();
@@ -260,6 +262,71 @@ namespace DAL
             {
 
                 throw new Exception("Ocorreu um erro ao tentar buscar Permissões: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public bool ExistePermissaoComEsteId(int _id)
+        {
+            Permissao permissao = new Permissao();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Permissao  WHERE id_Permissao = @id ";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@id", _id);
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public bool ExisteVinculoDaPermissaoComGrupo(int _id)
+        {
+
+            Permissao permissao = new Permissao();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Permissao_com_Grupo  WHERE cod_Permissao = @id ";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@id", _id);
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar buscar vínculos de permissão com grupo: " + ex.Message);
             }
             finally
             {

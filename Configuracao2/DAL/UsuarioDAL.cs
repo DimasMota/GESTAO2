@@ -434,6 +434,40 @@ namespace DAL
                 cn.Close();
             }
         }
+        public bool ValidarPermissao(int _idUsuario, int _idPermissao)
+        {
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = "SELECT TOP 1 1 AS Resultado FROM Grupo_com_Usuario_N_N " +
+                                  "INNER JOIN Permissao_com_Grupo ON Grupo_com_Usuario_N_N.cod_GrupoUsuario = Permissao_com_Grupo.cod_GrupoUsuario " +
+                                  "WHERE Grupo_com_Usuario_N_N.cod_Usuario = @Id_Usuario AND Permissao_com_Grupo.cod_Permissao = @Id_Permissao";
+
+                cmd.Parameters.AddWithValue("@Id_Usuario", _idUsuario);
+                cmd.Parameters.AddWithValue("@Id_Permissao", _idPermissao);
+
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                        return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar validar permissão do usuário: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 
 
