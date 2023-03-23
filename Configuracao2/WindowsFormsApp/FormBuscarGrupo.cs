@@ -18,16 +18,14 @@ namespace WindowsFormsApp
         {
             InitializeComponent();
         }
-
         private void buttonBuscarGrupo_Click(object sender, EventArgs e)
         {
             try
             {
-
+                new UsuarioBLL().ValidarPermissao(5);
                 GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
                 if (radioButtonBuscarTodos.Checked)
                 {
-
                     grupoUsuarioBindingSource.DataSource = grupoUsuarioBLL.BuscarTodosGrupos();
                 }
                 else if (radioButtonBuscarNome.Checked)
@@ -42,25 +40,31 @@ namespace WindowsFormsApp
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void buttonAdicionarGrupo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new UsuarioBLL().ValidarPermissao(6);
+                buttonBuscarGrupo_Click(sender, e);
+                using (FormCadastrarGrupo frm = new FormCadastrarGrupo())
+                {
+                    frm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
 
                 MessageBox.Show(ex.Message);
             }
-
         }
-
-        private void buttonAdicionarGrupo_Click(object sender, EventArgs e)
-        {
-            using (FormCadastrarGrupo frm = new FormCadastrarGrupo())
-            {
-                frm.ShowDialog();
-            }
-        }
-
-
         private void buttonAlterarGrupo_Click(object sender, EventArgs e)
         {
             try
             {
+                new UsuarioBLL().ValidarPermissao(7);
                 if (grupoUsuarioBindingSource.Count == 0)
                 {
                     MessageBox.Show("Não tem grupo selecionado");
@@ -74,15 +78,14 @@ namespace WindowsFormsApp
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void buttonExcluirGrupo_Click(object sender, EventArgs e)
         {
             try
             {
+                new UsuarioBLL().ValidarPermissao(8);
                 if (grupoUsuarioBindingSource.Count == 0)
                 {
                     MessageBox.Show("Não foi selecionado grupo para ser excluído!");
@@ -93,50 +96,50 @@ namespace WindowsFormsApp
                 {
                     return;
                 }
-
                 grupoUsuarioBLL.Excluir(((GrupoUsuario)grupoUsuarioBindingSource.Current));
                 MessageBox.Show("Grupo excluído com sucesso");
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void buttonAdicionarPermissao_Click(object sender, EventArgs e)
         {
-
-            using (FormConsultarPermissoesGrupo frm = new FormConsultarPermissoesGrupo())
+            try
             {
-                try
+                new UsuarioBLL().ValidarPermissao(9);
+                using (FormConsultarPermissoesGrupo frm = new FormConsultarPermissoesGrupo())
                 {
-
-                    frm.ShowDialog();
-                    if (frm.id == 0)//Id permissao selecionada na consulta
+                    try
                     {
-                        return;
+                        frm.ShowDialog();
+                        if (frm.id == 0)//Id permissao selecionada na consulta
+                        {
+                            return;
+                        }
+                        GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
+                        int idGrupo = ((GrupoUsuario)grupoUsuarioBindingSource.Current).Id;
+                        grupoUsuarioBLL.VincularPermissaoGrupo(idGrupo, frm.id);
+                        MessageBox.Show("Permissão adicionada com sucesso!");
                     }
-                    GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
-                    int idGrupo = ((GrupoUsuario)grupoUsuarioBindingSource.Current).Id;
-                    grupoUsuarioBLL.VincularPermissaoGrupo(idGrupo, frm.id);
-                    MessageBox.Show("Permissão adicionada com sucesso!");
-                }
-                catch (Exception ex)
-                {
+                    catch (Exception ex)
+                    {
 
-                    MessageBox.Show("Erro ao vincular Usuário em um grupo\n" + ex.Message);
+                        MessageBox.Show("Erro ao vincular Usuário em um grupo\n" + ex.Message);
+                    }
                 }
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
         private void buttonExcluirPermissao_Click(object sender, EventArgs e)
         {
             try
             {
+                new UsuarioBLL().ValidarPermissao(12);
                 GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
                 if (grupoUsuarioBindingSource.Count > 0 && permissoesBindingSource.Count > 0)
                 {
@@ -157,7 +160,6 @@ namespace WindowsFormsApp
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }

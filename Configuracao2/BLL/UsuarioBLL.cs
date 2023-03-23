@@ -10,7 +10,7 @@ namespace BLL
     {
         public void Inserir(Usuario _usuario, string _confirmacaoSenha)
         {
-
+            ValidarPermissao(2);
             ValidarDados(_usuario, _confirmacaoSenha);
             Usuario usuario = new Usuario();
 
@@ -22,6 +22,12 @@ namespace BLL
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Inserir(_usuario);
         }
+        public void ValidarPermissao(int _idPermissao)
+        {
+            if (!new UsuarioDAL().ValidarPermissao(Constantes.IdUsuarioLogado, _idPermissao))
+                throw new Exception("Você não tem permissão para executar esta operação.");
+        }
+
         private void ValidarDados(Usuario _usuario, string _confirmacaoSenha)
         {
             if (_usuario.NomeUsuario.Length <= 3 || _usuario.NomeUsuario.Length > 50) // length conta o numero de caracteres

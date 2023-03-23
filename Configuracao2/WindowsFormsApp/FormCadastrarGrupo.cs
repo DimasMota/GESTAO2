@@ -37,11 +37,13 @@ namespace WindowsFormsApp
                 {
                     grupoUsuarioBLL.Inserir((GrupoUsuario)grupoUsuarioBindingSource.Current);
                     MessageBox.Show("Grupo adicionado com sucesso!");
+                    Close();
                 }
                 else
                 {
                     grupoUsuarioBLL.Alterar((GrupoUsuario)grupoUsuarioBindingSource.Current);
                     MessageBox.Show("Grupo alterado com sucesso!");
+                    Close();
                 }
             }
             catch (Exception ex)
@@ -55,6 +57,11 @@ namespace WindowsFormsApp
             {
                 grupoUsuarioBindingSource.AddNew();
             }
+        }
+
+        private void button_CancelarCadastro_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

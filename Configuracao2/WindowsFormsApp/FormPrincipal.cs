@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using BLL;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +17,14 @@ namespace WindowsFormsApp
         public FormPrincipal()
         {
             InitializeComponent();
-            Constantes.IdUsuarioLogado = 4;
+            Constantes.IdUsuarioLogado = 3; // tem todas as permissões 3
         }
 
       
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
             using (FormBuscarUsuario frm = new FormBuscarUsuario())
             {
                 frm.ShowDialog();
@@ -41,5 +43,6 @@ namespace WindowsFormsApp
         {
             using (FormBuscarPermissao frm = new FormBuscarPermissao()) { frm.ShowDialog(); }
         }
+
     }
 }

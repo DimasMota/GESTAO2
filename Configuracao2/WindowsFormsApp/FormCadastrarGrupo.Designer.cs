@@ -77,6 +77,7 @@
             this.button_CancelarCadastro.TabIndex = 3;
             this.button_CancelarCadastro.Text = "Cancelar";
             this.button_CancelarCadastro.UseVisualStyleBackColor = true;
+            this.button_CancelarCadastro.Click += new System.EventHandler(this.button_CancelarCadastro_Click);
             // 
             // FormCadastrarGrupo
             // 

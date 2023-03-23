@@ -23,6 +23,7 @@ namespace WindowsFormsApp
         {
             try
             {
+               // new UsuarioBLL().ValidarPermissao(13);
                 PermissaoBLL permissaoBLL = new PermissaoBLL();
                 if (radioButton_BuscarTodasPermissoes.Checked)
                 {
@@ -46,10 +47,21 @@ namespace WindowsFormsApp
 
         private void buttonAdicionarPermissao_Click(object sender, EventArgs e)
         {
-            using (FormCadastrarPermissao frm = new FormCadastrarPermissao())
+            try
             {
-                frm.ShowDialog();
+             //   new UsuarioBLL().ValidarPermissao(14);
+                using (FormCadastrarPermissao frm = new FormCadastrarPermissao())
+                {
+                    frm.ShowDialog();
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+           
         }
 
         private void buttonAlterarPermissao_Click(object sender, EventArgs e)
@@ -57,6 +69,7 @@ namespace WindowsFormsApp
 
             try
             {
+             //   new UsuarioBLL().ValidarPermissao(15);
                 int id = ((Permissao)permissaoBindingSource.Current).Id;
                 using (FormCadastrarPermissao frm = new FormCadastrarPermissao(true, id ))
                 {
@@ -76,6 +89,7 @@ namespace WindowsFormsApp
         {
             try
             {
+             //   new UsuarioBLL().ValidarPermissao(16);
                 if (permissaoBindingSource.Count == 0)
                 {
                     MessageBox.Show("Não foi selecionado grupo para ser excluído!");
@@ -101,6 +115,7 @@ namespace WindowsFormsApp
         {
             try
             {
+             //   new UsuarioBLL().ValidarPermissao(17);
                 using (FormConsultarGruposPermissao frm = new FormConsultarGruposPermissao())
                 {
                     frm.ShowDialog();
@@ -127,6 +142,7 @@ namespace WindowsFormsApp
         {
             try
             {
+             //   new UsuarioBLL().ValidarPermissao(18);
                 GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
                PermissaoBLL permissaoBLL = new PermissaoBLL();
                 if (permissaoBindingSource.Count > 0 && grupoUsuariosBindingSource.Count > 0)
@@ -148,7 +164,6 @@ namespace WindowsFormsApp
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }
