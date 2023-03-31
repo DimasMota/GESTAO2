@@ -199,7 +199,7 @@ namespace DAL
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
                         GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
                         usuario.GrupoUsuarios = grupousuarioDAL.BuscarTodos_GruposPorUsuario(usuario.Id);
-                       
+
 
                     }
                     else
@@ -252,7 +252,7 @@ namespace DAL
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
                         GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
                         usuario.GrupoUsuarios = grupousuarioDAL.BuscarTodos_GruposPorUsuario(usuario.Id);
-                       ;
+                        ;
 
                     }
                     else
@@ -304,7 +304,7 @@ namespace DAL
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
                         GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
                         usuario.GrupoUsuarios = grupousuarioDAL.BuscarTodos_GruposPorUsuario(usuario.Id);
-                      
+
 
                     }
                     else
@@ -368,40 +368,88 @@ namespace DAL
             }
 
         }
-
-        public void Excluir(Usuario _id)
+/*
+        public void Excluir(Usuario _id, SqlTransaction _transaction = null)
         {
-            SqlConnection cn = new SqlConnection();
-            try
+            SqlTransaction transaction = _transaction;
+
+            using (SqlConnection cn = new SqlConnection(Conexao.StringDeConexao))
             {
 
-                cn.ConnectionString = Conexao.StringDeConexao;
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = cn;
-                cmd.CommandText = "DELETE FROM Usuario WHERE id_Usuario= @id";
+
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM Usuario WHERE id_Usuario= @id", cn))
+                {
 
 
-                cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.Connection = cn;
 
-                cmd.Parameters.AddWithValue("@id", _id.Id);
+                    cmd.CommandType = System.Data.CommandType.Text;
 
-                cn.Open();
-                cmd.ExecuteScalar();
+                    cmd.Parameters.AddWithValue("@id", _id.Id);
 
+                    try
+                    {
+                        if (_transaction == null)
+                        {
 
+                            cn.Open();
+                            transaction = cn.BeginTransaction();
+                        }
+                        cmd.Transaction = transaction;
+                        cmd.Connection = transaction.Connection;
+
+                        RemoverTodasPermissoes(_idGrupoUsuario)
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                    cmd.ExecuteScalar();
+
+                }
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
 
 
-            }
-            finally
-            {
-                cn.Close();
-            }
 
         }
+*/
+       
+                public void Excluir(Usuario _id)
+                {
+                    SqlConnection cn = new SqlConnection();
+                    try
+                    {
+
+                        cn.ConnectionString = Conexao.StringDeConexao;
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = cn;
+                        cmd.CommandText = "DELETE FROM Usuario WHERE id_Usuario= @id";
+
+
+                        cmd.CommandType = System.Data.CommandType.Text;
+
+                        cmd.Parameters.AddWithValue("@id", _id.Id);
+
+                        cn.Open();
+                        cmd.ExecuteScalar();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+
+
+                    }
+                    finally
+                    {
+                        cn.Close();
+                    }
+
+                }
+        
 
         public void RemoverGrupoUsuario(int _id_usuario, int _id_grupo)
         {

@@ -90,10 +90,10 @@ namespace BLL
         }
         public void Excluir(GrupoUsuario _id)
         {
-            if (new GrupoUsuarioDAL().ExisteVinculo_GrupoComUsuario(_id))
-            {
-                throw new Exception("Não é possível EXCLUIR este grupo \nTem Usuário com vínculo com este grupo.");
-            }
+         //   if (new GrupoUsuarioDAL().ExisteVinculo_GrupoComUsuario(_id))
+         //   {
+        //        throw new Exception("Não é possível EXCLUIR este grupo \nTem Usuário com vínculo com este grupo.");
+        //    }
             GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
             grupousuarioDAL.Excluir(_id);
         }
