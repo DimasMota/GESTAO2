@@ -23,6 +23,9 @@ namespace WindowsFormsApp
 
         private void button_Entrar_Click(object sender, EventArgs e)
         {
+            try
+            {
+
             UsuarioBLL usuarioBLL = new UsuarioBLL();
             Usuario usuario = new Usuario();
             BindingSource usuarioBindingSource = new BindingSource();
@@ -30,14 +33,14 @@ namespace WindowsFormsApp
             string login;
             string senha;
             login = usuario.NomeUsuario;
-                senha = usuario.Senha;
+            senha = usuario.Senha;
             if (login !="")
             {
                 
                 if (login == textBox_NomeUsuario.Text && textBox_Senha.Text == senha)
                 {
                     Logou = true;
-                    Id = ((Usuario)usuarioBindingSource.Current).Id;
+                    Id = usuario.Id;
                     
                     Close();
 
@@ -54,6 +57,12 @@ namespace WindowsFormsApp
                 MessageBox.Show("Login e/ou Senha incorreto");
                 textBox_Senha.Text = "";
                 textBox_Senha.Focus();
+            }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
         }
 

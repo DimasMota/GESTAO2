@@ -19,7 +19,22 @@ namespace WindowsFormsApp
         public FormPrincipal()
         {
             InitializeComponent();
+            using (Form_Login frm = new Form_Login())
+            {
+                frm.ShowDialog();
+                if (!frm.Logou)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                   Id = frm.Id;
+                    Constantes.IdUsuarioLogado = Id;
+                }
+            }
            
+
+
             Constantes.IdUsuarioLogado = Id; // tem todas as permissões 3
         }
 
@@ -46,30 +61,5 @@ namespace WindowsFormsApp
         {
             using (FormBuscarPermissao frm = new FormBuscarPermissao()) { frm.ShowDialog(); }
         }
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-            using (Form_Login frm = new Form_Login())
-            {
-                frm.ShowDialog();
-                if (!frm.Logou)
-                {
-                    Application.Exit();
-                }
-                else
-                {
-                    Id = frm.Id; 
-                }
-              
-            }
-
-
-        }
-        /*
-        private void LoginSenha()
-        {
-           
-        }
-        */
     }
 }

@@ -286,7 +286,7 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT id_Usuario, nome, nome_Usuario, data_Nascimento, cpf_Usuario, email, ativo FROM Usuario  WHERE nome_Usuario = @nome";
+                cmd.CommandText = @"SELECT id_Usuario, nome, nome_Usuario, data_Nascimento, cpf_Usuario, email, ativo, senha FROM Usuario  WHERE nome_Usuario = @nome";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@nome", _nome);
                 cn.Open();
@@ -301,6 +301,7 @@ namespace DAL
                         usuario.DataNascimento = rd["data_Nascimento"].ToString();
                         usuario.Cpf = rd["cpf_Usuario"].ToString();
                         usuario.Email = rd["email"].ToString();
+                        usuario.Senha = rd["senha"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
                         GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
                         usuario.GrupoUsuarios = grupousuarioDAL.BuscarTodos_GruposPorUsuario(usuario.Id);
