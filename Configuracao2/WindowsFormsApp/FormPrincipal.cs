@@ -32,10 +32,6 @@ namespace WindowsFormsApp
                     Constantes.IdUsuarioLogado = Id;
                 }
             }
-           
-
-
-            Constantes.IdUsuarioLogado = Id; // tem todas as permissões 3
         }
 
       
