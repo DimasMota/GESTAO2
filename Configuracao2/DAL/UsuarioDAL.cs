@@ -517,6 +517,40 @@ namespace DAL
                 cn.Close();
             }
         }
+
+        public bool NomeUsuario_Existe(string _nomeUsuario)
+        {
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = "SELECT TOP 1 1 AS Resultado FROM Usuario WHERE nome_Usuario = @nome";
+
+                cmd.Parameters.AddWithValue("@nome", _nomeUsuario);
+             
+
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                        return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar validar permissão do usuário: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
     }
 
 

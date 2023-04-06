@@ -66,7 +66,7 @@ namespace WindowsFormsApp
             try
             {
                 new UsuarioBLL().ValidarPermissao(2);
-                buttonBuscar_Click(sender, e);
+                 buttonBuscar_Click(sender, e);
 
                 using (FormCadastrarUsuario frm = new FormCadastrarUsuario())
                 {
@@ -85,12 +85,14 @@ namespace WindowsFormsApp
             try
             {
                 new UsuarioBLL().ValidarPermissao(3);
+
                 if (usuarioBindingSource.Count == 0)
                 {
                     MessageBox.Show("Não existe grupo de usuário para ser excluido.");
                     return;
                 }
                 int id = ((Usuario)usuarioBindingSource.Current).Id;
+               
                 using (FormCadastrarUsuario frm = new FormCadastrarUsuario(true, id))
                 {
                     frm.ShowDialog();

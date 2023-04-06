@@ -12,16 +12,21 @@ namespace BLL
         {
             ValidarPermissao(2);
             ValidarDados(_usuario, _confirmacaoSenha);
-            Usuario usuario = new Usuario();
+            
+            string nomeUsuario = _usuario.NomeUsuario;
+            
 
-            usuario = BuscarUsuarioPorNome(_usuario.NomeUsuario);
-            if (usuario.NomeUsuario == _usuario.NomeUsuario)
+
+            if (new UsuarioDAL().NomeUsuario_Existe(nomeUsuario))
             {
                 throw new Exception("Usuário já existente");
             }
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Inserir(_usuario);
         }
+
+      
+
         public void ValidarPermissao(int _idPermissao)
         {
             if (!new UsuarioDAL().ValidarPermissao(Constantes.IdUsuarioLogado, _idPermissao))

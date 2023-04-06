@@ -33,19 +33,21 @@ namespace WindowsFormsApp
 
             try
             {
-                UsuarioBLL usuarioBLL = new UsuarioBLL();
                 usuarioBindingSource.EndEdit();
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
                 if (!alterar)
                 {
                     usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current, textBoxConfirmarSenha.Text);
                     MessageBox.Show("Cadastrado com sucesso!");
+                    Close();
                 }
                 else
                 {
                     usuarioBLL.Alterar((Usuario)usuarioBindingSource.Current, textBoxConfirmarSenha.Text);
                     MessageBox.Show("Alterado com sucesso!");
+                    Close();
+
                 }
-                Close();
             }
             catch (Exception ex)
             {
@@ -79,17 +81,6 @@ namespace WindowsFormsApp
                 Close();
             }
         }
-        /*
-private void LimparCampos()
-{
-   nomeTextBox.Text = "";
-   nomeUsuarioTextBox.Text = "";
-   maskedcPFTextBox.Text = string.Empty;
-   // cPFTextBox.Text = string.Empty;
-   emailTextBox.Text = string.Empty;
-   senhaTextBox.Text = string.Empty;
-   ativoCheckBox.Checked = true;
-}
-*/
+
     }
 }
