@@ -39,10 +39,10 @@ namespace WindowsFormsApp
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
-            using (FormBuscarUsuario frm = new FormBuscarUsuario())
-            {
-                frm.ShowDialog();
-            }
+          //  using (FormBuscarUsuario frm = new FormBuscarUsuario())
+         //   {
+        //        frm.ShowDialog();
+          //  }
         }
 
         private void gruposDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,6 +56,14 @@ namespace WindowsFormsApp
         private void permissõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (FormBuscarPermissao frm = new FormBuscarPermissao()) { frm.ShowDialog(); }
+        }
+
+        private void pessoasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (BuscarPessoa frm = new BuscarPessoa())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }

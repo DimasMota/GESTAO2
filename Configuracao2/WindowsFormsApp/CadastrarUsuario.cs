@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
-    public partial class BuscarUsuario : Form
+    public partial class CadastrarUsuario : Form
     {
-        public BuscarUsuario()
+        public CadastrarUsuario()
         {
             InitializeComponent();
         }

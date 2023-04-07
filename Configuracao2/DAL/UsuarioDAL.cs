@@ -10,6 +10,7 @@ namespace DAL
 {
     public class UsuarioDAL
     {
+
         public void Inserir(Usuario _usuario)
         {
             SqlConnection cn = new SqlConnection();
@@ -22,12 +23,12 @@ namespace DAL
                 cmd.CommandText = "INSERT INTO Usuario(nome, nome_Usuario, data_Nascimento, cpf_Usuario,senha,email, ativo)" +
                                   "VALUES (@nome, @nome_Usuario, @data_Nascimento, @cpf_Usuario, @senha, @email, @ativo)";
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@nome", _usuario.Nome);
+               // cmd.Parameters.AddWithValue("@nome", _usuario.Nome);
                 cmd.Parameters.AddWithValue("@nome_Usuario", _usuario.NomeUsuario);
-                cmd.Parameters.AddWithValue("@data_Nascimento", _usuario.DataNascimento);
-                cmd.Parameters.AddWithValue("@cpf_Usuario", _usuario.Cpf);
+              //  cmd.Parameters.AddWithValue("@data_Nascimento", _usuario.DataNascimento);
+                //cmd.Parameters.AddWithValue("@cpf_Usuario", _usuario.Cpf);
                 cmd.Parameters.AddWithValue("@senha", _usuario.Senha);
-                cmd.Parameters.AddWithValue("@email", _usuario.Email);
+                //cmd.Parameters.AddWithValue("@email", _usuario.Email);
                 cmd.Parameters.AddWithValue("@ativo", _usuario.Ativo);
 
                 cn.Open();
@@ -143,11 +144,11 @@ namespace DAL
                     {
                         usuario = new Usuario();
                         usuario.Id = Convert.ToInt32(rd["id_Usuario"]);
-                        usuario.Nome = rd["nome"].ToString();
+                  //      usuario.Nome = rd["nome"].ToString();
                         usuario.NomeUsuario = rd["nome_Usuario"].ToString();
-                        usuario.DataNascimento = rd["data_Nascimento"].ToString();
-                        usuario.Cpf = rd["cpf_Usuario"].ToString();
-                        usuario.Email = rd["email"].ToString();
+                  //      usuario.DataNascimento = rd["data_Nascimento"].ToString();
+                  //      usuario.Cpf = rd["cpf_Usuario"].ToString();
+                  //      usuario.Email = rd["email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
                         GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
                         usuario.GrupoUsuarios = grupousuarioDAL.BuscarTodos_GruposPorUsuario(usuario.Id);
@@ -191,11 +192,11 @@ namespace DAL
                     {
                         usuario = new Usuario();
                         usuario.Id = Convert.ToInt32(rd["id_Usuario"]);
-                        usuario.Nome = rd["nome"].ToString();
+                 //       usuario.Nome = rd["nome"].ToString();
                         usuario.NomeUsuario = rd["nome_Usuario"].ToString();
-                        usuario.DataNascimento = rd["data_Nascimento"].ToString();
-                        usuario.Cpf = rd["cpf_Usuario"].ToString();
-                        usuario.Email = rd["email"].ToString();
+                 //       usuario.DataNascimento = rd["data_Nascimento"].ToString();
+                 //       usuario.Cpf = rd["cpf_Usuario"].ToString();
+                  //      usuario.Email = rd["email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
                         GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
                         usuario.GrupoUsuarios = grupousuarioDAL.BuscarTodos_GruposPorUsuario(usuario.Id);
@@ -243,11 +244,11 @@ namespace DAL
                     {
                         usuario = new Usuario();
                         usuario.Id = Convert.ToInt32(rd["id_Usuario"]);
-                        usuario.Nome = rd["nome"].ToString();
+                 //       usuario.Nome = rd["nome"].ToString();
                         usuario.NomeUsuario = rd["nome_Usuario"].ToString();
-                        usuario.DataNascimento = rd["data_Nascimento"].ToString();
-                        usuario.Cpf = rd["cpf_Usuario"].ToString();
-                        usuario.Email = rd["email"].ToString();
+                //        usuario.DataNascimento = rd["data_Nascimento"].ToString();
+                //        usuario.Cpf = rd["cpf_Usuario"].ToString();
+                //        usuario.Email = rd["email"].ToString();
                         usuario.Senha = rd["senha"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
                         GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
@@ -286,7 +287,7 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT id_Usuario, nome, nome_Usuario, data_Nascimento, cpf_Usuario, email, ativo, senha FROM Usuario  WHERE nome_Usuario = @nome";
+                cmd.CommandText = @"SELECT id_Usuario, nome_Usuario,ativo, senha FROM Usuario  WHERE nome_Usuario = @nome";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@nome", _nome);
                 cn.Open();
@@ -296,11 +297,7 @@ namespace DAL
                     {
                         usuario = new Usuario();
                         usuario.Id = Convert.ToInt32(rd["id_Usuario"]);
-                        usuario.Nome = rd["nome"].ToString();
                         usuario.NomeUsuario = rd["nome_Usuario"].ToString();
-                        usuario.DataNascimento = rd["data_Nascimento"].ToString();
-                        usuario.Cpf = rd["cpf_Usuario"].ToString();
-                        usuario.Email = rd["email"].ToString();
                         usuario.Senha = rd["senha"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
                         GrupoUsuarioDAL grupousuarioDAL = new GrupoUsuarioDAL();
@@ -343,12 +340,12 @@ namespace DAL
 
                 cmd.CommandType = System.Data.CommandType.Text;
 
-                cmd.Parameters.AddWithValue("@nome", _usuario.Nome);
+            //    cmd.Parameters.AddWithValue("@nome", _usuario.Nome);
                 cmd.Parameters.AddWithValue("@nome_Usuario", _usuario.NomeUsuario);
-                cmd.Parameters.AddWithValue("@data_Nascimento", _usuario.DataNascimento);
-                cmd.Parameters.AddWithValue("@cpf_Usuario", _usuario.Cpf);
+            //    cmd.Parameters.AddWithValue("@data_Nascimento", _usuario.DataNascimento);
+            //    cmd.Parameters.AddWithValue("@cpf_Usuario", _usuario.Cpf);
                 cmd.Parameters.AddWithValue("@senha", _usuario.Senha);
-                cmd.Parameters.AddWithValue("@email", _usuario.Email);
+            //    cmd.Parameters.AddWithValue("@email", _usuario.Email);
                 cmd.Parameters.AddWithValue("@ativo", _usuario.Ativo);
                 cmd.Parameters.AddWithValue("@id", _usuario.Id);
 
