@@ -27,12 +27,23 @@ namespace WindowsFormsApp
             {
 
                 PessoaBLL pessoaBLL = new PessoaBLL();
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
+                Usuario usuario = new Usuario();
                 if (radioButton_BuscarTodasPessoas.Checked)
                 {
-                    
-
                     pessoaBindingSource.DataSource = pessoaBLL.BuscarTodos();
-
+                }
+                else if (radioButton_BuscarPor_Nome.Checked)
+                {
+                    pessoaBindingSource.DataSource = pessoaBLL.BuscarTodosPessoaPor_Nome(textBox_BuscaPessoa.Text);
+                }
+                else if(radioButton_BuscarPor_CPF.Checked)
+                {
+                    pessoaBindingSource.DataSource = pessoaBLL.BuscarPessoaPor_CPF(textBox_BuscaPessoa.Text);
+                }
+                else if (radioButton_BuscarPor_ID.Checked)
+                {
+                    pessoaBindingSource.DataSource = pessoaBLL.BuscarPessoaPor_ID(Convert.ToInt32(textBox_BuscaPessoa.Text));
                 }
 
             }
@@ -42,5 +53,11 @@ namespace WindowsFormsApp
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

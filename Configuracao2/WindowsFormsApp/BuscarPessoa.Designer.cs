@@ -45,13 +45,21 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_BuscaPessoa = new System.Windows.Forms.TextBox();
             this.radioButton_BuscarTodasPessoas = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton_BuscarPor_Nome = new System.Windows.Forms.RadioButton();
+            this.radioButton_BuscarPor_CPF = new System.Windows.Forms.RadioButton();
+            this.radioButton_BuscarPor_ID = new System.Windows.Forms.RadioButton();
+            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usuariosDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pessoaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pessoaDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // pessoaBindingSource
@@ -81,7 +89,7 @@
             this.pessoaDataGridView.Name = "pessoaDataGridView";
             this.pessoaDataGridView.ReadOnly = true;
             this.pessoaDataGridView.RowHeadersVisible = false;
-            this.pessoaDataGridView.Size = new System.Drawing.Size(1260, 446);
+            this.pessoaDataGridView.Size = new System.Drawing.Size(781, 446);
             this.pessoaDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -159,7 +167,7 @@
             // 
             // button_BuscarPessoa
             // 
-            this.button_BuscarPessoa.Location = new System.Drawing.Point(441, 146);
+            this.button_BuscarPessoa.Location = new System.Drawing.Point(475, 146);
             this.button_BuscarPessoa.Name = "button_BuscarPessoa";
             this.button_BuscarPessoa.Size = new System.Drawing.Size(75, 23);
             this.button_BuscarPessoa.TabIndex = 2;
@@ -169,7 +177,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(522, 146);
+            this.button2.Location = new System.Drawing.Point(556, 146);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -178,7 +186,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(603, 146);
+            this.button3.Location = new System.Drawing.Point(637, 146);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 4;
@@ -187,19 +195,19 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(684, 146);
+            this.button4.Location = new System.Drawing.Point(718, 146);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 5;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBox_BuscaPessoa
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 146);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(337, 20);
-            this.textBox1.TabIndex = 6;
+            this.textBox_BuscaPessoa.Location = new System.Drawing.Point(12, 146);
+            this.textBox_BuscaPessoa.Name = "textBox_BuscaPessoa";
+            this.textBox_BuscaPessoa.Size = new System.Drawing.Size(457, 20);
+            this.textBox_BuscaPessoa.TabIndex = 6;
             // 
             // radioButton_BuscarTodasPessoas
             // 
@@ -213,46 +221,104 @@
             this.radioButton_BuscarTodasPessoas.Text = "Buscar Todos";
             this.radioButton_BuscarTodasPessoas.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButton_BuscarPor_Nome
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(113, 123);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton_BuscarPor_Nome.AutoSize = true;
+            this.radioButton_BuscarPor_Nome.Location = new System.Drawing.Point(113, 123);
+            this.radioButton_BuscarPor_Nome.Name = "radioButton_BuscarPor_Nome";
+            this.radioButton_BuscarPor_Nome.Size = new System.Drawing.Size(91, 17);
+            this.radioButton_BuscarPor_Nome.TabIndex = 8;
+            this.radioButton_BuscarPor_Nome.Text = "Buscar/Nome";
+            this.radioButton_BuscarPor_Nome.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radioButton_BuscarPor_CPF
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(216, 123);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 9;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton_BuscarPor_CPF.AutoSize = true;
+            this.radioButton_BuscarPor_CPF.Location = new System.Drawing.Point(230, 123);
+            this.radioButton_BuscarPor_CPF.Name = "radioButton_BuscarPor_CPF";
+            this.radioButton_BuscarPor_CPF.Size = new System.Drawing.Size(83, 17);
+            this.radioButton_BuscarPor_CPF.TabIndex = 9;
+            this.radioButton_BuscarPor_CPF.Text = "Buscar/CPF";
+            this.radioButton_BuscarPor_CPF.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // radioButton_BuscarPor_ID
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(320, 123);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(85, 17);
-            this.radioButton4.TabIndex = 10;
-            this.radioButton4.Text = "radioButton4";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton_BuscarPor_ID.AutoSize = true;
+            this.radioButton_BuscarPor_ID.Location = new System.Drawing.Point(342, 123);
+            this.radioButton_BuscarPor_ID.Name = "radioButton_BuscarPor_ID";
+            this.radioButton_BuscarPor_ID.Size = new System.Drawing.Size(74, 17);
+            this.radioButton_BuscarPor_ID.TabIndex = 10;
+            this.radioButton_BuscarPor_ID.Text = "Buscar/ID";
+            this.radioButton_BuscarPor_ID.UseVisualStyleBackColor = true;
+            // 
+            // usuariosBindingSource
+            // 
+            this.usuariosBindingSource.DataMember = "Usuarios";
+            this.usuariosBindingSource.DataSource = this.pessoaBindingSource;
+            // 
+            // usuariosDataGridView
+            // 
+            this.usuariosDataGridView.AllowUserToAddRows = false;
+            this.usuariosDataGridView.AllowUserToDeleteRows = false;
+            this.usuariosDataGridView.AllowUserToOrderColumns = true;
+            this.usuariosDataGridView.AutoGenerateColumns = false;
+            this.usuariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.usuariosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewCheckBoxColumn1});
+            this.usuariosDataGridView.DataSource = this.usuariosBindingSource;
+            this.usuariosDataGridView.Location = new System.Drawing.Point(823, 209);
+            this.usuariosDataGridView.Name = "usuariosDataGridView";
+            this.usuariosDataGridView.ReadOnly = true;
+            this.usuariosDataGridView.RowHeadersVisible = false;
+            this.usuariosDataGridView.Size = new System.Drawing.Size(411, 446);
+            this.usuariosDataGridView.TabIndex = 10;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Funcao";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Funçao";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Cargo";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Cargo";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Ativo";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Ativo";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Width = 50;
             // 
             // BuscarPessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 667);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
+            this.ClientSize = new System.Drawing.Size(1284, 675);
+            this.Controls.Add(this.usuariosDataGridView);
+            this.Controls.Add(this.radioButton_BuscarPor_ID);
+            this.Controls.Add(this.radioButton_BuscarPor_CPF);
+            this.Controls.Add(this.radioButton_BuscarPor_Nome);
             this.Controls.Add(this.radioButton_BuscarTodasPessoas);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_BuscaPessoa);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -263,6 +329,8 @@
             this.Text = "Buscar Pessoas";
             ((System.ComponentModel.ISupportInitialize)(this.pessoaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pessoaDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,10 +354,16 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_BuscaPessoa;
         private System.Windows.Forms.RadioButton radioButton_BuscarTodasPessoas;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton_BuscarPor_Nome;
+        private System.Windows.Forms.RadioButton radioButton_BuscarPor_CPF;
+        private System.Windows.Forms.RadioButton radioButton_BuscarPor_ID;
+        private System.Windows.Forms.BindingSource usuariosBindingSource;
+        private System.Windows.Forms.DataGridView usuariosDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }
