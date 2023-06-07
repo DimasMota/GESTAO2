@@ -7,7 +7,7 @@ namespace DAL
         {
             get // funçao de apenas pegar dados e nao colocar
             {
-                return @"Server=localhost\SQLEXPRESS;Database=GESTAO2;Trusted_Connection=True";
+                return @"User ID=SA;Initial Catalog=GESTAO;Data Source=.\SQLEXPRESS2019;Password=Senailab02";
             }
         }
     }
