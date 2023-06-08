@@ -52,6 +52,12 @@
     <Compile Include="BuscarPessoa.Designer.cs">
       <DependentUpon>BuscarPessoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadastrarPessoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarPessoa.Designer.cs">
+      <DependentUpon>CadastrarPessoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastrarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BuscarPessoa.resx">
       <DependentUpon>BuscarPessoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarPessoa.resx">
+      <DependentUpon>CadastrarPessoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadastrarUsuario.resx">
       <DependentUpon>CadastrarUsuario.cs</DependentUpon>
