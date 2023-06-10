@@ -42,13 +42,29 @@
             this.textBox_RG_Pessoa = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox_OrgaoExpedidorRG_Pessoa = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.textBox_UF_RG_Pessoa = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox_DataExpedicaoRG_Pessoa = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox_Email_Pessoa = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox_Logradouro_Endereco = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox_NomeLogradouro_Endereco = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox_numero_Endereco = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox_Bairro_Endereco = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox_Quadra_Endereco = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox_Lote_Endereco = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox_CEP_Endereco = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1_id_Pessoa
@@ -164,15 +180,6 @@
             this.textBox_OrgaoExpedidorRG_Pessoa.Size = new System.Drawing.Size(100, 20);
             this.textBox_OrgaoExpedidorRG_Pessoa.TabIndex = 14;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(321, 245);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 13);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Orgão Expedidor";
-            // 
             // textBox_UF_RG_Pessoa
             // 
             this.textBox_UF_RG_Pessoa.Location = new System.Drawing.Point(551, 240);
@@ -221,11 +228,164 @@
             this.label11.TabIndex = 19;
             this.label11.Text = "E_mail";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(321, 245);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 13);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Orgão Expedidor";
+            // 
+            // textBox_Logradouro_Endereco
+            // 
+            this.textBox_Logradouro_Endereco.Location = new System.Drawing.Point(162, 326);
+            this.textBox_Logradouro_Endereco.Name = "textBox_Logradouro_Endereco";
+            this.textBox_Logradouro_Endereco.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Logradouro_Endereco.TabIndex = 22;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(74, 326);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(61, 13);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "Logradouro";
+            // 
+            // textBox_NomeLogradouro_Endereco
+            // 
+            this.textBox_NomeLogradouro_Endereco.Location = new System.Drawing.Point(310, 326);
+            this.textBox_NomeLogradouro_Endereco.Name = "textBox_NomeLogradouro_Endereco";
+            this.textBox_NomeLogradouro_Endereco.Size = new System.Drawing.Size(280, 20);
+            this.textBox_NomeLogradouro_Endereco.TabIndex = 24;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(277, 329);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(27, 13);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Rua";
+            // 
+            // textBox_numero_Endereco
+            // 
+            this.textBox_numero_Endereco.Location = new System.Drawing.Point(666, 326);
+            this.textBox_numero_Endereco.Name = "textBox_numero_Endereco";
+            this.textBox_numero_Endereco.Size = new System.Drawing.Size(100, 20);
+            this.textBox_numero_Endereco.TabIndex = 26;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(610, 329);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(44, 13);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "Número";
+            // 
+            // textBox_Bairro_Endereco
+            // 
+            this.textBox_Bairro_Endereco.Location = new System.Drawing.Point(162, 368);
+            this.textBox_Bairro_Endereco.Name = "textBox_Bairro_Endereco";
+            this.textBox_Bairro_Endereco.Size = new System.Drawing.Size(342, 20);
+            this.textBox_Bairro_Endereco.TabIndex = 28;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(97, 371);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(34, 13);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Bairro";
+            // 
+            // textBox_Quadra_Endereco
+            // 
+            this.textBox_Quadra_Endereco.Location = new System.Drawing.Point(558, 368);
+            this.textBox_Quadra_Endereco.Name = "textBox_Quadra_Endereco";
+            this.textBox_Quadra_Endereco.Size = new System.Drawing.Size(75, 20);
+            this.textBox_Quadra_Endereco.TabIndex = 30;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(510, 371);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(42, 13);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "Quadra";
+            // 
+            // textBox_Lote_Endereco
+            // 
+            this.textBox_Lote_Endereco.Location = new System.Drawing.Point(700, 368);
+            this.textBox_Lote_Endereco.Name = "textBox_Lote_Endereco";
+            this.textBox_Lote_Endereco.Size = new System.Drawing.Size(75, 20);
+            this.textBox_Lote_Endereco.TabIndex = 32;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(652, 371);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(28, 13);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "Lote";
+            // 
+            // textBox_CEP_Endereco
+            // 
+            this.textBox_CEP_Endereco.Location = new System.Drawing.Point(161, 404);
+            this.textBox_CEP_Endereco.Name = "textBox_CEP_Endereco";
+            this.textBox_CEP_Endereco.Size = new System.Drawing.Size(75, 20);
+            this.textBox_CEP_Endereco.TabIndex = 34;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(97, 407);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(28, 13);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "CEP";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(310, 404);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(465, 20);
+            this.textBox1.TabIndex = 36;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(242, 407);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(71, 13);
+            this.label19.TabIndex = 35;
+            this.label19.Text = "Complemento";
+            // 
             // CadastrarPessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 504);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.textBox_CEP_Endereco);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.textBox_Lote_Endereco);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.textBox_Quadra_Endereco);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.textBox_Bairro_Endereco);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.textBox_numero_Endereco);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.textBox_NomeLogradouro_Endereco);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.textBox_Logradouro_Endereco);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.textBox_Email_Pessoa);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox_DataExpedicaoRG_Pessoa);
@@ -270,12 +430,28 @@
         private System.Windows.Forms.TextBox textBox_RG_Pessoa;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox_OrgaoExpedidorRG_Pessoa;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox_UF_RG_Pessoa;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox_DataExpedicaoRG_Pessoa;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox_Email_Pessoa;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox_Logradouro_Endereco;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox_NomeLogradouro_Endereco;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox_numero_Endereco;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox_Bairro_Endereco;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBox_Quadra_Endereco;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox_Lote_Endereco;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox_CEP_Endereco;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label19;
     }
 }
