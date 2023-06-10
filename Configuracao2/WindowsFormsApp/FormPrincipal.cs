@@ -19,7 +19,7 @@ namespace WindowsFormsApp
         public FormPrincipal()
         {
             InitializeComponent();
-            using (Form_Login frm = new Form_Login())
+       /*     using (Form_Login frm = new Form_Login())
             {
                 frm.ShowDialog();
                 if (!frm.Logou)
@@ -32,6 +32,7 @@ namespace WindowsFormsApp
                     Constantes.IdUsuarioLogado = Id;
                 }
             }
+       */
         }
 
       
@@ -61,6 +62,14 @@ namespace WindowsFormsApp
         private void pessoasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (BuscarPessoa frm = new BuscarPessoa())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void paisesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (FormCadastrarPais frm = new FormCadastrarPais())
             {
                 frm.ShowDialog();
             }

@@ -3,6 +3,7 @@ using DAL;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.ComponentModel.Design;
 
 namespace BLL
 {
@@ -10,7 +11,7 @@ namespace BLL
     {
         public void Inserir(Usuario _usuario, string _confirmacaoSenha)
         {
-            ValidarPermissao(2);
+         
             ValidarDados(_usuario, _confirmacaoSenha);
             
             string nomeUsuario = _usuario.NomeUsuario;
@@ -20,18 +21,20 @@ namespace BLL
             if (new UsuarioDAL().NomeUsuario_Existe(nomeUsuario))
             {
                 throw new Exception("Usuário já existente");
+                
             }
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Inserir(_usuario);
         }
 
       
-
+        /*
         public void ValidarPermissao(int _idPermissao)
         {
             if (!new UsuarioDAL().ValidarPermissao(Constantes.IdUsuarioLogado, _idPermissao))
                 throw new Exception("Você não tem permissão para executar esta operação.");
         }
+        */
 
         private void ValidarDados(Usuario _usuario, string _confirmacaoSenha)
         {

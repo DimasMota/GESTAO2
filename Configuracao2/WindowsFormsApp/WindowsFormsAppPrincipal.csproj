@@ -82,6 +82,12 @@
     <Compile Include="FormCadastrarGrupo.Designer.cs">
       <DependentUpon>FormCadastrarGrupo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCadastrarPais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastrarPais.Designer.cs">
+      <DependentUpon>FormCadastrarPais.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCadastrarPermissao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCadastrarGrupo.resx">
       <DependentUpon>FormCadastrarGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastrarPais.resx">
+      <DependentUpon>FormCadastrarPais.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCadastrarPermissao.resx">
       <DependentUpon>FormCadastrarPermissao.cs</DependentUpon>

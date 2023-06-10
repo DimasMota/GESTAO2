@@ -480,6 +480,7 @@ namespace DAL
                 cn.Close();
             }
         }
+        /*
         public bool ValidarPermissao(int _idUsuario, int _idPermissao)
         {
             SqlConnection cn = new SqlConnection();
@@ -514,7 +515,7 @@ namespace DAL
                 cn.Close();
             }
         }
-
+        */
         public bool NomeUsuario_Existe(string _nomeUsuario)
         {
             SqlConnection cn = new SqlConnection();
