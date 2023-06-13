@@ -18,6 +18,7 @@ namespace WindowsFormsApp
         public FormCadastrarUsuario(bool _alterar = false, int _id = 0) // Construtor
         {
             InitializeComponent();
+            
             alterar = _alterar;
             if (alterar)
             {
@@ -25,6 +26,7 @@ namespace WindowsFormsApp
                 usuarioBindingSource.DataSource = new UsuarioBLL().BuscarUsuarioPorId(_id);
                 textBoxConfirmarSenha.Text = ((Usuario)usuarioBindingSource.Current).Senha;
             }
+            
         }
 
 
@@ -35,12 +37,12 @@ namespace WindowsFormsApp
             {
                 usuarioBindingSource.EndEdit();
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
-                if (!alterar)
-                {
+               if (!alterar)
+               {
                     usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current, textBoxConfirmarSenha.Text);
                     MessageBox.Show("Cadastrado com sucesso!");
                     Close();
-                }
+               }
                 else
                 {
                     usuarioBLL.Alterar((Usuario)usuarioBindingSource.Current, textBoxConfirmarSenha.Text);
@@ -48,6 +50,7 @@ namespace WindowsFormsApp
                     Close();
 
                 }
+            
             }
             catch (Exception ex)
             {

@@ -34,6 +34,7 @@
             System.Windows.Forms.Label rGLabel;
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label foneLabel;
+            System.Windows.Forms.Label idLabel;
             this.nomeTextBox = new System.Windows.Forms.TextBox();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cPFTextBox = new System.Windows.Forms.TextBox();
@@ -43,11 +44,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button_Salvar_Cliente = new System.Windows.Forms.Button();
             this.button_Cancelar_Cliente = new System.Windows.Forms.Button();
+            this.idTextBox = new System.Windows.Forms.TextBox();
             nomeLabel = new System.Windows.Forms.Label();
             cPFLabel = new System.Windows.Forms.Label();
             rGLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             foneLabel = new System.Windows.Forms.Label();
+            idLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +62,42 @@
             nomeLabel.Size = new System.Drawing.Size(47, 16);
             nomeLabel.TabIndex = 1;
             nomeLabel.Text = "Nome:";
+            // 
+            // cPFLabel
+            // 
+            cPFLabel.AutoSize = true;
+            cPFLabel.Location = new System.Drawing.Point(61, 137);
+            cPFLabel.Name = "cPFLabel";
+            cPFLabel.Size = new System.Drawing.Size(36, 16);
+            cPFLabel.TabIndex = 3;
+            cPFLabel.Text = "CPF:";
+            // 
+            // rGLabel
+            // 
+            rGLabel.AutoSize = true;
+            rGLabel.Location = new System.Drawing.Point(67, 186);
+            rGLabel.Name = "rGLabel";
+            rGLabel.Size = new System.Drawing.Size(30, 16);
+            rGLabel.TabIndex = 5;
+            rGLabel.Text = "RG:";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(53, 226);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(44, 16);
+            emailLabel.TabIndex = 7;
+            emailLabel.Text = "Email:";
+            // 
+            // foneLabel
+            // 
+            foneLabel.AutoSize = true;
+            foneLabel.Location = new System.Drawing.Point(56, 265);
+            foneLabel.Name = "foneLabel";
+            foneLabel.Size = new System.Drawing.Size(41, 16);
+            foneLabel.TabIndex = 9;
+            foneLabel.Text = "Fone:";
             // 
             // nomeTextBox
             // 
@@ -72,15 +111,6 @@
             // 
             this.clienteBindingSource.DataSource = typeof(Models.Cliente);
             // 
-            // cPFLabel
-            // 
-            cPFLabel.AutoSize = true;
-            cPFLabel.Location = new System.Drawing.Point(61, 137);
-            cPFLabel.Name = "cPFLabel";
-            cPFLabel.Size = new System.Drawing.Size(36, 16);
-            cPFLabel.TabIndex = 3;
-            cPFLabel.Text = "CPF:";
-            // 
             // cPFTextBox
             // 
             this.cPFTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "CPF", true));
@@ -88,15 +118,6 @@
             this.cPFTextBox.Name = "cPFTextBox";
             this.cPFTextBox.Size = new System.Drawing.Size(226, 22);
             this.cPFTextBox.TabIndex = 4;
-            // 
-            // rGLabel
-            // 
-            rGLabel.AutoSize = true;
-            rGLabel.Location = new System.Drawing.Point(67, 186);
-            rGLabel.Name = "rGLabel";
-            rGLabel.Size = new System.Drawing.Size(30, 16);
-            rGLabel.TabIndex = 5;
-            rGLabel.Text = "RG:";
             // 
             // rGTextBox
             // 
@@ -106,15 +127,6 @@
             this.rGTextBox.Size = new System.Drawing.Size(226, 22);
             this.rGTextBox.TabIndex = 6;
             // 
-            // emailLabel
-            // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(53, 226);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(44, 16);
-            emailLabel.TabIndex = 7;
-            emailLabel.Text = "Email:";
-            // 
             // emailTextBox
             // 
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Email", true));
@@ -122,15 +134,6 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(460, 22);
             this.emailTextBox.TabIndex = 8;
-            // 
-            // foneLabel
-            // 
-            foneLabel.AutoSize = true;
-            foneLabel.Location = new System.Drawing.Point(56, 265);
-            foneLabel.Name = "foneLabel";
-            foneLabel.Size = new System.Drawing.Size(41, 16);
-            foneLabel.TabIndex = 9;
-            foneLabel.Text = "Fone:";
             // 
             // foneTextBox
             // 
@@ -168,12 +171,32 @@
             this.button_Cancelar_Cliente.TabIndex = 13;
             this.button_Cancelar_Cliente.Text = "Cancelar";
             this.button_Cancelar_Cliente.UseVisualStyleBackColor = true;
+            this.button_Cancelar_Cliente.Click += new System.EventHandler(this.button_Cancelar_Cliente_Click);
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(76, 67);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(21, 16);
+            idLabel.TabIndex = 13;
+            idLabel.Text = "Id:";
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Id", true));
+            this.idTextBox.Location = new System.Drawing.Point(103, 64);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(100, 22);
+            this.idTextBox.TabIndex = 14;
             // 
             // CadastrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 367);
+            this.Controls.Add(idLabel);
+            this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.button_Cancelar_Cliente);
             this.Controls.Add(this.button_Salvar_Cliente);
             this.Controls.Add(this.label1);
@@ -189,6 +212,7 @@
             this.Controls.Add(this.nomeTextBox);
             this.Name = "CadastrarCliente";
             this.Text = "CadastrarCliente";
+            this.Load += new System.EventHandler(this.CadastrarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -206,5 +230,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_Salvar_Cliente;
         private System.Windows.Forms.Button button_Cancelar_Cliente;
+        private System.Windows.Forms.TextBox idTextBox;
     }
 }

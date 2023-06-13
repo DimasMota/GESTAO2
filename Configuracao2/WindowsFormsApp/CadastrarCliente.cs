@@ -14,17 +14,14 @@ namespace WindowsFormsApp
 {
     public partial class CadastrarCliente : Form
     {
-        private bool alterar;
-        public CadastrarCliente(bool _alterar = false, int _id = 0)
+        int id;
+        public CadastrarCliente(int _id = 0)
         {
             InitializeComponent();
-            alterar = _alterar;
-            if (alterar)
-            {
-                ClienteBLL clienteBLL = new ClienteBLL();
-                clienteBindingSource.DataSource = new ClienteBLL().BuscarPorId(_id);
-                
-            }
+            
+          
+           id = _id;   
+            
         }
 
         private void button_Salvar_Cliente_Click(object sender, EventArgs e)
@@ -33,11 +30,14 @@ namespace WindowsFormsApp
             {
                clienteBindingSource.EndEdit();
                 ClienteBLL clienteBLL = new ClienteBLL();
-                if (!alterar)
+
+               
+
+                if (id == 0)
                 {
-                    clienteBLL.Inserir((Cliente)clienteBindingSource.Current);
-                    MessageBox.Show("Cadastrado com sucesso!");
-                    Close();
+                   clienteBLL.Inserir((Cliente)clienteBindingSource.Current);
+                MessageBox.Show("Cadastrado com sucesso!");
+                Close(); 
                 }
                 else
                 {
@@ -46,12 +46,51 @@ namespace WindowsFormsApp
                     Close();
 
                 }
+                
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void CadastrarCliente_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (id == 0)
+                {
+                    clienteBindingSource.AddNew();
+                }
+                else
+                {
+                    clienteBindingSource.DataSource = new ClienteBLL().BuscarPorId(id);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_Cancelar_Cliente_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+               MessageBox.Show("Cadastro Cancelado!");
+               Close();
+            }
+            else
+            {
+                MessageBox.Show("Alteração do Cadastro Cancelado!");
+                Close();
+
+            }
+            
         }
     }
 }

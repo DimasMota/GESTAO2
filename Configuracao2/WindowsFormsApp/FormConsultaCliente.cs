@@ -26,7 +26,7 @@ namespace WindowsFormsApp
             {
 
                 ClienteBLL clienteBLL = new ClienteBLL();
-              
+
 
                 if (radioButton_BuscarTodos_Cliente.Checked)
                 {
@@ -59,17 +59,34 @@ namespace WindowsFormsApp
         {
             try
             {
-                if(clienteBindingSource.Count == 0)
+
+                if (clienteBindingSource.Count <= 0)
                 {
-                    MessageBox.Show("Não existe registro para ser excluido!");
+                    MessageBox.Show("Não existe registro para ser excluído.");
                     return;
                 }
-                int id = ((Cliente)clienteBindingSource.Current).Id;
-                new ClienteBLL().Excluir(id);
+                string menssagem = "Deseja realmente EXCLUIR este Cliente?";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+                string caption = "Error Detected in Input";
+                result = MessageBox.Show(menssagem, caption, buttons);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    int id = ((Cliente)clienteBindingSource.Current).Id;
+                    ClienteBLL clienteBLL = new ClienteBLL();
+                    Cliente cliente = new Cliente();
+                    cliente.Id = Convert.ToInt32(id);
+                    clienteBLL.Excluir(id);
+                    MessageBox.Show("Cliente excluido com sucesso!");
+                    button_Buscar_Cliente_Click(null, null);
+                }
+                else
+                {
+                    return;
+                }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }
@@ -78,5 +95,36 @@ namespace WindowsFormsApp
         {
             using (CadastrarCliente frm = new CadastrarCliente()) { frm.ShowDialog(); }
         }
+
+        private void button_Alterar_Cliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                if (clienteBindingSource.Count == 0)
+                {
+                    MessageBox.Show("Não existe CLIENTE para ser alterado.");
+                    return;
+                }
+                int id = ((Cliente)clienteBindingSource.Current).Id;
+
+                using (CadastrarCliente frm = new CadastrarCliente(id))
+                {
+                    frm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_Cancelar_Cliente_Click(object sender, EventArgs e)
+        {
+           Close();
+        }
+
+        
     }
 }

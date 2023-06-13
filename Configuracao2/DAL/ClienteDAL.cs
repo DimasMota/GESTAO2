@@ -12,10 +12,14 @@ namespace DAL
     {
         public void Inserir(Cliente _cliente)
         {
-            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+
+            SqlConnection cn = new SqlConnection();
             try
             {
-                SqlCommand cmd = cn.CreateCommand();
+
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
                 cmd.CommandText = @"INSERT INTO Cliente(Nome, CPF, RG, Email, Fone) 
                                     VALUES (@Nome, @CPF, @RG, @Email, @Fone)";
 
@@ -27,9 +31,8 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@Email", _cliente.Email);
                 cmd.Parameters.AddWithValue("@Fone", _cliente.Fone);
 
-                cmd.Connection = cn;
-                cn.Open();
 
+                cn.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -58,6 +61,7 @@ namespace DAL
                 {
                     while (rd.Read())
                     {
+                        cliente = new Cliente();
                         cliente.Id = (int)rd["Id"];
                         cliente.Nome = rd["Nome"].ToString();
                         cliente.CPF = rd["CPF"].ToString();
@@ -137,6 +141,7 @@ namespace DAL
                 {
                     while (rd.Read())
                     {
+
                         cliente.Id = (int)rd["Id"];
                         cliente.Nome = rd["Nome"].ToString();
                         cliente.CPF = rd["CPF"].ToString();
@@ -196,10 +201,13 @@ namespace DAL
         }
         public void Alterar(Cliente _cliente)
         {
-            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            SqlConnection cn = new SqlConnection();
             try
             {
-                SqlCommand cmd = cn.CreateCommand();
+
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
                 cmd.CommandText = @"UPDATE Cliente SET  
                                            Nome = @Nome, 
                                            CPF = @CPF, 
@@ -209,14 +217,14 @@ namespace DAL
                                     WHERE Id = @Id";
 
                 cmd.CommandType = System.Data.CommandType.Text;
-
+                cmd.Parameters.AddWithValue("@Id", _cliente.Id);
                 cmd.Parameters.AddWithValue("@Nome", _cliente.Nome);
                 cmd.Parameters.AddWithValue("@CPF", _cliente.CPF);
                 cmd.Parameters.AddWithValue("@RG", _cliente.RG);
                 cmd.Parameters.AddWithValue("@Email", _cliente.Email);
                 cmd.Parameters.AddWithValue("@Fone", _cliente.Fone);
 
-                cmd.Connection = cn;
+                
                 cn.Open();
 
                 cmd.ExecuteNonQuery();
