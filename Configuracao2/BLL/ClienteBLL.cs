@@ -12,6 +12,7 @@ namespace BLL
     {
         public void Inserir(Cliente _cliente)
         {
+            
             ClienteDAL clienteDAL = new ClienteDAL();
             clienteDAL.Inserir(_cliente);
 
@@ -44,6 +45,7 @@ namespace BLL
         {
             new ClienteDAL().Excluir(_id);
         }
+
 
     }
 }

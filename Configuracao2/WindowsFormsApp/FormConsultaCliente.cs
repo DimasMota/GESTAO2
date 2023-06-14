@@ -28,20 +28,20 @@ namespace WindowsFormsApp
                 ClienteBLL clienteBLL = new ClienteBLL();
 
 
-                if (radioButton_BuscarTodos_Cliente.Checked)
+                if (/*radioButton_BuscarTodos_Cliente.Checked*/ comboBox_BuscarPor_Cliente.SelectedIndex == 3)
                 {
                     clienteBindingSource.DataSource = clienteBLL.BuscarTodos();
                 }
-                else if (radioButton_BuscarPorNome_Cliente.Checked)
+                else if (/*radioButton_BuscarPorNome_Cliente.Checked*/comboBox_BuscarPor_Cliente.SelectedIndex == 1)
                 {
                     clienteBindingSource.DataSource = clienteBLL.BuscarPorNome(textBox_Buscar_Cliente.Text);
 
                 }
-                else if (radioButton_BuscarPorID_Cliente.Checked)
+                else if (/*radioButton_BuscarPorID_Cliente.Checked*/comboBox_BuscarPor_Cliente.SelectedIndex == 0)
                 {
                     clienteBindingSource.DataSource = clienteBLL.BuscarPorId(Convert.ToInt32(textBox_Buscar_Cliente.Text));
                 }
-                else if (radioButton_BuscarPorCPF_Cliente.Checked)
+                else if (/*radioButton_BuscarPorCPF_Cliente.Checked*/comboBox_BuscarPor_Cliente.SelectedIndex == 2)
                 {
                     clienteBindingSource.DataSource = clienteBLL.BuscarPorCPF(textBox_Buscar_Cliente.Text);
                 }
@@ -93,7 +93,16 @@ namespace WindowsFormsApp
 
         private void button_Inserir_Cliente_Click(object sender, EventArgs e)
         {
-            using (CadastrarCliente frm = new CadastrarCliente()) { frm.ShowDialog(); }
+            try
+            {
+                using (CadastrarCliente frm = new CadastrarCliente()) { frm.ShowDialog(); }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         private void button_Alterar_Cliente_Click(object sender, EventArgs e)
@@ -125,6 +134,9 @@ namespace WindowsFormsApp
            Close();
         }
 
-        
+        private void FormConsultaCliente_Load(object sender, EventArgs e)
+        {
+            comboBox_BuscarPor_Cliente.SelectedIndex = 3;
+        }
     }
 }
