@@ -59,6 +59,7 @@ namespace WindowsFormsApp
         {
             try
             {
+                idTextBox.Enabled = false;
                 if (id == 0)
                 {
                     clienteBindingSource.AddNew();

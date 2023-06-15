@@ -181,9 +181,9 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT id_Usuario, nome, nome_Usuario, data_Nascimento, cpf_Usuario, email, ativo FROM Usuario  WHERE nome = @nome";
+                cmd.CommandText = @"SELECT id_Usuario, nome, nome_Usuario, data_Nascimento, cpf_Usuario, email, ativo FROM Usuario  WHERE UPPER (nome) LIKE UPPER (@nome)";
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@nome", _nome);
+                cmd.Parameters.AddWithValue("@nome", "%"+_nome+"%");
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
                 {

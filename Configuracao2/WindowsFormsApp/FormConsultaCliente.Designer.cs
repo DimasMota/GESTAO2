@@ -39,10 +39,6 @@
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox_Buscar_Cliente = new System.Windows.Forms.TextBox();
             this.button_Buscar_Cliente = new System.Windows.Forms.Button();
-            this.radioButton_BuscarTodos_Cliente = new System.Windows.Forms.RadioButton();
-            this.radioButton_BuscarPorNome_Cliente = new System.Windows.Forms.RadioButton();
-            this.radioButton_BuscarPorID_Cliente = new System.Windows.Forms.RadioButton();
-            this.radioButton_BuscarPorCPF_Cliente = new System.Windows.Forms.RadioButton();
             this.button_Selecionar_Cliente = new System.Windows.Forms.Button();
             this.button_Cancelar_Cliente = new System.Windows.Forms.Button();
             this.button_Inserir_Cliente = new System.Windows.Forms.Button();
@@ -69,13 +65,13 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.clienteDataGridView.DataSource = this.clienteBindingSource;
-            this.clienteDataGridView.Location = new System.Drawing.Point(12, 151);
+            this.clienteDataGridView.Location = new System.Drawing.Point(12, 99);
             this.clienteDataGridView.Name = "clienteDataGridView";
             this.clienteDataGridView.ReadOnly = true;
             this.clienteDataGridView.RowHeadersVisible = false;
             this.clienteDataGridView.RowHeadersWidth = 51;
             this.clienteDataGridView.RowTemplate.Height = 24;
-            this.clienteDataGridView.Size = new System.Drawing.Size(976, 244);
+            this.clienteDataGridView.Size = new System.Drawing.Size(976, 310);
             this.clienteDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -138,62 +134,20 @@
             // 
             // textBox_Buscar_Cliente
             // 
-            this.textBox_Buscar_Cliente.Location = new System.Drawing.Point(12, 111);
+            this.textBox_Buscar_Cliente.Location = new System.Drawing.Point(112, 60);
             this.textBox_Buscar_Cliente.Name = "textBox_Buscar_Cliente";
             this.textBox_Buscar_Cliente.Size = new System.Drawing.Size(540, 22);
             this.textBox_Buscar_Cliente.TabIndex = 2;
             // 
             // button_Buscar_Cliente
             // 
-            this.button_Buscar_Cliente.Location = new System.Drawing.Point(577, 110);
+            this.button_Buscar_Cliente.Location = new System.Drawing.Point(670, 59);
             this.button_Buscar_Cliente.Name = "button_Buscar_Cliente";
             this.button_Buscar_Cliente.Size = new System.Drawing.Size(75, 23);
             this.button_Buscar_Cliente.TabIndex = 3;
             this.button_Buscar_Cliente.Text = "Buscar";
             this.button_Buscar_Cliente.UseVisualStyleBackColor = true;
             this.button_Buscar_Cliente.Click += new System.EventHandler(this.button_Buscar_Cliente_Click);
-            // 
-            // radioButton_BuscarTodos_Cliente
-            // 
-            this.radioButton_BuscarTodos_Cliente.AutoSize = true;
-            this.radioButton_BuscarTodos_Cliente.Checked = true;
-            this.radioButton_BuscarTodos_Cliente.Location = new System.Drawing.Point(30, 84);
-            this.radioButton_BuscarTodos_Cliente.Name = "radioButton_BuscarTodos_Cliente";
-            this.radioButton_BuscarTodos_Cliente.Size = new System.Drawing.Size(113, 20);
-            this.radioButton_BuscarTodos_Cliente.TabIndex = 5;
-            this.radioButton_BuscarTodos_Cliente.TabStop = true;
-            this.radioButton_BuscarTodos_Cliente.Text = "Buscar Todos";
-            this.radioButton_BuscarTodos_Cliente.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_BuscarPorNome_Cliente
-            // 
-            this.radioButton_BuscarPorNome_Cliente.AutoSize = true;
-            this.radioButton_BuscarPorNome_Cliente.Location = new System.Drawing.Point(149, 85);
-            this.radioButton_BuscarPorNome_Cliente.Name = "radioButton_BuscarPorNome_Cliente";
-            this.radioButton_BuscarPorNome_Cliente.Size = new System.Drawing.Size(134, 20);
-            this.radioButton_BuscarPorNome_Cliente.TabIndex = 6;
-            this.radioButton_BuscarPorNome_Cliente.Text = "Buscar Por Nome";
-            this.radioButton_BuscarPorNome_Cliente.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_BuscarPorID_Cliente
-            // 
-            this.radioButton_BuscarPorID_Cliente.AutoSize = true;
-            this.radioButton_BuscarPorID_Cliente.Location = new System.Drawing.Point(289, 85);
-            this.radioButton_BuscarPorID_Cliente.Name = "radioButton_BuscarPorID_Cliente";
-            this.radioButton_BuscarPorID_Cliente.Size = new System.Drawing.Size(110, 20);
-            this.radioButton_BuscarPorID_Cliente.TabIndex = 7;
-            this.radioButton_BuscarPorID_Cliente.Text = "Buscar Por ID";
-            this.radioButton_BuscarPorID_Cliente.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_BuscarPorCPF_Cliente
-            // 
-            this.radioButton_BuscarPorCPF_Cliente.AutoSize = true;
-            this.radioButton_BuscarPorCPF_Cliente.Location = new System.Drawing.Point(405, 84);
-            this.radioButton_BuscarPorCPF_Cliente.Name = "radioButton_BuscarPorCPF_Cliente";
-            this.radioButton_BuscarPorCPF_Cliente.Size = new System.Drawing.Size(122, 20);
-            this.radioButton_BuscarPorCPF_Cliente.TabIndex = 8;
-            this.radioButton_BuscarPorCPF_Cliente.Text = "Buscar por CPF";
-            this.radioButton_BuscarPorCPF_Cliente.UseVisualStyleBackColor = true;
             // 
             // button_Selecionar_Cliente
             // 
@@ -216,7 +170,7 @@
             // 
             // button_Inserir_Cliente
             // 
-            this.button_Inserir_Cliente.Location = new System.Drawing.Point(658, 110);
+            this.button_Inserir_Cliente.Location = new System.Drawing.Point(751, 59);
             this.button_Inserir_Cliente.Name = "button_Inserir_Cliente";
             this.button_Inserir_Cliente.Size = new System.Drawing.Size(75, 23);
             this.button_Inserir_Cliente.TabIndex = 11;
@@ -226,7 +180,7 @@
             // 
             // button_Alterar_Cliente
             // 
-            this.button_Alterar_Cliente.Location = new System.Drawing.Point(739, 110);
+            this.button_Alterar_Cliente.Location = new System.Drawing.Point(832, 59);
             this.button_Alterar_Cliente.Name = "button_Alterar_Cliente";
             this.button_Alterar_Cliente.Size = new System.Drawing.Size(75, 23);
             this.button_Alterar_Cliente.TabIndex = 12;
@@ -236,7 +190,7 @@
             // 
             // button_Excluir_Cliente
             // 
-            this.button_Excluir_Cliente.Location = new System.Drawing.Point(820, 110);
+            this.button_Excluir_Cliente.Location = new System.Drawing.Point(913, 59);
             this.button_Excluir_Cliente.Name = "button_Excluir_Cliente";
             this.button_Excluir_Cliente.Size = new System.Drawing.Size(75, 23);
             this.button_Excluir_Cliente.TabIndex = 13;
@@ -262,9 +216,9 @@
             "Nome",
             "CPF",
             "Todos"});
-            this.comboBox_BuscarPor_Cliente.Location = new System.Drawing.Point(381, 41);
+            this.comboBox_BuscarPor_Cliente.Location = new System.Drawing.Point(12, 58);
             this.comboBox_BuscarPor_Cliente.Name = "comboBox_BuscarPor_Cliente";
-            this.comboBox_BuscarPor_Cliente.Size = new System.Drawing.Size(121, 24);
+            this.comboBox_BuscarPor_Cliente.Size = new System.Drawing.Size(94, 24);
             this.comboBox_BuscarPor_Cliente.TabIndex = 15;
             // 
             // FormConsultaCliente
@@ -279,10 +233,6 @@
             this.Controls.Add(this.button_Inserir_Cliente);
             this.Controls.Add(this.button_Cancelar_Cliente);
             this.Controls.Add(this.button_Selecionar_Cliente);
-            this.Controls.Add(this.radioButton_BuscarPorCPF_Cliente);
-            this.Controls.Add(this.radioButton_BuscarPorID_Cliente);
-            this.Controls.Add(this.radioButton_BuscarPorNome_Cliente);
-            this.Controls.Add(this.radioButton_BuscarTodos_Cliente);
             this.Controls.Add(this.button_Buscar_Cliente);
             this.Controls.Add(this.textBox_Buscar_Cliente);
             this.Controls.Add(this.clienteDataGridView);
@@ -303,10 +253,6 @@
         private System.Windows.Forms.DataGridView clienteDataGridView;
         private System.Windows.Forms.TextBox textBox_Buscar_Cliente;
         private System.Windows.Forms.Button button_Buscar_Cliente;
-        private System.Windows.Forms.RadioButton radioButton_BuscarTodos_Cliente;
-        private System.Windows.Forms.RadioButton radioButton_BuscarPorNome_Cliente;
-        private System.Windows.Forms.RadioButton radioButton_BuscarPorID_Cliente;
-        private System.Windows.Forms.RadioButton radioButton_BuscarPorCPF_Cliente;
         private System.Windows.Forms.Button button_Selecionar_Cliente;
         private System.Windows.Forms.Button button_Cancelar_Cliente;
         private System.Windows.Forms.Button button_Inserir_Cliente;
