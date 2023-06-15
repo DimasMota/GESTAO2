@@ -32,7 +32,7 @@ namespace WindowsFormsApp
             {
 
                 UsuarioBLL usuarioBLL = new UsuarioBLL();
-                new UsuarioBLL().ValidarPermissao(1);
+               // new UsuarioBLL().ValidarPermissao(7);
 
                 if (radioButtonBuscarTodos.Checked)
                 {
@@ -65,7 +65,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                new UsuarioBLL().ValidarPermissao(2);
+              //  new UsuarioBLL().ValidarPermissao(2);
                  buttonBuscar_Click(sender, e);
 
                 using (FormCadastrarUsuario frm = new FormCadastrarUsuario())
@@ -84,7 +84,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                new UsuarioBLL().ValidarPermissao(3);
+               // new UsuarioBLL().ValidarPermissao(3);
 
                 if (usuarioBindingSource.Count == 0)
                 {
@@ -107,7 +107,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                new UsuarioBLL().ValidarPermissao(4);
+               // new UsuarioBLL().ValidarPermissao(4);
                 if (usuarioBindingSource.Count <= 0)
                 {
                     MessageBox.Show("Não existe registro para ser excluído.");
@@ -144,7 +144,7 @@ namespace WindowsFormsApp
             {
                 try
                 {
-                    new UsuarioBLL().ValidarPermissao(10);
+                 //   new UsuarioBLL().ValidarPermissao(10);
                     frm.ShowDialog();
                     if (frm.id == 0)
                     {
@@ -167,7 +167,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                new UsuarioBLL().ValidarPermissao(11);
+               // new UsuarioBLL().ValidarPermissao(11);
                 if (usuarioBindingSource.Count == 0 || grupoUsuariosBindingSource.Count == 0)
                 {
                     MessageBox.Show("Não existe grupo de usuário para ser excluido.");

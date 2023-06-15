@@ -94,6 +94,12 @@
     <Compile Include="FormConsultaCliente.Designer.cs">
       <DependentUpon>FormConsultaCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormConsultarFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultarFornecedor.Designer.cs">
+      <DependentUpon>FormConsultarFornecedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormConsultarGruposPermissao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     <EmbeddedResource Include="FormConsultaCliente.resx">
       <DependentUpon>FormConsultaCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultarFornecedor.resx">
+      <DependentUpon>FormConsultarFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConsultarGruposPermissao.resx">
       <DependentUpon>FormConsultarGruposPermissao.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +180,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Models.Cliente.datasource" />
+    <None Include="Properties\DataSources\Models.Fornecedor.datasource" />
     <None Include="Properties\DataSources\Models.GrupoUsuario.datasource" />
     <None Include="Properties\DataSources\Models.Permissao.datasource" />
     <None Include="Properties\DataSources\Models.Usuario.datasource" />

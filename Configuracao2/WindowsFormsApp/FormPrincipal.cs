@@ -62,5 +62,19 @@ namespace WindowsFormsApp
         {
             using (FormConsultaCliente frm = new FormConsultaCliente()) { frm.ShowDialog(); }
         }
+
+        private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FormConsultarFornecedor frm = new FormConsultarFornecedor()) { frm.ShowDialog(); }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Falha em conectar com a página Fornecedor" + ex);
+            }
+
+        }
     }
 }
