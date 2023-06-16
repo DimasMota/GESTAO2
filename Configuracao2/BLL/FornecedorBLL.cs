@@ -12,6 +12,8 @@ namespace BLL
     {
         public void Inserir(Fornecedor _fornecedor)
         {
+            
+
 
             FornecedorDAL fornecedorDAL = new FornecedorDAL();
             fornecedorDAL.Inserir(_fornecedor);
@@ -45,6 +47,12 @@ namespace BLL
         {
             new FornecedorDAL().Excluir(_id);
         }
+        public bool Existe_Fornecedor(Fornecedor _fornecedor)
+        {
+            FornecedorDAL fornecedorDAL = new FornecedorDAL();
+            return fornecedorDAL.Existe_Fornecedor(_fornecedor);
+        }
+            
 
-    }
+}
 }

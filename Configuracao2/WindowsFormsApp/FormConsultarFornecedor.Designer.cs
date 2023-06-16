@@ -29,13 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.fornecedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fornecedorDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox_BuscarPor_Fornecedor = new System.Windows.Forms.ComboBox();
             this.textBox_Buscar_Fornecedor = new System.Windows.Forms.TextBox();
             this.button_Buscar_Fornecedor = new System.Windows.Forms.Button();
@@ -45,13 +39,15 @@
             this.button_Selecionar_Fornecedor = new System.Windows.Forms.Button();
             this.button_Cancelar_Fornecedor = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.fornecedorBindingSource)).BeginInit();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.fornecedorDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fornecedorBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // fornecedorBindingSource
-            // 
-            this.fornecedorBindingSource.DataSource = typeof(Models.Fornecedor);
             // 
             // fornecedorDataGridView
             // 
@@ -73,44 +69,6 @@
             this.fornecedorDataGridView.RowHeadersVisible = false;
             this.fornecedorDataGridView.Size = new System.Drawing.Size(842, 342);
             this.fornecedorDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nome";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Fone";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Fone";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Email";
-            this.dataGridViewTextBoxColumn4.HeaderText = "E-mail";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Site";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Site";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // comboBox_BuscarPor_Fornecedor
             // 
@@ -151,6 +109,7 @@
             this.button_Insirir_Fornecedor.TabIndex = 5;
             this.button_Insirir_Fornecedor.Text = "Inserir";
             this.button_Insirir_Fornecedor.UseVisualStyleBackColor = true;
+            this.button_Insirir_Fornecedor.Click += new System.EventHandler(this.button_Insirir_Fornecedor_Click);
             // 
             // button_Alterar_Fornecedor
             // 
@@ -160,6 +119,7 @@
             this.button_Alterar_Fornecedor.TabIndex = 6;
             this.button_Alterar_Fornecedor.Text = "Alterar";
             this.button_Alterar_Fornecedor.UseVisualStyleBackColor = true;
+            this.button_Alterar_Fornecedor.Click += new System.EventHandler(this.button_Alterar_Fornecedor_Click);
             // 
             // button_Excluir_Fornecedor
             // 
@@ -169,6 +129,7 @@
             this.button_Excluir_Fornecedor.TabIndex = 7;
             this.button_Excluir_Fornecedor.Text = "Excluir";
             this.button_Excluir_Fornecedor.UseVisualStyleBackColor = true;
+            this.button_Excluir_Fornecedor.Click += new System.EventHandler(this.button_Excluir_Fornecedor_Click);
             // 
             // button_Selecionar_Fornecedor
             // 
@@ -187,6 +148,7 @@
             this.button_Cancelar_Fornecedor.TabIndex = 9;
             this.button_Cancelar_Fornecedor.Text = "Cancelar";
             this.button_Cancelar_Fornecedor.UseVisualStyleBackColor = true;
+            this.button_Cancelar_Fornecedor.Click += new System.EventHandler(this.button_Cancelar_Fornecedor_Click);
             // 
             // label1
             // 
@@ -197,6 +159,48 @@
             this.label1.Size = new System.Drawing.Size(214, 24);
             this.label1.TabIndex = 10;
             this.label1.Text = "Consultar Fornecedor";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nome";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Fone";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Fone";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Email";
+            this.dataGridViewTextBoxColumn4.HeaderText = "E-mail";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Site";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Site";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // fornecedorBindingSource
+            // 
+            this.fornecedorBindingSource.DataSource = typeof(Models.Fornecedor);
             // 
             // FormConsultarFornecedor
             // 
@@ -217,8 +221,8 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Fornecedor";
-            ((System.ComponentModel.ISupportInitialize)(this.fornecedorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fornecedorDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fornecedorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

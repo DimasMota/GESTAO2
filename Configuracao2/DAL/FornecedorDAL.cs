@@ -268,5 +268,34 @@ namespace DAL
                 cn.Close();
             }
         }
+        public bool Existe_Fornecedor(Fornecedor _nome)
+        {
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Fornecedor  WHERE UPPER (Nome) LIKE  UPPER (@Nome)";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Nome", "%" + _nome.Nome + "%");
+               
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar VERIFICAR A EXISTENCIA de um FORNECEDOR no banco de dados.", ex); //{ Data = { { "Id", 21 } } };
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,87 @@ namespace WindowsFormsApp
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button_Insirir_Fornecedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FormCadastrarFornecedor frm = new FormCadastrarFornecedor())
+                {
+                    frm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_Alterar_Fornecedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                if (fornecedorBindingSource.Count == 0)
+                {
+                    MessageBox.Show("Não existe FORNECEDOR para ser alterado.");
+                    return;
+                }
+                int id = ((Fornecedor)fornecedorBindingSource.Current).Id;
+
+                using (FormCadastrarFornecedor frm = new FormCadastrarFornecedor(id))
+                {
+                    frm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_Excluir_Fornecedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (fornecedorBindingSource.Count <= 0)
+                {
+                    MessageBox.Show("Não existe registro para ser excluído.");
+                    return;
+                }
+                string menssagem = "Deseja realmente EXCLUIR este FORNECEDOR?";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+                string caption = "Error Detected in Input";
+                result = MessageBox.Show(menssagem, caption, buttons);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    int id = ((Fornecedor)fornecedorBindingSource.Current).Id;
+                    FornecedorBLL fornecedorBLL = new FornecedorBLL();
+                    Fornecedor fornecedor = new Fornecedor();
+                    fornecedor.Id = Convert.ToInt32(id);
+                    fornecedorBLL.Excluir(id);
+                    MessageBox.Show("Fornecedor excluido com sucesso!");
+                    button_Buscar_Fornecedor_Click(null, null);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_Cancelar_Fornecedor_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
