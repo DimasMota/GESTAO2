@@ -32,10 +32,7 @@ namespace WindowsFormsApp
                     case 3:
                         {
                             clienteBindingSource.DataSource = clienteBLL.BuscarTodos();
-                            if (clienteBindingSource.Count == 0)
-                            {
-                                MessageBox.Show("Cliente não encontrado!");
-                            }
+                           
                             
                             break;
                         }
@@ -47,10 +44,7 @@ namespace WindowsFormsApp
                                 return;
                             }
                             clienteBindingSource.DataSource = clienteBLL.BuscarPorNome(textBox_Buscar_Cliente.Text);
-                            if (clienteBindingSource.Count == 0)
-                            {
-                                MessageBox.Show("Cliente não encontrado!");
-                            }
+                          
                             
                             break;
                         }
@@ -62,14 +56,7 @@ namespace WindowsFormsApp
                                 return;
                             }
                             clienteBindingSource.DataSource = clienteBLL.BuscarPorId(Convert.ToInt32(textBox_Buscar_Cliente.Text));
-                            int cont= clienteBindingSource.Count;
-                            
-                            if (clienteBindingSource.Count == 0)
-                            {
-                                MessageBox.Show("Cliente não encontrado!" + cont);
-                                return;
-                            }
-                            
+                           
                             break;
                         }
                     case 2:
@@ -80,14 +67,7 @@ namespace WindowsFormsApp
                                 return;
                             }
                             clienteBindingSource.DataSource = clienteBLL.BuscarPorCPF(textBox_Buscar_Cliente.Text);
-                            int cont = clienteBindingSource.Count;
-                            MessageBox.Show("Cliente não encontrado!" + cont);
-                            if (cont == 0)
-                            {
-                                MessageBox.Show("Cliente não encontrado!" + cont);
-                                return;
-                            }
-                           
+                       
                             break;
                         }
                     default:

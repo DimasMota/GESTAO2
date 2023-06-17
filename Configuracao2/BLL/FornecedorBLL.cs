@@ -12,9 +12,6 @@ namespace BLL
     {
         public void Inserir(Fornecedor _fornecedor)
         {
-            
-
-
             FornecedorDAL fornecedorDAL = new FornecedorDAL();
             fornecedorDAL.Inserir(_fornecedor);
 
@@ -47,12 +44,22 @@ namespace BLL
         {
             new FornecedorDAL().Excluir(_id);
         }
-        public bool Existe_Fornecedor(Fornecedor _fornecedor)
+        public bool Existe_Fornecedor_Nome(string _fornecedor)
         {
             FornecedorDAL fornecedorDAL = new FornecedorDAL();
-            return fornecedorDAL.Existe_Fornecedor(_fornecedor);
+            return fornecedorDAL.Existe_Fornecedor_Nome(_fornecedor);
         }
-            
 
-}
+        public bool Existe_Fornecedor_Id(int _idfornecedor)
+        {
+            FornecedorDAL fornecedorDAL = new FornecedorDAL();
+            return fornecedorDAL.Existe_Fornecedor_Id(_idfornecedor);
+        }
+
+        public bool Existe_Fornecedor_Site(string _sitefornecedor)
+        {
+            FornecedorDAL fornecedorDAL = new FornecedorDAL();
+            return fornecedorDAL.Existe_Fornecedor_Site(_sitefornecedor);
+        }
+    }
 }

@@ -29,7 +29,69 @@ namespace WindowsFormsApp
                 {
                     case 0:
                         {
+
+
                             fornecedorBindingSource.DataSource = fornecedorBLL.BuscarTodos();
+
+
+
+                            break;
+                        }
+                    case 1:
+                        {
+                            if (textBox_Buscar_Fornecedor.Text == "")
+                            {
+                                MessageBox.Show("Insira o Nome para buscar.");
+                                return;
+                            }
+                            if (fornecedorBLL.Existe_Fornecedor_Nome(textBox_Buscar_Fornecedor.Text))
+                            {
+                                fornecedorBindingSource.DataSource = fornecedorBLL.BuscarPorNome(textBox_Buscar_Fornecedor.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Fornecedor não encontrado!");
+                            }
+
+                            break;
+                        }
+                    case 2:
+                        {
+                            if (textBox_Buscar_Fornecedor.Text == "")
+                            {
+                                MessageBox.Show("Insira o ID para buscar.");
+                                return;
+                            }
+                            if (fornecedorBLL.Existe_Fornecedor_Id(Convert.ToInt32(textBox_Buscar_Fornecedor.Text)))
+                            {
+                                fornecedorBindingSource.DataSource = fornecedorBLL.BuscarPorId(Convert.ToInt32(textBox_Buscar_Fornecedor.Text));
+                            }
+                            else
+                            {
+                                MessageBox.Show("Fornecedor não encontrado!");
+                            }
+                            
+
+                            break;
+                        }
+                    case 3:
+                        {
+                            if (textBox_Buscar_Fornecedor.Text == "")
+                            {
+                                MessageBox.Show("Insira o Site para buscar.");
+                                return;
+                            }
+                            if (fornecedorBLL.Existe_Fornecedor_Site(textBox_Buscar_Fornecedor.Text))
+                            {
+                                fornecedorBindingSource.DataSource = fornecedorBLL.BuscarPorSite(textBox_Buscar_Fornecedor.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Fornecedor não encontrado!");
+                            }
+
+                           
+
                             break;
                         }
                 }
@@ -121,5 +183,7 @@ namespace WindowsFormsApp
         {
             Close();
         }
+
+
     }
 }

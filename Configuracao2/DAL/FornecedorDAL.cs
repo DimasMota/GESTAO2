@@ -268,7 +268,7 @@ namespace DAL
                 cn.Close();
             }
         }
-        public bool Existe_Fornecedor(Fornecedor _nome)
+        public bool Existe_Fornecedor_Nome(string _fornecedor)
         {
             SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
             try
@@ -276,8 +276,68 @@ namespace DAL
                 SqlCommand cmd = cn.CreateCommand();
                 cmd.CommandText = @"SELECT 1 AS retorno FROM Fornecedor  WHERE UPPER (Nome) LIKE  UPPER (@Nome)";
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@Nome", "%" + _nome.Nome + "%");
+                cmd.Parameters.AddWithValue("@Nome", "%" + _fornecedor + "%");
                
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar VERIFICAR A EXISTENCIA de um FORNECEDOR no banco de dados.", ex); //{ Data = { { "Id", 21 } } };
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public bool Existe_Fornecedor_Id(int _idfornecedor)
+        {
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Fornecedor  WHERE Id = @id";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@id", _idfornecedor);
+
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar VERIFICAR A EXISTENCIA de um FORNECEDOR no banco de dados.", ex); //{ Data = { { "Id", 21 } } };
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public bool Existe_Fornecedor_Site(string _sitefornecedor)
+        {
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Fornecedor  WHERE UPPER (Site) LIKE  UPPER (@Site)";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Site", "%" + _sitefornecedor + "%");
+
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
                 {
