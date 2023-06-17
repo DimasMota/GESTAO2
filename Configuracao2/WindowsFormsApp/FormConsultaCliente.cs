@@ -31,10 +31,20 @@ namespace WindowsFormsApp
                 {
                     case 3:
                         {
-                            clienteBindingSource.DataSource = clienteBLL.BuscarTodos();
+                            if(new ClienteBLL().Existe_Cliente())
+                            {
+                                clienteBindingSource.DataSource = clienteBLL.BuscarTodos();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Não tem clientes cadastrados");
+                            }
+                           
                            
                             
+                            
                             break;
+
                         }
                     case 1:
                         {
@@ -43,6 +53,8 @@ namespace WindowsFormsApp
                                 MessageBox.Show("Insira o ID para buscar.");
                                 return;
                             }
+                            
+                            
                             clienteBindingSource.DataSource = clienteBLL.BuscarPorNome(textBox_Buscar_Cliente.Text);
                           
                             

@@ -48,7 +48,8 @@ namespace BLL
 
         public bool Existe_Cliente()
         {
-            throw new NotImplementedException();
+            ClienteDAL clienteDAL = new ClienteDAL();
+            return clienteDAL.Existe_Cliente();
         }
     }
 }

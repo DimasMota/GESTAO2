@@ -268,7 +268,34 @@ namespace DAL
 
         public bool Existe_Cliente()
         {
-            throw new NotImplementedException();
+            Cliente cliente = new Cliente();
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Cliente";
+                cmd.CommandType = System.Data.CommandType.Text;
+
+
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                } //retornando o próprio objeto
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar buscar clientes no banco de dados.", ex) { Data = { { "Id", 53 } } };
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
     }
 }
