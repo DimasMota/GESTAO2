@@ -32,13 +32,14 @@ namespace WindowsFormsApp
 
                 if (id == 0)
                 {
-                  /*  if (new FornecedorDAL().Existe_Fornecedor(_fornecedor))
+                    if (new FornecedorBLL().Existe_Fornecedor((Fornecedor)fornecedorBindingSource.Current))
                     {
-                       ("Usuário já existente");
+                       MessageBox.Show("Usuário já existente");
+                        return;
 
                        
                     }
-                  */
+                  
                     fornecedorBLL.Inserir((Fornecedor)fornecedorBindingSource.Current);
                     MessageBox.Show("Cadastrado com sucesso!");
                     Close();

@@ -62,10 +62,14 @@ namespace WindowsFormsApp
                 idTextBox.Enabled = false;
                 if (id == 0)
                 {
+                    label_TituloCadastrar_Cliente.Visible = true;
+                    label_TituloAlterar_Cliente.Visible = false;
                     clienteBindingSource.AddNew();
                 }
                 else
                 {
+                    label_TituloCadastrar_Cliente.Visible = false;
+                    label_TituloAlterar_Cliente.Visible = true;
                     clienteBindingSource.DataSource = new ClienteBLL().BuscarPorId(id);
                 }
                 

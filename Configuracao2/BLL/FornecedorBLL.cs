@@ -61,5 +61,10 @@ namespace BLL
             FornecedorDAL fornecedorDAL = new FornecedorDAL();
             return fornecedorDAL.Existe_Fornecedor_Site(_sitefornecedor);
         }
+        public bool Existe_Fornecedor(Fornecedor _fornecedor)
+        {
+            FornecedorDAL fornecedorDAL = new FornecedorDAL();
+            return fornecedorDAL.Existe_Fornecedor(_fornecedor);
+        }
     }
 }

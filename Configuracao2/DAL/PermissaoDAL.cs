@@ -31,7 +31,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar inserir um Permissão no banco " + ex.Message) { Data = { { "Id", 13 } } };
 
 
             }
@@ -75,7 +75,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar Permissões: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar Permissões no Banco: " + ex.Message) { Data = { { "Id", 14 } } };
             }
             finally
             {
@@ -114,7 +114,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar Permissões: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar Permissões no Banco: " + ex.Message) { Data = { { "Id", 15 } } };
             }
             finally
             {
@@ -146,7 +146,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar inserir uma Permissão no banco " + ex.Message) { Data = { { "Id", 16 } } };
 
 
             }
@@ -180,7 +180,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar EXCLUIR uma permissao no banco " + ex.Message) { Data = { { "Id", 17 } } };
 
 
             }
@@ -222,7 +222,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar Permissões: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar Permissões no Banco: " + ex.Message) { Data = { { "Id", 18 } } };
             }
             finally
             {
@@ -261,7 +261,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar Permissões: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar Permissões no Banco: " + ex.Message) { Data = { { "Id", 19 } } };
             }
             finally
             {
@@ -293,7 +293,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar verificar se existe uma permissão no banco: " + ex.Message) { Data = { { "Id", 20 } } };
             }
             finally
             {
@@ -326,7 +326,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar vínculos de permissão com grupo: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar vínculos de permissão com grupo: " + ex.Message) { Data = { { "Id", 21 } } };
             }
             finally
             {

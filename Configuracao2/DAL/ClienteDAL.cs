@@ -37,7 +37,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um cliente no banco de dados.", ex) { Data = { { "Id", 15 } } };
+                throw new Exception("Ocorreu um erro ao tentar inserir um cliente no banco de dados.", ex) { Data = { { "Id", 46 } } };
             }
             finally
             {
@@ -76,7 +76,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar clientes no banco de dados.", ex) { Data = { { "Id", 16 } } };
+                throw new Exception("Ocorreu um erro ao tentar buscar clientes no banco de dados.", ex) { Data = { { "Id", 47 } } };
             }
             finally
             {
@@ -116,7 +116,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar clientes por nome no banco de dados.", ex) { Data = { { "Id", 17 } } };
+                throw new Exception("Ocorreu um erro ao tentar buscar clientes por nome no banco de dados.", ex) { Data = { { "Id", 48 } } };
             }
             finally
             {
@@ -154,7 +154,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar clientes por id no banco de dados.", ex) { Data = { { "Id", 18 } } };
+                throw new Exception("Ocorreu um erro ao tentar buscar clientes por id no banco de dados.", ex) { Data = { { "Id", 49 } } };
             }
             finally
             {
@@ -191,7 +191,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar clientes por CPF no banco de dados.", ex) { Data = { { "Id", 19 } } };
+                throw new Exception("Ocorreu um erro ao tentar buscar clientes por CPF no banco de dados.", ex) { Data = { { "Id", 50 } } };
             }
             finally
             {
@@ -232,7 +232,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar atualizar um cliente no banco de dados.", ex) { Data = { { "Id", 20 } } };
+                throw new Exception("Ocorreu um erro ao tentar Alterar um cliente no banco de dados.", ex) { Data = { { "Id", 51 } } };
             }
             finally
             {
@@ -258,12 +258,17 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar excluir um cliente no banco de dados.", ex) { Data = { { "Id", 21 } } };
+                throw new Exception("Ocorreu um erro ao tentar excluir um cliente no banco de dados.", ex) { Data = { { "Id", 52 } } };
             }
             finally
             {
                 cn.Close();
             }
+        }
+
+        public bool Existe_Cliente()
+        {
+            throw new NotImplementedException();
         }
     }
 }

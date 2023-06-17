@@ -22,7 +22,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                new UsuarioBLL().ValidarPermissao(5);
+               // new UsuarioBLL().ValidarPermissao(5);
                 GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
                 if (radioButtonBuscarTodos.Checked)
                 {
@@ -47,7 +47,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                new UsuarioBLL().ValidarPermissao(6);
+               // new UsuarioBLL().ValidarPermissao(6);
                 buttonBuscarGrupo_Click(sender, e);
                 using (FormCadastrarGrupo frm = new FormCadastrarGrupo())
                 {
@@ -64,7 +64,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                new UsuarioBLL().ValidarPermissao(7);
+              //  new UsuarioBLL().ValidarPermissao(7);
                 if (grupoUsuarioBindingSource.Count == 0)
                 {
                     MessageBox.Show("Não tem grupo selecionado");
@@ -85,7 +85,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                new UsuarioBLL().ValidarPermissao(8);
+              //  new UsuarioBLL().ValidarPermissao(8);
                 if (grupoUsuarioBindingSource.Count == 0)
                 {
                     MessageBox.Show("Não foi selecionado grupo para ser excluído!");
@@ -108,7 +108,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                new UsuarioBLL().ValidarPermissao(9);
+               // new UsuarioBLL().ValidarPermissao(9);
                 using (FormConsultarPermissoesGrupo frm = new FormConsultarPermissoesGrupo())
                 {
                     try
@@ -139,7 +139,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                new UsuarioBLL().ValidarPermissao(12);
+              //  new UsuarioBLL().ValidarPermissao(12);
                 GrupoUsuarioBLL grupoUsuarioBLL = new GrupoUsuarioBLL();
                 if (grupoUsuarioBindingSource.Count > 0 && permissoesBindingSource.Count > 0)
                 {

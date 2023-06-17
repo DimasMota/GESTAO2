@@ -37,7 +37,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um cliente no banco de dados.", ex); // { Data = { { "Id", 15 } } };
+                throw new Exception("Ocorreu um erro ao tentar inserir um Fornecedor no banco de dados.", ex) { Data = { { "Id", 35 } } };
             }
             finally
             {
@@ -75,7 +75,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar clientes no banco de dados.", ex); // { Data = { { "Id", 16 } } };
+                throw new Exception("Ocorreu um erro ao tentar Buscar Todos os Fornecedores no banco de dados.", ex) { Data = { { "Id", 36 } } };
             }
             finally
             {
@@ -115,7 +115,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar clientes no banco de dados.", ex); // { Data = { { "Id", 16 } } };
+                throw new Exception("Ocorreu um erro ao tentar buscar Fornecedor por Id no banco de dados.", ex) { Data = { { "Id", 37 } } };
             }
             finally
             {
@@ -155,7 +155,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar clientes no banco de dados.", ex); // { Data = { { "Id", 16 } } };
+                throw new Exception("Ocorreu um erro ao tentar buscar Fornecedore por nome no banco de dados.", ex) { Data = { { "Id", 38 } } };
             }
             finally
             {
@@ -195,7 +195,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar clientes no banco de dados.", ex); // { Data = { { "Id", 16 } } };
+                throw new Exception("Ocorreu um erro ao tentar buscar Fornecedores pelo Site no banco de dados.", ex) { Data = { { "Id", 39 } } };
             }
             finally
             {
@@ -235,7 +235,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar atualizar um cliente no banco de dados.", ex);// { Data = { { "Id", 20 } } };
+                throw new Exception("Ocorreu um erro ao tentar Alterar um Fornecedor no banco de dados.", ex) { Data = { { "Id", 40 } } };
             }
             finally
             {
@@ -261,7 +261,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar excluir um cliente no banco de dados.", ex); //{ Data = { { "Id", 21 } } };
+                throw new Exception("Ocorreu um erro ao tentar excluir um Fornecedor do banco de dados.", ex) { Data = { { "Id", 41 } } };
             }
             finally
             {
@@ -290,7 +290,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar VERIFICAR A EXISTENCIA de um FORNECEDOR no banco de dados.", ex); //{ Data = { { "Id", 21 } } };
+                throw new Exception("Ocorreu um erro ao tentar VERIFICAR A EXISTENCIA de um FORNECEDOR por nome no banco de dados.", ex){ Data = { { "Id", 42 } } };
             }
             finally
             {
@@ -320,7 +320,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar VERIFICAR A EXISTENCIA de um FORNECEDOR no banco de dados.", ex); //{ Data = { { "Id", 21 } } };
+                throw new Exception("Ocorreu um erro ao tentar VERIFICAR A EXISTENCIA de um FORNECEDOR por Id no banco de dados.", ex){ Data = { { "Id", 43 } } };
             }
             finally
             {
@@ -350,7 +350,37 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar VERIFICAR A EXISTENCIA de um FORNECEDOR no banco de dados.", ex); //{ Data = { { "Id", 21 } } };
+                throw new Exception("Ocorreu um erro ao tentar VERIFICAR A EXISTENCIA de um FORNECEDOR por Site no banco de dados.", ex) { Data = { { "Id", 44 } } };
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public bool Existe_Fornecedor(Fornecedor _fornecedor)
+        {
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Fornecedor  WHERE UPPER (Nome) LIKE  UPPER (@Nome)";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Nome",  _fornecedor.Nome);
+
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar VERIFICAR A EXISTENCIA de um FORNECEDOR no banco de dados.", ex) { Data = { { "Id", 45 } } };
             }
             finally
             {

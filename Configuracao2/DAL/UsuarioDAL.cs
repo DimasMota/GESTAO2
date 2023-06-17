@@ -37,7 +37,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message) { Data = { { "Id", 01 } } };
 
 
             }
@@ -78,7 +78,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message) { Data = { { "Id", 02 } } };
             }
             finally
             {
@@ -110,7 +110,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message) { Data = { { "Id", 03 } } };
 
 
             }
@@ -159,7 +159,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message) { Data = { { "Id", 04 } } };
             }
             finally
             {
@@ -204,7 +204,7 @@ namespace DAL
                     }
                     else
                     {
-                        throw new Exception("Usuario não encontrado.");
+                        throw new Exception("Usuario não encontrado.") ;
                     }
                     return usuario;
 
@@ -213,7 +213,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message) { Data = { { "Id", 05 } } };
             }
             finally
             {
@@ -257,7 +257,7 @@ namespace DAL
                     }
                     else
                     {
-                        throw new Exception("Usuario não encontrado.");
+                        throw new Exception("Usuario não encontrado.") ;
                     }
                     return usuario;
 
@@ -266,7 +266,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message) { Data = { { "Id", 06 } } };
             }
             finally
             {
@@ -319,7 +319,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message) { Data = { { "Id", 07 } } };
             }
             finally
             {
@@ -359,7 +359,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message) { Data = { { "Id", 08 } } };
 
 
             }
@@ -440,7 +440,7 @@ namespace DAL
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                        throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message) { Data = { { "Id", 09 } } };
 
 
                     }
@@ -474,7 +474,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message) { Data = { { "Id", 10 } } };
 
 
             }
@@ -510,7 +510,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar validar permissão do usuário: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar validar permissão do usuário: " + ex.Message) { Data = { { "Id", 11 } } };
             }
             finally
             {
@@ -543,7 +543,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar validar permissão do usuário: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar validar permissão do usuário: " + ex.Message) { Data = { { "Id", 12 } } };
             }
             finally
             {

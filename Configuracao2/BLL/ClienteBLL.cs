@@ -46,6 +46,9 @@ namespace BLL
             new ClienteDAL().Excluir(_id);
         }
 
-
+        public bool Existe_Cliente()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

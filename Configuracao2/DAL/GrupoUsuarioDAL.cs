@@ -33,7 +33,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar inserir um Grupo de usuário no banco " + ex.Message) { Data = { { "Id", 22 } } };
 
 
             }
@@ -77,7 +77,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar Grupo de Usuarios: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar Buscar Todos os Grupo de Usuarios no Banco: " + ex.Message) { Data = { { "Id", 23 } } };
             }
             finally
             {
@@ -118,7 +118,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar Grupo de Usuarios: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar Buscar Grupo de Usuarios por Nome no Banco: " + ex.Message) { Data = { { "Id", 24 } } };
             }
             finally
             {
@@ -167,7 +167,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar Buscar Grupo de Ususario por ID no Banco: " + ex.Message) { Data = { { "Id", 25} } };
             }
             finally
             {
@@ -215,7 +215,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message) { Data = { { "Id", 26 } } };
             }
             finally
             {
@@ -260,7 +260,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar Buscar Grupo de Usuário por Id do Grupo: " + ex.Message) { Data = { { "Id", 27 } } };
             }
             finally
             {
@@ -293,7 +293,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar Alterar um Grupo no banco " + ex.Message) { Data = { { "Id", 28 } } };
 
 
             }
@@ -335,7 +335,7 @@ namespace DAL
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                        throw new Exception("Ocorreu um erro ao tentar Excluir um Grupo de Usuário do banco " + ex.Message) { Data = { { "Id", 28 } } };
                     }
 
                 }
@@ -371,7 +371,7 @@ namespace DAL
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                        throw new Exception("Ocorreu um erro ao tentar Remover o Vínculo do Usuário com o Grupo do Banco " + ex.Message) { Data = { { "Id", 29 } } };
                     }
 
                 }
@@ -435,7 +435,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar Remover um Vinculo de Permissão com o Grupo do Banco " + ex.Message) { Data = { { "Id", 30 } } };
 
 
             }
@@ -469,7 +469,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar Verificar se há vínculo entre Grupo e Usuário: " + ex.Message) { Data = { { "Id", 31 } } };
             }
             finally
             {
@@ -500,7 +500,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar Víncular Permissão com Grupo no Banco " + ex.Message) { Data = { { "Id", 32 } } };
 
 
             }
@@ -544,7 +544,7 @@ namespace DAL
             catch (Exception ex)
             {
 
-                throw new Exception("Ocorreu um erro ao tentar buscar Grupo de Usuarios: " + ex.Message);
+                throw new Exception("Ocorreu um erro ao tentar buscar Grupo de Usuarios por Id da Permissão no Banco: " + ex.Message) { Data = { { "Id", 33 } } };
             }
             finally
             {
@@ -582,7 +582,7 @@ namespace DAL
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+                        throw new Exception("Ocorreu um erro ao tentar Remover Vínculo de um Grupo com Permissão " + ex.Message) { Data = { { "Id", 34 } } };
                     }
 
                 }
