@@ -89,6 +89,7 @@
             this.Controls.Add(nomeGrupoLabel);
             this.Controls.Add(this.nomeGrupoTextBox);
             this.Name = "FormCadastrarGrupo";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Grupo";
             this.Load += new System.EventHandler(this.FormCadastrarGrupo_Load);

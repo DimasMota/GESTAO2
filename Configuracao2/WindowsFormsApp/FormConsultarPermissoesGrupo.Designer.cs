@@ -135,6 +135,7 @@
             this.MinimizeBox = false;
             this.Name = "FormConsultarPermissoesGrupo";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Permissão de Grupo";
             ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).EndInit();

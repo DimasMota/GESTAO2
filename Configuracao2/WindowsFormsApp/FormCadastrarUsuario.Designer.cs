@@ -253,6 +253,7 @@
             this.Controls.Add(nomeLabel);
             this.Controls.Add(this.nomeTextBox);
             this.Name = "FormCadastrarUsuario";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastrarUsuariocs";
             this.Load += new System.EventHandler(this.FormCadastrarUsuario_Load);

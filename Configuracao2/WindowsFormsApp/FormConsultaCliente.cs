@@ -50,12 +50,20 @@ namespace WindowsFormsApp
                         {
                             if (textBox_Buscar_Cliente.Text == "")
                             {
-                                MessageBox.Show("Insira o ID para buscar.");
+                                MessageBox.Show("Insira o Nome para buscar.");
                                 return;
                             }
                             
+                            if(new ClienteBLL().Existe_Cliente_Nome(textBox_Buscar_Cliente.Text))
+                            {
+                                clienteBindingSource.DataSource = clienteBLL.BuscarPorNome(textBox_Buscar_Cliente.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("CLiente não encontrado");
+                            }
                             
-                            clienteBindingSource.DataSource = clienteBLL.BuscarPorNome(textBox_Buscar_Cliente.Text);
+                            
                           
                             
                             break;
@@ -67,7 +75,15 @@ namespace WindowsFormsApp
                                 MessageBox.Show("Insira o ID para buscar.");
                                 return;
                             }
-                            clienteBindingSource.DataSource = clienteBLL.BuscarPorId(Convert.ToInt32(textBox_Buscar_Cliente.Text));
+                            if(new ClienteBLL().Existe_Cliente_Id(Convert.ToInt32(textBox_Buscar_Cliente.Text)))
+                            {
+                                clienteBindingSource.DataSource = clienteBLL.BuscarPorId(Convert.ToInt32(textBox_Buscar_Cliente.Text));
+                            }
+                            else
+                            {
+                                MessageBox.Show("CLiente não encontrado");
+                            }
+                           
                            
                             break;
                         }
@@ -78,7 +94,15 @@ namespace WindowsFormsApp
                                 MessageBox.Show("Insira o CPF para buscar.");
                                 return;
                             }
-                            clienteBindingSource.DataSource = clienteBLL.BuscarPorCPF(textBox_Buscar_Cliente.Text);
+                            if (clienteBLL.Existe_Cliente_CPF(textBox_Buscar_Cliente.Text))
+                            {
+                                clienteBindingSource.DataSource = clienteBLL.BuscarPorCPF(textBox_Buscar_Cliente.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("CLiente não encontrado");
+                            }
+                           
                        
                             break;
                         }

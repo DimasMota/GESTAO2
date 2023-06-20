@@ -41,10 +41,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // permissaoBindingSource
-            // 
-            this.permissaoBindingSource.DataSource = typeof(Models.Permissao);
-            // 
             // descricaoLabel
             // 
             descricaoLabel.AutoSize = true;
@@ -54,14 +50,6 @@
             descricaoLabel.TabIndex = 1;
             descricaoLabel.Text = "Descrição da permissão";
             // 
-            // descricaoTextBox
-            // 
-            this.descricaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.permissaoBindingSource, "Descricao", true));
-            this.descricaoTextBox.Location = new System.Drawing.Point(221, 120);
-            this.descricaoTextBox.Name = "descricaoTextBox";
-            this.descricaoTextBox.Size = new System.Drawing.Size(319, 22);
-            this.descricaoTextBox.TabIndex = 2;
-            // 
             // idLabel
             // 
             idLabel.AutoSize = true;
@@ -70,6 +58,18 @@
             idLabel.Size = new System.Drawing.Size(21, 16);
             idLabel.TabIndex = 3;
             idLabel.Text = "Id:";
+            // 
+            // permissaoBindingSource
+            // 
+            this.permissaoBindingSource.DataSource = typeof(Models.Permissao);
+            // 
+            // descricaoTextBox
+            // 
+            this.descricaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.permissaoBindingSource, "Descricao", true));
+            this.descricaoTextBox.Location = new System.Drawing.Point(221, 120);
+            this.descricaoTextBox.Name = "descricaoTextBox";
+            this.descricaoTextBox.Size = new System.Drawing.Size(319, 22);
+            this.descricaoTextBox.TabIndex = 2;
             // 
             // idTextBox
             // 
@@ -112,6 +112,7 @@
             this.Controls.Add(this.descricaoTextBox);
             this.Name = "FormCadastrarPermissao";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Permissão";
             this.Load += new System.EventHandler(this.FormCadastrarPermissao_Load);

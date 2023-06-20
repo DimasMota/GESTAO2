@@ -52,102 +52,113 @@
             ((System.ComponentModel.ISupportInitialize)(this.fornecedorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // fornecedorBindingSource
-            // 
-            this.fornecedorBindingSource.DataSource = typeof(Models.Fornecedor);
-            // 
             // nomeLabel
             // 
             nomeLabel.AutoSize = true;
-            nomeLabel.Location = new System.Drawing.Point(141, 102);
+            nomeLabel.Location = new System.Drawing.Point(188, 126);
+            nomeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             nomeLabel.Name = "nomeLabel";
-            nomeLabel.Size = new System.Drawing.Size(38, 13);
+            nomeLabel.Size = new System.Drawing.Size(47, 16);
             nomeLabel.TabIndex = 1;
             nomeLabel.Text = "Nome:";
-            // 
-            // nomeTextBox
-            // 
-            this.nomeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "Nome", true));
-            this.nomeTextBox.Location = new System.Drawing.Point(185, 99);
-            this.nomeTextBox.Name = "nomeTextBox";
-            this.nomeTextBox.Size = new System.Drawing.Size(309, 20);
-            this.nomeTextBox.TabIndex = 2;
             // 
             // foneLabel
             // 
             foneLabel.AutoSize = true;
-            foneLabel.Location = new System.Drawing.Point(515, 102);
+            foneLabel.Location = new System.Drawing.Point(687, 126);
+            foneLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             foneLabel.Name = "foneLabel";
-            foneLabel.Size = new System.Drawing.Size(34, 13);
+            foneLabel.Size = new System.Drawing.Size(41, 16);
             foneLabel.TabIndex = 3;
             foneLabel.Text = "Fone:";
-            // 
-            // foneTextBox
-            // 
-            this.foneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "Fone", true));
-            this.foneTextBox.Location = new System.Drawing.Point(555, 99);
-            this.foneTextBox.Name = "foneTextBox";
-            this.foneTextBox.Size = new System.Drawing.Size(148, 20);
-            this.foneTextBox.TabIndex = 4;
             // 
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(20, 99);
+            idLabel.Location = new System.Drawing.Point(27, 122);
+            idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(19, 13);
+            idLabel.Size = new System.Drawing.Size(21, 16);
             idLabel.TabIndex = 5;
             idLabel.Text = "Id:";
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "Id", true));
-            this.idTextBox.Location = new System.Drawing.Point(45, 96);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(75, 20);
-            this.idTextBox.TabIndex = 6;
             // 
             // siteLabel
             // 
             siteLabel.AutoSize = true;
-            siteLabel.Location = new System.Drawing.Point(11, 150);
+            siteLabel.Location = new System.Drawing.Point(15, 185);
+            siteLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             siteLabel.Name = "siteLabel";
-            siteLabel.Size = new System.Drawing.Size(28, 13);
+            siteLabel.Size = new System.Drawing.Size(33, 16);
             siteLabel.TabIndex = 7;
             siteLabel.Text = "Site:";
-            // 
-            // siteTextBox
-            // 
-            this.siteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "Site", true));
-            this.siteTextBox.Location = new System.Drawing.Point(45, 147);
-            this.siteTextBox.Name = "siteTextBox";
-            this.siteTextBox.Size = new System.Drawing.Size(321, 20);
-            this.siteTextBox.TabIndex = 8;
             // 
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(384, 150);
+            emailLabel.Location = new System.Drawing.Point(512, 185);
+            emailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(35, 13);
+            emailLabel.Size = new System.Drawing.Size(44, 16);
             emailLabel.TabIndex = 9;
             emailLabel.Text = "Email:";
+            // 
+            // fornecedorBindingSource
+            // 
+            this.fornecedorBindingSource.DataSource = typeof(Models.Fornecedor);
+            // 
+            // nomeTextBox
+            // 
+            this.nomeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "Nome", true));
+            this.nomeTextBox.Location = new System.Drawing.Point(247, 122);
+            this.nomeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nomeTextBox.Name = "nomeTextBox";
+            this.nomeTextBox.Size = new System.Drawing.Size(411, 22);
+            this.nomeTextBox.TabIndex = 2;
+            // 
+            // foneTextBox
+            // 
+            this.foneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "Fone", true));
+            this.foneTextBox.Location = new System.Drawing.Point(740, 122);
+            this.foneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.foneTextBox.Name = "foneTextBox";
+            this.foneTextBox.Size = new System.Drawing.Size(196, 22);
+            this.foneTextBox.TabIndex = 4;
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "Id", true));
+            this.idTextBox.Location = new System.Drawing.Point(60, 118);
+            this.idTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(99, 22);
+            this.idTextBox.TabIndex = 6;
+            // 
+            // siteTextBox
+            // 
+            this.siteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "Site", true));
+            this.siteTextBox.Location = new System.Drawing.Point(60, 181);
+            this.siteTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.siteTextBox.Name = "siteTextBox";
+            this.siteTextBox.Size = new System.Drawing.Size(427, 22);
+            this.siteTextBox.TabIndex = 8;
             // 
             // emailTextBox
             // 
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fornecedorBindingSource, "Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(425, 147);
+            this.emailTextBox.Location = new System.Drawing.Point(567, 181);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(278, 20);
+            this.emailTextBox.Size = new System.Drawing.Size(369, 22);
             this.emailTextBox.TabIndex = 10;
             // 
             // label_TituloCadastrar_Fornecedor
             // 
             this.label_TituloCadastrar_Fornecedor.AutoSize = true;
             this.label_TituloCadastrar_Fornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_TituloCadastrar_Fornecedor.Location = new System.Drawing.Point(294, 9);
+            this.label_TituloCadastrar_Fornecedor.Location = new System.Drawing.Point(392, 11);
+            this.label_TituloCadastrar_Fornecedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_TituloCadastrar_Fornecedor.Name = "label_TituloCadastrar_Fornecedor";
-            this.label_TituloCadastrar_Fornecedor.Size = new System.Drawing.Size(214, 24);
+            this.label_TituloCadastrar_Fornecedor.Size = new System.Drawing.Size(269, 29);
             this.label_TituloCadastrar_Fornecedor.TabIndex = 11;
             this.label_TituloCadastrar_Fornecedor.Text = "Cadastrar Fornecedor";
             // 
@@ -155,17 +166,19 @@
             // 
             this.label2_TituloAlterar_Fornecedor.AutoSize = true;
             this.label2_TituloAlterar_Fornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2_TituloAlterar_Fornecedor.Location = new System.Drawing.Point(307, 9);
+            this.label2_TituloAlterar_Fornecedor.Location = new System.Drawing.Point(409, 11);
+            this.label2_TituloAlterar_Fornecedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2_TituloAlterar_Fornecedor.Name = "label2_TituloAlterar_Fornecedor";
-            this.label2_TituloAlterar_Fornecedor.Size = new System.Drawing.Size(187, 24);
+            this.label2_TituloAlterar_Fornecedor.Size = new System.Drawing.Size(233, 29);
             this.label2_TituloAlterar_Fornecedor.TabIndex = 12;
             this.label2_TituloAlterar_Fornecedor.Text = "Alterar Fornecedor";
             // 
             // button_Salvar_Fornecedor
             // 
-            this.button_Salvar_Fornecedor.Location = new System.Drawing.Point(475, 203);
+            this.button_Salvar_Fornecedor.Location = new System.Drawing.Point(633, 250);
+            this.button_Salvar_Fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_Salvar_Fornecedor.Name = "button_Salvar_Fornecedor";
-            this.button_Salvar_Fornecedor.Size = new System.Drawing.Size(101, 23);
+            this.button_Salvar_Fornecedor.Size = new System.Drawing.Size(135, 28);
             this.button_Salvar_Fornecedor.TabIndex = 13;
             this.button_Salvar_Fornecedor.Text = "Salvar";
             this.button_Salvar_Fornecedor.UseVisualStyleBackColor = true;
@@ -173,9 +186,10 @@
             // 
             // button_Cancelar_Fornecedor
             // 
-            this.button_Cancelar_Fornecedor.Location = new System.Drawing.Point(605, 203);
+            this.button_Cancelar_Fornecedor.Location = new System.Drawing.Point(807, 250);
+            this.button_Cancelar_Fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_Cancelar_Fornecedor.Name = "button_Cancelar_Fornecedor";
-            this.button_Cancelar_Fornecedor.Size = new System.Drawing.Size(98, 23);
+            this.button_Cancelar_Fornecedor.Size = new System.Drawing.Size(131, 28);
             this.button_Cancelar_Fornecedor.TabIndex = 14;
             this.button_Cancelar_Fornecedor.Text = "Cancelar";
             this.button_Cancelar_Fornecedor.UseVisualStyleBackColor = true;
@@ -183,9 +197,9 @@
             // 
             // FormCadastrarFornecedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 238);
+            this.ClientSize = new System.Drawing.Size(987, 293);
             this.Controls.Add(this.button_Cancelar_Fornecedor);
             this.Controls.Add(this.button_Salvar_Fornecedor);
             this.Controls.Add(this.label2_TituloAlterar_Fornecedor);
@@ -200,8 +214,10 @@
             this.Controls.Add(this.foneTextBox);
             this.Controls.Add(nomeLabel);
             this.Controls.Add(this.nomeTextBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormCadastrarFornecedor";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fornecedor";
             this.Load += new System.EventHandler(this.FormCadastrarFornecedor_Load);

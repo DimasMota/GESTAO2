@@ -3,6 +3,7 @@ using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -50,6 +51,24 @@ namespace BLL
         {
             ClienteDAL clienteDAL = new ClienteDAL();
             return clienteDAL.Existe_Cliente();
+        }
+
+        public bool Existe_Cliente_Nome(string _nome)
+        {
+            ClienteDAL clienteDAL = new ClienteDAL();
+            return clienteDAL.Existe_Cliente_Nome(_nome);
+        }
+
+        public bool Existe_Cliente_Id(int _id)
+        {
+            ClienteDAL clienteDAL = new ClienteDAL();
+            return clienteDAL.Existe_Cliente_Id(_id);
+        }
+
+        public bool Existe_Cliente_CPF(string _cpf)
+        {
+            ClienteDAL clienteDAL = new ClienteDAL();
+            return clienteDAL.Existe_Cliente_CPF(_cpf);
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -291,6 +292,105 @@ namespace DAL
             catch (Exception ex)
             {
                 throw new Exception("Ocorreu um erro ao tentar buscar clientes no banco de dados.", ex) { Data = { { "Id", 53 } } };
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public bool Existe_Cliente_Nome(string _nome)
+        {
+            Cliente cliente = new Cliente();
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Cliente WHERE UPPER(Nome) LIKE UPPER (@Nome)";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Nome", "%"+_nome+"%");
+
+
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                } //retornando o próprio objeto
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar VERIFICAR SE CLIENTE EXISTE no banco de dados.", ex) { Data = { { "Id", 54 } } };
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public bool Existe_Cliente_Id(int _id)
+        {
+            Cliente cliente = new Cliente();
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Cliente WHERE Id = @Id";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Id",  _id);
+
+
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                } //retornando o próprio objeto
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar VERIFICAR SE CLIENTE EXISTE no banco de dados.", ex) { Data = { { "Id", 55 } } };
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public bool Existe_Cliente_CPF(string _cpf)
+        {
+            Cliente cliente = new Cliente();
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT 1 AS retorno FROM Cliente WHERE CPF LIKE @CPF";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@CPF", _cpf);
+
+
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        return true;
+                    }
+                    return false;
+                } //retornando o próprio objeto
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar VERIFICAR SE CLIENTE EXISTE no banco de dados.", ex) { Data = { { "Id", 56 } } };
             }
             finally
             {

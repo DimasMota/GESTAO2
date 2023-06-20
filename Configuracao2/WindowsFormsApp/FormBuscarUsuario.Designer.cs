@@ -321,6 +321,7 @@
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.textBox1);
             this.Name = "FormBuscarUsuario";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de usuário";
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();

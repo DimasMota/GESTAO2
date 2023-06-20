@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grupoUsuariosDataGridView = new System.Windows.Forms.DataGridView();
-            this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button_BuscarGrupos = new System.Windows.Forms.Button();
             this.button_SelecionarGrupo = new System.Windows.Forms.Button();
             this.button_Cancelar = new System.Windows.Forms.Button();
@@ -60,10 +60,6 @@
             this.grupoUsuariosDataGridView.Size = new System.Drawing.Size(604, 347);
             this.grupoUsuariosDataGridView.TabIndex = 1;
             // 
-            // grupoUsuariosBindingSource
-            // 
-            this.grupoUsuariosBindingSource.DataSource = typeof(Models.GrupoUsuario);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -72,6 +68,10 @@
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // grupoUsuariosBindingSource
+            // 
+            this.grupoUsuariosBindingSource.DataSource = typeof(Models.GrupoUsuario);
             // 
             // button_BuscarGrupos
             // 
@@ -133,6 +133,7 @@
             this.Controls.Add(this.grupoUsuariosDataGridView);
             this.Name = "FormConsultarGruposPermissao";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar Grupo em Permissão";
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuariosDataGridView)).EndInit();

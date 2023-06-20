@@ -34,7 +34,7 @@ namespace WindowsFormsApp
                 {
                     if (new FornecedorBLL().Existe_Fornecedor((Fornecedor)fornecedorBindingSource.Current))
                     {
-                       MessageBox.Show("Usuário já existente");
+                       MessageBox.Show("Fornecedor já existente");
                         return;
 
                        

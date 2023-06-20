@@ -58,70 +58,64 @@
             // nomeLabel
             // 
             nomeLabel.AutoSize = true;
-            nomeLabel.Location = new System.Drawing.Point(38, 77);
-            nomeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            nomeLabel.Location = new System.Drawing.Point(51, 95);
             nomeLabel.Name = "nomeLabel";
-            nomeLabel.Size = new System.Drawing.Size(38, 13);
+            nomeLabel.Size = new System.Drawing.Size(47, 16);
             nomeLabel.TabIndex = 1;
             nomeLabel.Text = "Nome:";
             // 
             // cPFLabel
             // 
             cPFLabel.AutoSize = true;
-            cPFLabel.Location = new System.Drawing.Point(46, 111);
-            cPFLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            cPFLabel.Location = new System.Drawing.Point(61, 137);
             cPFLabel.Name = "cPFLabel";
-            cPFLabel.Size = new System.Drawing.Size(30, 13);
+            cPFLabel.Size = new System.Drawing.Size(36, 16);
             cPFLabel.TabIndex = 3;
             cPFLabel.Text = "CPF:";
             // 
             // rGLabel
             // 
             rGLabel.AutoSize = true;
-            rGLabel.Location = new System.Drawing.Point(50, 151);
-            rGLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            rGLabel.Location = new System.Drawing.Point(67, 186);
             rGLabel.Name = "rGLabel";
-            rGLabel.Size = new System.Drawing.Size(26, 13);
+            rGLabel.Size = new System.Drawing.Size(30, 16);
             rGLabel.TabIndex = 5;
             rGLabel.Text = "RG:";
             // 
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(40, 184);
-            emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            emailLabel.Location = new System.Drawing.Point(53, 226);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(35, 13);
+            emailLabel.Size = new System.Drawing.Size(44, 16);
             emailLabel.TabIndex = 7;
             emailLabel.Text = "Email:";
             // 
             // foneLabel
             // 
             foneLabel.AutoSize = true;
-            foneLabel.Location = new System.Drawing.Point(42, 215);
-            foneLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            foneLabel.Location = new System.Drawing.Point(56, 265);
             foneLabel.Name = "foneLabel";
-            foneLabel.Size = new System.Drawing.Size(34, 13);
+            foneLabel.Size = new System.Drawing.Size(41, 16);
             foneLabel.TabIndex = 9;
             foneLabel.Text = "Fone:";
             // 
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(57, 54);
-            idLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            idLabel.Location = new System.Drawing.Point(76, 66);
             idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(19, 13);
+            idLabel.Size = new System.Drawing.Size(21, 16);
             idLabel.TabIndex = 13;
             idLabel.Text = "Id:";
             // 
             // nomeTextBox
             // 
             this.nomeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Nome", true));
-            this.nomeTextBox.Location = new System.Drawing.Point(77, 75);
-            this.nomeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nomeTextBox.Location = new System.Drawing.Point(103, 92);
+            this.nomeTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nomeTextBox.Name = "nomeTextBox";
-            this.nomeTextBox.Size = new System.Drawing.Size(346, 20);
+            this.nomeTextBox.Size = new System.Drawing.Size(460, 22);
             this.nomeTextBox.TabIndex = 2;
             // 
             // clienteBindingSource
@@ -131,56 +125,55 @@
             // cPFTextBox
             // 
             this.cPFTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "CPF", true));
-            this.cPFTextBox.Location = new System.Drawing.Point(77, 109);
-            this.cPFTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cPFTextBox.Location = new System.Drawing.Point(103, 134);
+            this.cPFTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cPFTextBox.Name = "cPFTextBox";
-            this.cPFTextBox.Size = new System.Drawing.Size(170, 20);
+            this.cPFTextBox.Size = new System.Drawing.Size(225, 22);
             this.cPFTextBox.TabIndex = 4;
             // 
             // rGTextBox
             // 
             this.rGTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "RG", true));
-            this.rGTextBox.Location = new System.Drawing.Point(77, 149);
-            this.rGTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rGTextBox.Location = new System.Drawing.Point(103, 183);
+            this.rGTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rGTextBox.Name = "rGTextBox";
-            this.rGTextBox.Size = new System.Drawing.Size(170, 20);
+            this.rGTextBox.Size = new System.Drawing.Size(225, 22);
             this.rGTextBox.TabIndex = 6;
             // 
             // emailTextBox
             // 
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(77, 181);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.emailTextBox.Location = new System.Drawing.Point(103, 223);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(346, 20);
+            this.emailTextBox.Size = new System.Drawing.Size(460, 22);
             this.emailTextBox.TabIndex = 8;
             // 
             // foneTextBox
             // 
             this.foneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Fone", true));
-            this.foneTextBox.Location = new System.Drawing.Point(77, 213);
-            this.foneTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.foneTextBox.Location = new System.Drawing.Point(103, 262);
+            this.foneTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.foneTextBox.Name = "foneTextBox";
-            this.foneTextBox.Size = new System.Drawing.Size(125, 20);
+            this.foneTextBox.Size = new System.Drawing.Size(165, 22);
             this.foneTextBox.TabIndex = 10;
             // 
             // label_TituloCadastrar_Cliente
             // 
             this.label_TituloCadastrar_Cliente.AutoSize = true;
             this.label_TituloCadastrar_Cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_TituloCadastrar_Cliente.Location = new System.Drawing.Point(118, 9);
-            this.label_TituloCadastrar_Cliente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_TituloCadastrar_Cliente.Location = new System.Drawing.Point(157, 11);
             this.label_TituloCadastrar_Cliente.Name = "label_TituloCadastrar_Cliente";
-            this.label_TituloCadastrar_Cliente.Size = new System.Drawing.Size(218, 26);
+            this.label_TituloCadastrar_Cliente.Size = new System.Drawing.Size(278, 32);
             this.label_TituloCadastrar_Cliente.TabIndex = 11;
             this.label_TituloCadastrar_Cliente.Text = "Cadastro de cliente";
             // 
             // button_Salvar_Cliente
             // 
-            this.button_Salvar_Cliente.Location = new System.Drawing.Point(338, 254);
-            this.button_Salvar_Cliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_Salvar_Cliente.Location = new System.Drawing.Point(451, 313);
+            this.button_Salvar_Cliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_Salvar_Cliente.Name = "button_Salvar_Cliente";
-            this.button_Salvar_Cliente.Size = new System.Drawing.Size(56, 19);
+            this.button_Salvar_Cliente.Size = new System.Drawing.Size(75, 23);
             this.button_Salvar_Cliente.TabIndex = 12;
             this.button_Salvar_Cliente.Text = "Salvar";
             this.button_Salvar_Cliente.UseVisualStyleBackColor = true;
@@ -188,10 +181,10 @@
             // 
             // button_Cancelar_Cliente
             // 
-            this.button_Cancelar_Cliente.Location = new System.Drawing.Point(408, 254);
-            this.button_Cancelar_Cliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_Cancelar_Cliente.Location = new System.Drawing.Point(544, 313);
+            this.button_Cancelar_Cliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_Cancelar_Cliente.Name = "button_Cancelar_Cliente";
-            this.button_Cancelar_Cliente.Size = new System.Drawing.Size(56, 19);
+            this.button_Cancelar_Cliente.Size = new System.Drawing.Size(75, 23);
             this.button_Cancelar_Cliente.TabIndex = 13;
             this.button_Cancelar_Cliente.Text = "Cancelar";
             this.button_Cancelar_Cliente.UseVisualStyleBackColor = true;
@@ -200,28 +193,27 @@
             // idTextBox
             // 
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "Id", true));
-            this.idTextBox.Location = new System.Drawing.Point(77, 52);
-            this.idTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.idTextBox.Location = new System.Drawing.Point(103, 64);
+            this.idTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(76, 20);
+            this.idTextBox.Size = new System.Drawing.Size(100, 22);
             this.idTextBox.TabIndex = 14;
             // 
             // label_TituloAlterar_Cliente
             // 
             this.label_TituloAlterar_Cliente.AutoSize = true;
             this.label_TituloAlterar_Cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_TituloAlterar_Cliente.Location = new System.Drawing.Point(146, 9);
-            this.label_TituloAlterar_Cliente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_TituloAlterar_Cliente.Location = new System.Drawing.Point(195, 11);
             this.label_TituloAlterar_Cliente.Name = "label_TituloAlterar_Cliente";
-            this.label_TituloAlterar_Cliente.Size = new System.Drawing.Size(160, 26);
+            this.label_TituloAlterar_Cliente.Size = new System.Drawing.Size(204, 32);
             this.label_TituloAlterar_Cliente.TabIndex = 15;
             this.label_TituloAlterar_Cliente.Text = "Alterar cliente";
             // 
             // CadastrarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 298);
+            this.ClientSize = new System.Drawing.Size(645, 367);
             this.Controls.Add(this.label_TituloAlterar_Cliente);
             this.Controls.Add(idLabel);
             this.Controls.Add(this.idTextBox);
@@ -238,9 +230,10 @@
             this.Controls.Add(this.cPFTextBox);
             this.Controls.Add(nomeLabel);
             this.Controls.Add(this.nomeTextBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CadastrarCliente";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Cliente";
             this.Load += new System.EventHandler(this.CadastrarCliente_Load);
