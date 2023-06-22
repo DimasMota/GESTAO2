@@ -31,18 +31,12 @@ namespace WindowsFormsApp
                 {
                     case 3:
                         {
-                            if(new ClienteBLL().Existe_Cliente())
-                            {
+                            
                                 clienteBindingSource.DataSource = clienteBLL.BuscarTodos();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Não tem clientes cadastrados");
-                            }
                            
-                           
-                            
-                            
+
+
+
                             break;
 
                         }
@@ -53,19 +47,10 @@ namespace WindowsFormsApp
                                 MessageBox.Show("Insira o Nome para buscar.");
                                 return;
                             }
-                            
-                            if(new ClienteBLL().Existe_Cliente_Nome(textBox_Buscar_Cliente.Text))
-                            {
-                                clienteBindingSource.DataSource = clienteBLL.BuscarPorNome(textBox_Buscar_Cliente.Text);
-                            }
-                            else
-                            {
-                                MessageBox.Show("CLiente não encontrado");
-                            }
-                            
-                            
-                          
-                            
+
+                            clienteBindingSource.DataSource = clienteBLL.BuscarPorNome(textBox_Buscar_Cliente.Text);
+                         
+
                             break;
                         }
                     case 0:
@@ -75,16 +60,9 @@ namespace WindowsFormsApp
                                 MessageBox.Show("Insira o ID para buscar.");
                                 return;
                             }
-                            if(new ClienteBLL().Existe_Cliente_Id(Convert.ToInt32(textBox_Buscar_Cliente.Text)))
-                            {
-                                clienteBindingSource.DataSource = clienteBLL.BuscarPorId(Convert.ToInt32(textBox_Buscar_Cliente.Text));
-                            }
-                            else
-                            {
-                                MessageBox.Show("CLiente não encontrado");
-                            }
-                           
-                           
+                            clienteBindingSource.DataSource = clienteBLL.BuscarPorId(Convert.ToInt32(textBox_Buscar_Cliente.Text));
+
+
                             break;
                         }
                     case 2:
@@ -94,16 +72,9 @@ namespace WindowsFormsApp
                                 MessageBox.Show("Insira o CPF para buscar.");
                                 return;
                             }
-                            if (clienteBLL.Existe_Cliente_CPF(textBox_Buscar_Cliente.Text))
-                            {
-                                clienteBindingSource.DataSource = clienteBLL.BuscarPorCPF(textBox_Buscar_Cliente.Text);
-                            }
-                            else
-                            {
-                                MessageBox.Show("CLiente não encontrado");
-                            }
                            
-                       
+                                clienteBindingSource.DataSource = clienteBLL.BuscarPorCPF(textBox_Buscar_Cliente.Text);
+                        
                             break;
                         }
                     default:
@@ -117,7 +88,6 @@ namespace WindowsFormsApp
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
 
