@@ -218,6 +218,7 @@
             // 
             // comboBox_BuscarPor_Cliente
             // 
+            this.comboBox_BuscarPor_Cliente.DisplayMember = "3";
             this.comboBox_BuscarPor_Cliente.FormattingEnabled = true;
             this.comboBox_BuscarPor_Cliente.Items.AddRange(new object[] {
             "Id",
